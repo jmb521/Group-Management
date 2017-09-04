@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  kid_name: MyString
+  kid_birthday: MyString
+
+two:
+  user_id: 1
+  kid_name: MyString
+  kid_birthday: MyString

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  club_id: 1
+  name: MyString
+  description: MyString
+  date: 
+  time: MyString
+  public: 
+  location: MyString
+  invitation_sent: 
+  reminder_date: 
+
+two:
+  club_id: 1
+  name: MyString
+  description: MyString
+  date: 
+  time: MyString
+  public: 
+  location: MyString
+  invitation_sent: 
+  reminder_date: 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  user_birthday: MyString
+  spouse: MyString
+  spouse_birthday: MyString
+
+two:
+  user_id: 1
+  user_birthday: MyString
+  spouse: MyString
+  spouse_birthday: MyString
