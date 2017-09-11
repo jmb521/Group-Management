@@ -5,6 +5,8 @@ import Membership from './Membership'
 import Events from './Events'
 import Navigation from './Nav'
 import Home from './Home'
+import AddMember from './Members/AddMember'
+import CreateEvent from './Events/CreateEvent'
 
 class App extends Component{
   render() {
@@ -18,6 +20,9 @@ class App extends Component{
           <Route exact path="/home" component={Home} />
           <Route exact path="/membership" component={Membership} />
           <Route exact path="/events" component={Events} />
+          <Route exact path="/addmember" component={AddMember} />
+          <Route exact path="/createevent" component={CreateEvent} />
+          
         </div>
         </Router>
       </div>
