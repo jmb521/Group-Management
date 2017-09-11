@@ -3,3 +3,8 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.divider {
+  color: black;
+  size:  1px;
+  background-color: black;
+}

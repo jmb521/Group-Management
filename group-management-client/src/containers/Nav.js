@@ -22,17 +22,14 @@ class Navigation extends React.Component{
       <NavDropdown eventKey={3} title="Membership" id="basic-nav-dropdown">
 
           <MenuItem eventKey={3.1} href="/membership">Membership</MenuItem>
-          <MenuItem eventKey={3.2} href="/addmember">Add Member</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
           <MenuItem divider />
-          <MenuItem eventKey={3.3}>Separated link</MenuItem>
+          <MenuItem eventKey={3.2} href="/addmember">Add Member</MenuItem>
         </NavDropdown>
         <NavDropdown eventKey={3} title="Events" id="basic-nav-dropdown">
           <MenuItem eventKey={3.1} href="/createevent">Create Event</MenuItem>
-          <MenuItem eventKey={3.2}>Another action</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
           <MenuItem divider />
-          <MenuItem eventKey={3.3}>Separated link</MenuItem>
+          <MenuItem eventKey={3.2} href="/manageinvites">Manage Invites</MenuItem>
+  
         </NavDropdown>
 
 

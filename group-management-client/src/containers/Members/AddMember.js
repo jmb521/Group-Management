@@ -1,12 +1,29 @@
 import React, { Component } from 'react'
-
+import AddMemberForm from '../Form'
+import { Grid, Row, Col} from 'react-bootstrap'
 
 class AddMember extends Component {
 
   render() {
     return(
       <div>
-        <h1>Add Member Form goes here</h1>
+        <Grid>
+        <Row>
+          <Col xs={4} md={2}></Col>
+          <Col xs={8} md={8}>
+            <h1>Add Member</h1>
+          </Col>
+          <Col xs={4} md={2}></Col>
+        </Row>
+        <br />
+        <Row className="show-grid">
+          <Col xs={4} md={2}></Col>
+          <Col xs={8} md={8}>
+            <AddMemberForm />
+            </Col>
+            <Col xs={4} md={2}></Col>
+          </Row>
+        </Grid>
       </div>
     )
   }

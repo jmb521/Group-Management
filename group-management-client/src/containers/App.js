@@ -7,6 +7,7 @@ import Navigation from './Nav'
 import Home from './Home'
 import AddMember from './Members/AddMember'
 import CreateEvent from './Events/CreateEvent'
+import ManageInvites from './Events/ManageInvites'
 
 class App extends Component{
   render() {
@@ -22,7 +23,7 @@ class App extends Component{
           <Route exact path="/events" component={Events} />
           <Route exact path="/addmember" component={AddMember} />
           <Route exact path="/createevent" component={CreateEvent} />
-          
+          <Route exact path="/manageinvites" component={ManageInvites} />
         </div>
         </Router>
       </div>
