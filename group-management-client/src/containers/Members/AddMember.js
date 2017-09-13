@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AddMemberForm from '../Form'
+import UserInfoForm from '../UserInfo'
 import { Grid, Row, Col} from 'react-bootstrap'
 
 class AddMember extends Component {
@@ -19,7 +19,7 @@ class AddMember extends Component {
         <Row className="show-grid">
           <Col xs={4} md={2}></Col>
           <Col xs={8} md={8}>
-            <AddMemberForm />
+            <UserInfoForm />
             </Col>
             <Col xs={4} md={2}></Col>
           </Row>

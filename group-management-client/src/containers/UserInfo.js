@@ -1,9 +1,39 @@
 import React, { Component } from 'react'
 import { FormGroup, ControlLabel, FormControl, HelpBlock, Form } from 'react-bootstrap'
-import { Grid, Row, Col} from 'react-bootstrap'
+import { Grid, Row, Col, Button} from 'react-bootstrap'
 import '../project.css'
-class AddMemberForm extends Component {
+class UserInfoForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      first_name: "",
+      last_name: "",
+      address1: "",
+      address2: "",
+      city: "",
+      state: "",
+      zipcode: ""
+    }
 
+  }
+
+  handleClearClick = () => {
+    this.setState({
+      first_name: "",
+      last_name: "",
+      address1: "",
+      address2: "",
+      city: "",
+      state: "",
+      zipcode: ""
+
+    })
+
+  }
+
+  handleSubmitClick = () => {
+
+  }
 
 
    render() {
@@ -15,6 +45,8 @@ class AddMemberForm extends Component {
             {help && <HelpBlock>{help}</HelpBlock>}
           </FormGroup>
         );
+
+
       }
 
      return(
@@ -22,9 +54,10 @@ class AddMemberForm extends Component {
        <Grid>
 
        <h3>Personal Information</h3>
+       <br />
        <Form>
        <Row>
-          <Col xs={6} md={4}>
+          <Col xs={12} md={4}>
           <FieldGroup
                id="first_name"
                type="text"
@@ -32,7 +65,7 @@ class AddMemberForm extends Component {
                placeholder="Enter first name"
            />
           </Col>
-          <Col xs={6} md={4}>
+          <Col xs={12} md={4}>
           <FieldGroup
              id="last_name"
              type="text"
@@ -42,7 +75,7 @@ class AddMemberForm extends Component {
           </Col>
        </Row>
        <Row>
-       <Col xs={6} md={8}>
+       <Col xs={12} md={8}>
        <FieldGroup
        id="address1"
        type="text"
@@ -53,7 +86,7 @@ class AddMemberForm extends Component {
        </Col>
        </Row>
        <Row>
-        <Col xs={6} md={8}>
+        <Col xs={12} md={8}>
           <FieldGroup
           id="address2"
           type="text"
@@ -63,7 +96,7 @@ class AddMemberForm extends Component {
         </Col>
         </Row>
         <Row>
-        <Col xs={4} md={4}>
+        <Col xs={12} md={4}>
           <FieldGroup
           id="city"
           type="text"
@@ -71,7 +104,7 @@ class AddMemberForm extends Component {
           placeholder="Enter City"
           />
         </Col>
-        <Col xs={4} md={2}>
+        <Col xs={12} md={2}>
           <FieldGroup
           id="state"
           type="text"
@@ -79,7 +112,7 @@ class AddMemberForm extends Component {
           placeholder="Enter State"
           />
         </Col>
-        <Col xs={4} md={2}>
+        <Col xs={12} md={2}>
         <FieldGroup
         id="zipcode"
         type="text"
@@ -88,10 +121,18 @@ class AddMemberForm extends Component {
         />
         </Col>
         </Row>
+        <br />
         <Row>
-        <Col xs={8} md={8}>
-        <hr className="divider" />
-        </Col>
+
+          <Col xs={4} md={4}>
+          <Button bsStyle="primary" type="submit" onClick={this.handleSubmitClick}>
+            Submit
+          </Button>
+          <Button onClick={this.handleClearClick}>
+            Clear
+            </Button>
+          </Col>
+
         </Row>
         </Form>
        </Grid>
@@ -101,4 +142,4 @@ class AddMemberForm extends Component {
 
 }
 
-export default AddMemberForm
+export default UserInfoForm

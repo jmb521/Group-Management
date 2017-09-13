@@ -29,7 +29,7 @@ class Navigation extends React.Component{
           <MenuItem eventKey={3.1} href="/createevent">Create Event</MenuItem>
           <MenuItem divider />
           <MenuItem eventKey={3.2} href="/manageinvites">Manage Invites</MenuItem>
-  
+
         </NavDropdown>
 
 
