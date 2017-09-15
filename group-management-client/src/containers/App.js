@@ -9,6 +9,8 @@ import AddMember from './Members/AddMember'
 import CreateEvent from './Events/CreateEvent'
 import ManageInvites from './Events/ManageInvites'
 
+
+
 class App extends Component{
   render() {
 
@@ -16,6 +18,7 @@ class App extends Component{
 
       <div>
         <Navigation />
+
         <Router>
         <div>
           <Route exact path="/home" component={Home} />
@@ -26,6 +29,7 @@ class App extends Component{
           <Route exact path="/manageinvites" component={ManageInvites} />
         </div>
         </Router>
+        
       </div>
     )
 

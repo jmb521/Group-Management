@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { FormGroup, ControlLabel, FormControl, HelpBlock, Form } from 'react-bootstrap'
 import { Grid, Row, Col, Button} from 'react-bootstrap'
-import '../project.css'
+
 class UserInfoForm extends Component {
   constructor() {
     super();
@@ -16,6 +16,7 @@ class UserInfoForm extends Component {
     }
 
   }
+
 
   handleClearClick = () => {
     this.setState({
@@ -34,6 +35,7 @@ class UserInfoForm extends Component {
   handleSubmitClick = () => {
 
   }
+
 
 
    render() {
@@ -126,10 +128,10 @@ class UserInfoForm extends Component {
 
           <Col xs={4} md={4}>
           <Button bsStyle="primary" type="submit" onClick={this.handleSubmitClick}>
-            Submit
-          </Button>
+          {this.props.submit}
+          </Button>&nbsp;
           <Button onClick={this.handleClearClick}>
-            Clear
+          {this.props.clear}
             </Button>
           </Col>
 
