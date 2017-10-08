@@ -1,31 +1,19 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col} from 'react-bootstrap'
 
-class Membership extends Component {
-  constructor() {
-    super();
+const Membership = (props) => (
 
-    this.state = {
-      member: [],
-    };
+  <div>
+  if(this.props.members) {
+
+    {props.members.map(function(member){
+      <h1 key={member.id}>member.user_id</h1>
+
+    )}};
 
   }
-  componentWillMount() {
 
-  };
-  
-  render() {
-    return (
-    <div>
-      <Grid>
-      <Row className="show-grid">
-        <Col xs={16} md={12}>
-          <h1>Membership list grid</h1>
-        </Col>
-      </Row>
-     </Grid>
-    </div>
-    )
-  }
-}
+  </div>
+)
+
 export default Membership

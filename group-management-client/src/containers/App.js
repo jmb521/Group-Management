@@ -12,13 +12,31 @@ import ManageInvites from './Events/ManageInvites'
 
 
 class App extends Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      members: [],
+    };
+
+  }
+  componentWillMount() {
+      this.fetchMembers()
+
+}
+
+fetchMembers = () => {
+  fetch("http://localhost:3001/api/membership_statuses")
+   .then(response => response.json())
+   .then(members => this.setState({ members: members }));
+}
   render() {
 
     return(
 
       <div>
         <Navigation />
-
+        <Membership />
         <Router>
         <div>
           <Route exact path="/home" component={Home} />
@@ -29,7 +47,7 @@ class App extends Component{
           <Route exact path="/manageinvites" component={ManageInvites} />
         </div>
         </Router>
-        
+
       </div>
     )
 
