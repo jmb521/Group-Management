@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_one :user_contact_info, :autosave => true
   has_one :user_family, :autosave => true
   has_one :membership_status, :autosave => true
-  has_and_belongs_to_many :events
+  
   belongs_to :club
 
 
