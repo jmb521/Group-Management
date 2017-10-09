@@ -54,7 +54,7 @@ class Api::UsersController < ApplicationController
       :user_status,
       {user_kids: []},
       user_info_attributes: [:user_id, :first_name, :last_name, :address1, :address2, :city, :state, :zipcode],
-      user_family_attributes: [:user_id, :user_birthday, :spouse, :spouse_birthday]
+      user_family_attributes: [:user_id, :user_birthday, :spouse, :spouse_birthday],
       user_contact_infos: [:user_id, :email, :home_phone, :text_message, :preferred_method]
       )
     end

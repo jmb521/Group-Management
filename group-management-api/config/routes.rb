@@ -7,8 +7,10 @@ Rails.application.routes.draw do
     resources :user_families
     resources :user_contact_infos
     resources :user_infos
-    resources :users
-    resources :clubs
+    resources :clubs do
+      resources :users
+
+    end
 
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
