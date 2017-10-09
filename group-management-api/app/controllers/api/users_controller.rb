@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   before_action :set_user, only: [:update, :destroy, :show]
 
   def index
-    render json: User.all, :include => [:user_kids, :user_info]
+    render json: User.all, :include => [:user_kids, :user_info, :membership_status]
   end
 
   def show

@@ -2,14 +2,12 @@ Rails.application.routes.draw do
   namespace :api do
     resources :event_invites
     resources :events
-    resources :membership_statuses
     resources :user_kids
     resources :user_families
     resources :user_contact_infos
     resources :user_infos
     resources :clubs do
       resources :users
-
     end
 
   end
