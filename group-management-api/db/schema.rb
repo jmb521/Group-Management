@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170901173511) do
+ActiveRecord::Schema.define(version: 20171009050845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,36 +23,6 @@ ActiveRecord::Schema.define(version: 20170901173511) do
     t.string "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "event_invites", force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "user_id"
-    t.string "comments"
-    t.boolean "is_attending"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "events", force: :cascade do |t|
-    t.integer "club_id"
-    t.string "name"
-    t.string "description"
-    t.datetime "date"
-    t.string "time"
-    t.boolean "public"
-    t.string "location"
-    t.date "invitation_sent"
-    t.date "reminder_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "events_users", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "event_id"
-    t.index ["event_id"], name: "index_events_users_on_event_id"
-    t.index ["user_id"], name: "index_events_users_on_user_id"
   end
 
   create_table "membership_statuses", force: :cascade do |t|
@@ -114,6 +84,4 @@ ActiveRecord::Schema.define(version: 20170901173511) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "events_users", "events"
-  add_foreign_key "events_users", "users"
 end
