@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import EachMember from './EachMember'
-import './membership.css'
-import { Grid, Table, striped, bordered, condensed, hover} from 'react-bootstrap'
+
+import { Grid, Table} from 'react-bootstrap'
 
 
 class Membership extends Component {
@@ -13,6 +13,7 @@ class Membership extends Component {
 
     return(
       <Grid>
+      <h3 className="member_list_header">Member List</h3>
       <Table striped bordered condensed hover>
       <thead>
       <tr>
