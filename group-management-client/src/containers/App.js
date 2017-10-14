@@ -40,7 +40,8 @@ club_id: null,
 is_member: "true",
 membership_paid: null,
 created_at: "2017-10-09T05:36:19.624Z",
-updated_at: "2017-10-09T05:36:19.624Z"
+updated_at: "2017-10-09T05:36:19.624Z",
+member_number: 114
 }
 },
 ]
