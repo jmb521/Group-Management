@@ -14,7 +14,7 @@ class Membership extends Component {
     return(
       <Grid>
       <h3 className="member_list_header">Member List</h3>
-      <Table striped bordered condensed hover>
+      <Table striped bordered condensed hover className="memberlist">
       <thead>
       <tr>
       <th>Member #</th>
