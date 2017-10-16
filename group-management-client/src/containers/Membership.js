@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import EachMember from './EachMember'
-
+import { connect } from 'react-redux'
 import { Grid, Table} from 'react-bootstrap'
-
+import { getMembers } from '../actions/membership'
 
 class Membership extends Component {
+  componentDidMount() {
+    this.props.getMembers()
 
+  }
 
   render() {
     console.log("props in membership", this.props.members)
@@ -34,5 +37,9 @@ class Membership extends Component {
     )
   }
 }
-
-export default Membership
+const mapStateToProps = (state) => {
+  return({
+    members: state.members
+  })
+}
+export default connect(mapStateToProps, { getMembers })(Membership);
