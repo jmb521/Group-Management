@@ -6,6 +6,18 @@ class EachMember extends Component {
     super()
 
   }
+
+  RenewOnClick = () => {
+    // this.props.store.dispatch({
+    //   type:
+    // })
+  }
+  RemoveOnClick = () => {
+    // this.props.store.dispatch({
+    //   type:
+    // })
+  }
+
   render() {
     return(
       <tbody>
@@ -16,8 +28,8 @@ class EachMember extends Component {
       <td>{this.props.member.user_info.last_name}</td>
       <td>{this.props.member.membership_status.is_member + " "}</td>
       <td>
-      <Button bsStyle="success" >Renew</Button>
-      <Button bsStyle="danger" >Remove</Button>
+      <Button bsStyle="success" onClick={this.RenewOnClick}>Renew</Button>
+      <Button bsStyle="danger" onClick={this.RemoveOnClick}>Remove</Button>
       </td>
 
       </tr>
