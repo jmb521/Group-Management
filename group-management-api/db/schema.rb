@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171014210546) do
+ActiveRecord::Schema.define(version: 20171018045327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20171014210546) do
   create_table "membership_statuses", force: :cascade do |t|
     t.integer "user_id"
     t.integer "club_id"
-    t.boolean "is_member"
+    t.string "is_member"
     t.boolean "membership_paid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
