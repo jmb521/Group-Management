@@ -25,13 +25,7 @@ class Navigation extends React.Component{
           <MenuItem divider />
           <MenuItem eventKey={3.2} href="/addmember">Add Member</MenuItem>
         </NavDropdown>
-        <NavDropdown eventKey={3} title="Events" id="basic-nav-dropdown">
-          <MenuItem eventKey={3.1} href="/createevent">Create Event</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={3.2} href="/manageinvites">Manage Invites</MenuItem>
-
-        </NavDropdown>
-
+        
 
       </Nav>
       <Nav pullRight>

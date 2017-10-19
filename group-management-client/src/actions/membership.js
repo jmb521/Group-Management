@@ -19,17 +19,16 @@ export const getMembers = () => {
   };
 
 
-export const removeMember = (member_status) => {
-  return dispatch => {
-    return fetch("http://localhost:3001/api/clubs/1/users", {
-      method: "POST",
-      headers: {
-        ContentType: 'application/json'
-      },
-      data: JSON.stringify(member_status)
-    })
-    .then(response => response.json())
-    // .then(member_status => debugger )
-    .then(error => console.log(error))
-  }
-}
+// export const removeMember = (member_status) => {
+//   return dispatch => {
+//     return fetch("http://localhost:3001/api/clubs/1/users", {
+//       const formData = new FormData();
+//       formData.append('is_member')
+//       method: "POST",
+//
+//     })
+//     .then(response => response.json())
+//     // .then(member_status => debugger )
+//     .then(error => console.log(error))
+//   }
+// }
