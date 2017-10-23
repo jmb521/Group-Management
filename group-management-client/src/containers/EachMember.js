@@ -13,9 +13,7 @@ class EachMember extends Component {
     // })
   }
   RemoveOnClick = () => {
-    // this.props.store.dispatch({
-    //   type:
-    // })
+    this.props.removeMember()
   }
 
   render() {

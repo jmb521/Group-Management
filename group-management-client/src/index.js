@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
+// import { createStore } from 'redux'
 // import Membership from './reducers/membership'
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
