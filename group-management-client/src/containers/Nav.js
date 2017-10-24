@@ -19,13 +19,16 @@ class Navigation extends React.Component{
       </Navbar.Header>
       <Navbar.Collapse>
       <Nav>
+      <NavDropdown eventKey={2} title="Club" id="basic-nav-dropdown">
+        <MenuItem eventKey={2.1} href="/addclub">Add Club</MenuItem>
+        </NavDropdown>
       <NavDropdown eventKey={3} title="Membership" id="basic-nav-dropdown">
 
           <MenuItem eventKey={3.1} href="/membership">Membership</MenuItem>
           <MenuItem divider />
           <MenuItem eventKey={3.2} href="/addmember">Add Member</MenuItem>
         </NavDropdown>
-        
+
 
       </Nav>
       <Nav pullRight>

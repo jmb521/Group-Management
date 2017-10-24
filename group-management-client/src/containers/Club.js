@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FormGroup, ControlLabel, FormControl, Form, Grid, Row, Col, Button} from 'react-bootstrap'
+import { FormGroup, ControlLabel, FormControl, Form, Grid, Row, Col, HelpBlock, Button} from 'react-bootstrap'
 
 class Club extends Component {
   constructor() {
@@ -11,6 +11,16 @@ class Club extends Component {
       state: "",
       zipcode: ""
     }
+  }
+
+  handleClearClick = () => {
+    this.setState({
+      name: "",
+      address: "",
+      city: "",
+      state: "",
+      zipcode: ""
+    })
   }
   render() {
     function FieldGroup({id, label, help, ...props}) {
@@ -29,16 +39,21 @@ class Club extends Component {
           <h3>Choose your Club Here</h3>
           <br />
           <Form>
+
           <Row>
-            <Col xs={12} md={4}>
+          <Col xs={4} md={2}></Col>
+            <Col xs={4} md={8}>
             <FieldGroup
               id="name"
               type="text"
-              label "Club Name"
+              label="Club Name"
               placeholder="Enter club name"
               />
             </Col>
-            <Col xs={12} md={4}>
+            </Row>
+            <Row>
+            <Col xs={4} md={2}></Col>
+            <Col xs={12} md={8}>
             <FieldGroup
               id="address"
               type="text"
@@ -46,6 +61,9 @@ class Club extends Component {
               placeholder="Enter your club's address"
               />
             </Col>
+            </Row>
+            <Row>
+            <Col xs={4} md={2}></Col>
             <Col xs={12} md={4}>
             <FieldGroup
               id="city"
@@ -54,7 +72,7 @@ class Club extends Component {
               placeholder="Enter your club's city"
               />
               </Col>
-            <Col xs={12} md={4}>
+            <Col xs={12} md={2}>
             <FieldGroup
               id="state"
               type="text"
@@ -62,7 +80,7 @@ class Club extends Component {
               placeholder="State"
               />
               </Col>
-            <Col xs={12} md={4}>
+            <Col xs={12} md={2}>
               <FieldGroup
                 id="zipcode"
                 type="text"
@@ -72,15 +90,17 @@ class Club extends Component {
             </Col>
             </Row>
             <Row>
+            <Col xs={4} md={2}></Col>
             <Col xs={4} md={4}>
-            <Button type="submit" onClick={this.handleSubmitClick}>
-            {this.props.submit}
+            <Button bsStyle="primary" type="submit" onClick={this.handleSubmitClick}>
+              Submit
             </Button>&nbsp;
             <Button onClick={this.handleClearClick}>
-            {this.props.clear}
+              Clear
             </Button>
             </Col>
             </Row>
+
             </Form>
             </Grid>
             </div>

@@ -13,7 +13,7 @@ class EachMember extends Component {
     // })
   }
   RemoveOnClick = () => {
-    this.props.removeMember()
+    // this.props.removeMember()
   }
 
   render() {

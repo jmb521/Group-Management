@@ -6,7 +6,7 @@ import Membership from './Membership'
 import Navigation from './Nav'
 import Home from './Home'
 import AddMember from './AddMember'
-
+import Club from './Club'
 
 
 
@@ -31,6 +31,7 @@ class App extends React.Component {
           <Route exact path="/home" component={Home} />
           <Route exact path="/membership" render={()=><Membership />}/>
           <Route exact path="/addmember" component={AddMember} />
+          <Route exact path="/addclub" component={Club} />
 
         </div>
         </Router>
