@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
 import { FormGroup, ControlLabel, FormControl, Form, Grid, Row, Col, HelpBlock, Button} from 'react-bootstrap'
 
+import { connect } from 'react-redux'
+import clubFormData from '../reducers/clubFormData'
+import {updateClubFormData} from '../actions/clubform'
+import { createClub } from '../actions/clubform'
+
+function FieldGroup({id, label, help, inputRef, ...props}) {
+  return (
+    <FormGroup controlId={id}>
+    <ControlLabel>{label}</ControlLabel>
+    <FormControl {...props} inputRef={inputRef} />
+    {help && <HelpBlock>{help}</HelpBlock>}
+    </FormGroup>
+  )
+
+}
 class Club extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-      address: "",
-      city: "",
-      state: "",
-      zipcode: ""
-    }
-  }
 
   handleClearClick = () => {
     this.setState({
@@ -21,24 +26,31 @@ class Club extends Component {
       state: "",
       zipcode: ""
     })
-  }
-  render() {
-    function FieldGroup({id, label, help, ...props}) {
-      return (
-        <FormGroup controlId={id}>
-          <ControlLabel>{label}</ControlLabel>
-          <FormControl {...props} />
-          {help && <HelpBlock>{help}</HelpBlock>}
-        </FormGroup>
-      )
 
-    }
+  }
+
+  handleOnChange = (event) => {
+    const {name, value} = event.target
+    const currentClubFormData = Object.assign({},this.props.clubFormData, {
+      [name]: value
+    })
+    this.props.updateClubFormData(currentClubFormData)
+  }
+
+  handleSubmitClick = (event) => {
+    event.preventDefault();
+    this.props.createClub(this.props.clubFormData)
+  }
+
+
+  render() {
+    const { name, address, city, state, zipcode } = this.props.clubFormData;
     return (
       <div>
         <Grid>
           <h3>Choose your Club Here</h3>
           <br />
-          <Form>
+          <Form onSubmit={this.handleSubmitClick}>
 
           <Row>
           <Col xs={4} md={2}></Col>
@@ -48,6 +60,9 @@ class Club extends Component {
               type="text"
               label="Club Name"
               placeholder="Enter club name"
+              onChange={this.handleOnChange}
+              value={name}
+              name="name"
               />
             </Col>
             </Row>
@@ -59,6 +74,9 @@ class Club extends Component {
               type="text"
               label="Club Address"
               placeholder="Enter your club's address"
+              value={address}
+              onChange={this.handleOnChange}
+              name="address"
               />
             </Col>
             </Row>
@@ -70,6 +88,9 @@ class Club extends Component {
               type="text"
               label="City"
               placeholder="Enter your club's city"
+              value={city}
+              onChange={this.handleOnChange}
+              name="city"
               />
               </Col>
             <Col xs={12} md={2}>
@@ -78,6 +99,9 @@ class Club extends Component {
               type="text"
               label="State"
               placeholder="State"
+              value={state}
+              onChange={this.handleOnChange}
+              name="state"
               />
               </Col>
             <Col xs={12} md={2}>
@@ -86,13 +110,16 @@ class Club extends Component {
                 type="text"
                 label="Zipcode"
                 placeholder="90210"
+                value={zipcode}
+                onChange={this.handleOnChange}
+                name="zipcode"
                 />
             </Col>
             </Row>
             <Row>
             <Col xs={4} md={2}></Col>
             <Col xs={4} md={4}>
-            <Button bsStyle="primary" type="submit" onClick={this.handleSubmitClick}>
+            <Button bsStyle="primary" type="submit">
               Submit
             </Button>&nbsp;
             <Button onClick={this.handleClearClick}>
@@ -111,4 +138,13 @@ class Club extends Component {
     )
   }
 }
-export default Club
+
+const mapStateToProps = state => {
+  return (
+    clubFormData: state.clubFormData
+  )
+}
+export default connect(mapStateToProps, {
+  updateClubFormData,
+  createClub
+ })(Club)

@@ -6,10 +6,12 @@ import {
 import thunk from 'redux-thunk'
 import members from './reducers/MembershipReducer'
 
+import clubFormData from './reducers/clubFormData'
 
 
 const reducers = combineReducers({
-  members: members
+  members: members,
+  clubFormData: clubFormData
 });
 
 const middleware= [thunk];
