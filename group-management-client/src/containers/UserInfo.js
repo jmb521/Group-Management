@@ -22,6 +22,10 @@ class UserInfoForm extends Component {
     this.props.getClubs()
 
   }
+
+  handleOnChange = () => {
+    
+  }
   handleSubmitClick = (event) => {
     event.preventDefault();
   }
@@ -56,6 +60,8 @@ class UserInfoForm extends Component {
                label="First Name"
                placeholder="Enter first name"
                name="first_name"
+               onChange={this.handleOnChange}
+
            />
           </Col>
           <Col xs={12} md={4}>
@@ -65,6 +71,7 @@ class UserInfoForm extends Component {
              label="Last Name"
              placeholder="Enter last name"
              name="last_name"
+             onChange={this.handleOnChange}
           />
           </Col>
        </Row>
@@ -76,6 +83,7 @@ class UserInfoForm extends Component {
        label="Address"
        placeholder="Enter street address"
        name="address1"
+       onChange={this.handleOnChange}
        />
 
        </Col>
@@ -88,6 +96,7 @@ class UserInfoForm extends Component {
           label="Address"
           placeholder="Enter apt. number or additional details"
           name="address2"
+          onChange={this.handleOnChange}
           />
         </Col>
         </Row>
@@ -99,6 +108,7 @@ class UserInfoForm extends Component {
           label="City"
           placeholder="Enter City"
           name="city"
+          onChange={this.handleOnChange}
           />
         </Col>
         <Col xs={12} md={2}>
@@ -108,6 +118,7 @@ class UserInfoForm extends Component {
           label="State"
           placeholder="Enter State"
           name="state"
+          onChange={this.handleOnChange}
           />
         </Col>
         <Col xs={12} md={2}>
@@ -117,6 +128,7 @@ class UserInfoForm extends Component {
         label="ZipCode"
         placeholder="Enter ZipCode"
         name="zipcode"
+        onChange={this.handleOnChange}
         />
         </Col>
         </Row>

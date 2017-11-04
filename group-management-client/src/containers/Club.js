@@ -19,9 +19,7 @@ function FieldGroup({id, label, help, inputRef, ...props}) {
 }
 class Club extends Component {
 
-  handleClearClick = () => {
 
-  }
 
   handleOnChange = (event) => {
     const {name, value} = event.target
@@ -117,9 +115,7 @@ class Club extends Component {
             <Button bsStyle="primary" type="submit">
               Submit
             </Button>&nbsp;
-            <Button onClick={this.handleClearClick}>
-              Clear
-            </Button>
+            
             </Col>
             </Row>
 
