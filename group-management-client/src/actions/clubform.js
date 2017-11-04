@@ -6,8 +6,22 @@ export const updateClubFormData = clubFormData => {
 
   }
 }
+
+export const addClub = club => {
+  return {
+    type: 'CREATE_CLUB_SUCCESS',
+    club
+
+  }
+}
+export const resetClubForm = () => {
+  return {
+    type: 'RESET_CLUB_FORM',
+
+  }
+}
 export const createClub = club => {
-  debugger
+
   return dispatch => {
     return fetch("http://localhost:3001/api/clubs", {
     method: "POST",
@@ -18,7 +32,9 @@ export const createClub = club => {
     })
     .then(response => response.json())
     .then(club => {
-      debugger;
+      console.log(club.id)
+      dispatch(addClub(club))
+      dispatch(resetClubForm())
     })
     .catch(error => console.log(error))
   }

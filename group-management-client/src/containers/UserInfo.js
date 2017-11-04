@@ -1,55 +1,33 @@
 import React, { Component } from 'react'
 import { FormGroup, ControlLabel, FormControl, HelpBlock, Form } from 'react-bootstrap'
 import { Grid, Row, Col, Button} from 'react-bootstrap'
+import { getClubs } from '../actions/club_list'
+import { connect } from 'react-redux'
+
+function FieldGroup({ id, label, help, ...props }) {
+   return (
+     <FormGroup controlId={id}>
+       <ControlLabel>{label}</ControlLabel>
+       <FormControl {...props} />
+       {help && <HelpBlock>{help}</HelpBlock>}
+     </FormGroup>
+   );
+}
+
 
 class UserInfoForm extends Component {
-  constructor() {
-    super();
-    this.state = {
-      first_name: "",
-      last_name: "",
-      address1: "",
-      address2: "",
-      city: "",
-      state: "",
-      zipcode: ""
-    }
+
+
+  componentDidMount() {
+    this.props.getClubs()
 
   }
-
-
-  handleClearClick = () => {
-    this.setState({
-      first_name: "",
-      last_name: "",
-      address1: "",
-      address2: "",
-      city: "",
-      state: "",
-      zipcode: ""
-
-    })
-
+  handleSubmitClick = (event) => {
+    event.preventDefault();
   }
-
-  handleSubmitClick = () => {
-
-  }
-
 
 
    render() {
-     function FieldGroup({ id, label, help, ...props }) {
-        return (
-          <FormGroup controlId={id}>
-            <ControlLabel>{label}</ControlLabel>
-            <FormControl {...props} />
-            {help && <HelpBlock>{help}</HelpBlock>}
-          </FormGroup>
-        );
-
-
-      }
 
      return(
        <div>
@@ -59,12 +37,25 @@ class UserInfoForm extends Component {
        <br />
        <Form>
        <Row>
+
+        <Col xs={12} md={4}>
+        <FormGroup controlId="formControlsSelect">
+      <ControlLabel>Select</ControlLabel>
+      <FormControl componentClass="select" placeholder="select">
+      {this.props.clubs.map((club, key) => <option value={club.id} key={key}>{club.name}</option>)}
+        <option value="other">...</option>
+      </FormControl>
+    </FormGroup>
+        </Col>
+       </Row>
+       <Row>
           <Col xs={12} md={4}>
           <FieldGroup
                id="first_name"
                type="text"
                label="First Name"
                placeholder="Enter first name"
+               name="first_name"
            />
           </Col>
           <Col xs={12} md={4}>
@@ -73,6 +64,7 @@ class UserInfoForm extends Component {
              type="text"
              label="Last Name"
              placeholder="Enter last name"
+             name="last_name"
           />
           </Col>
        </Row>
@@ -83,6 +75,7 @@ class UserInfoForm extends Component {
        type="text"
        label="Address"
        placeholder="Enter street address"
+       name="address1"
        />
 
        </Col>
@@ -94,6 +87,7 @@ class UserInfoForm extends Component {
           type="text"
           label="Address"
           placeholder="Enter apt. number or additional details"
+          name="address2"
           />
         </Col>
         </Row>
@@ -104,6 +98,7 @@ class UserInfoForm extends Component {
           type="text"
           label="City"
           placeholder="Enter City"
+          name="city"
           />
         </Col>
         <Col xs={12} md={2}>
@@ -112,6 +107,7 @@ class UserInfoForm extends Component {
           type="text"
           label="State"
           placeholder="Enter State"
+          name="state"
           />
         </Col>
         <Col xs={12} md={2}>
@@ -120,6 +116,7 @@ class UserInfoForm extends Component {
         type="text"
         label="ZipCode"
         placeholder="Enter ZipCode"
+        name="zipcode"
         />
         </Col>
         </Row>
@@ -130,9 +127,7 @@ class UserInfoForm extends Component {
           <Button bsStyle="primary" type="submit" onClick={this.handleSubmitClick}>
           {this.props.submit}
           </Button>&nbsp;
-          <Button onClick={this.handleClearClick}>
-          {this.props.clear}
-            </Button>
+
           </Col>
 
         </Row>
@@ -144,4 +139,10 @@ class UserInfoForm extends Component {
 
 }
 
-export default UserInfoForm
+const mapStateToProps = (state) => {
+  return({
+    clubs: state.clubs
+  })
+}
+
+export default connect(mapStateToProps, { getClubs })(UserInfoForm)

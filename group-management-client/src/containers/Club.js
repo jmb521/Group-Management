@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import clubFormData from '../reducers/clubFormData'
 import {updateClubFormData} from '../actions/clubform'
 import { createClub } from '../actions/clubform'
+import { resetClubForm} from '../actions/clubform'
 
 function FieldGroup({id, label, help, inputRef, ...props}) {
   return (
@@ -19,13 +20,6 @@ function FieldGroup({id, label, help, inputRef, ...props}) {
 class Club extends Component {
 
   handleClearClick = () => {
-    this.setState({
-      name: "",
-      address: "",
-      city: "",
-      state: "",
-      zipcode: ""
-    })
 
   }
 
@@ -40,6 +34,7 @@ class Club extends Component {
   handleSubmitClick = (event) => {
     event.preventDefault();
     this.props.createClub(this.props.clubFormData)
+
   }
 
 
@@ -48,7 +43,7 @@ class Club extends Component {
     return (
       <div>
         <Grid>
-          <h3>Choose your Club Here</h3>
+          <h3>Enter your Club info Here</h3>
           <br />
           <Form onSubmit={this.handleSubmitClick}>
 
@@ -131,9 +126,6 @@ class Club extends Component {
             </Form>
             </Grid>
             </div>
-
-
-
 
     )
   }
