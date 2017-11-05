@@ -23,16 +23,22 @@ class UserInfoForm extends Component {
 
   }
 
-  handleOnChange = () => {
-    
+  handleOnChange = (event) => {
+    const {name, value} = event.target
+    const currentMemberFormData = Object.assign({},this.props.memberFormData, {
+      [name]: value
+    })
+    this.props.updateMemberFormData(currentMemberFormData)
+
   }
   handleSubmitClick = (event) => {
     event.preventDefault();
+    this.props.createMember(this.props.memberFormData)
   }
 
 
    render() {
-
+     const {club_id, first_name, last_name, address1, address2, city, state} = this.props
      return(
        <div>
        <Grid>

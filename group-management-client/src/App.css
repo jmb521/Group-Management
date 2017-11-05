@@ -8,3 +8,47 @@
 .memberlist th {
   text-align: center;
 }
+div.main {
+  background-image: url("people-coffee-tea-meeting.jpg");
+  background-size: cover;
+  width: auto;
+  height:  500px;
+  margin-top:  -20px;
+
+}
+div.title {
+  text-align:  center;
+  margin: 0 auto;
+  vertical-align:  middle;
+  width: 500px;
+  height:  150px;
+  color: white;
+
+}
+div.title h2 {
+  padding-top:  28%;
+  font-size: 35pt;
+}
+div.title h4 {
+  font-size:  20pt;
+}
+.card-3 {
+  text-shadow: 3px 2px 2px #000;
+}
+
+div.section1 {
+  width: auto;
+  height:  400px;
+}
+
+/*div.footer {
+
+ width: auto;
+ height:  50px;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ padding-bottom: -20px;
+
+}*/

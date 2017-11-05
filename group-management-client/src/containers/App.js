@@ -7,7 +7,7 @@ import Navigation from './Nav'
 import Home from './Home'
 import AddMember from './AddMember'
 import Club from './Club'
-
+import NavFooter from './NavFooter'
 
 
 
@@ -35,7 +35,7 @@ class App extends React.Component {
 
         </div>
         </Router>
-
+        <NavFooter />
       </div>
     )
 
