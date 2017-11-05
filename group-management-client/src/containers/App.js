@@ -28,7 +28,7 @@ class App extends React.Component {
 
         <Router>
         <div>
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/membership" render={()=><Membership />}/>
           <Route exact path="/addmember" component={AddMember} />
           <Route exact path="/addclub" component={Club} />
