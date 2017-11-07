@@ -21,9 +21,9 @@ class EachMember extends Component {
       <tbody>
       <tr>
       <td>{this.props.member.membership_status.member_number}</td>
-      <td>{this.props.member.username}</td>
-      <td>{this.props.member.user_info.first_name}</td>
-      <td>{this.props.member.user_info.last_name}</td>
+      
+      <td>{this.props.member.first_name}</td>
+      <td>{this.props.member.last_name}</td>
       <td>{this.props.member.membership_status.is_member + " "}</td>
       <td>
       <Button bsStyle="success" onClick={this.RenewOnClick}>Renew</Button>
