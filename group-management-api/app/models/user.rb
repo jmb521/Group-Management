@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_one :user_family, :autosave => true
   has_one :membership_status, :autosave => true
 
+
   belongs_to :club
   before_create :build_user_contact_info, :build_user_family, :build_membership_status
   accepts_nested_attributes_for :user_contact_info, :user_family

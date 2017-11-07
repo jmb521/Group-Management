@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
 
     @user.build_user_family
     @user.build_user_contact_info
-    @user.build_user_kids
+    # @user.build_user_kids
     if @user.save
       render json: @user
     else

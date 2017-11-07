@@ -1,5 +1,5 @@
 class Api::UserKidsController < ApplicationController
-
+  before_action :set_user_kid, only: [:show, :update, :destroy]
   def index
     render json: UserKid.all
   end
