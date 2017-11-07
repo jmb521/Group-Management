@@ -1,7 +1,10 @@
 class Api::ClubsController < ApplicationController
   before_action :set_club, only: [:show, :update, :destroy, :new]
 
-
+  def index
+    @clubs = Club.all
+    render json: @clubs
+  end
   def show
     render json: @club
 
