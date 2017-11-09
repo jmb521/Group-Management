@@ -5,4 +5,5 @@ class Api::MembershipStatusesController < ApplicationController
     render json: @membership_statuses
 
   end
+  
 end
