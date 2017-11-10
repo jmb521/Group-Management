@@ -1,3 +1,5 @@
+// import { hashHistory } from 'react-router'
+
 export const updateMemberFormData = memberFormData => {
 
   return {
@@ -29,7 +31,7 @@ export const createMember = user => {
     .then(user => {
       console.log(user.id)
       dispatch(addMember(user))
-
+      
     })
     .catch(error => console.log(error))
   }

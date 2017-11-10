@@ -11,7 +11,7 @@ class Membership extends Component {
   }
 
   render() {
-    console.log("props in membership", this.props.members)
+
 
 
     return(
@@ -21,7 +21,7 @@ class Membership extends Component {
       <thead>
       <tr>
       <th>Member #</th>
-      
+
       <th>First Name</th>
       <th>Last Name</th>
       <th>Current Member</th>
@@ -29,7 +29,7 @@ class Membership extends Component {
       </tr>
       </thead>
 
-          {this.props.members.map((member, index) => <EachMember member={member} key={index} />)}
+          {this.props.members.map((member) => <EachMember member={member} key={member.id} />)}
 
 
       </Table>

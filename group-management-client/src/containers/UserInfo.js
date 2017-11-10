@@ -7,6 +7,7 @@ import {memberFormData} from '../reducers/memberFormData'
 import { createMember } from '../actions/memberForm'
 import { updateMemberFormData } from '../actions/memberForm'
 
+
 function FieldGroup({ id, label, help, ...props }) {
    return (
      <FormGroup controlId={id}>
@@ -50,8 +51,10 @@ class UserInfoForm extends Component {
   handleSubmitClick = (event) => {
 
     event.preventDefault();
-    console.log("handleclick", this.props.memberFormData)
-    this.props.createMember(this.props.memberFormData)
+
+    this.props.createMember(this.props.memberFormData);
+
+    window.location = "/contactinfo"
   }
 
 

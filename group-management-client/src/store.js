@@ -10,7 +10,7 @@ import clubFormData from './reducers/clubFormData'
 import memberFormData from './reducers/memberFormData'
 import club from './reducers/clubs'
 import member from './reducers/members'
-
+// import {routerReducer} from 'react-router-redux'
 
 const reducers = combineReducers({
   members: members,
@@ -18,7 +18,8 @@ const reducers = combineReducers({
   clubs: clubs,
   memberFormData: memberFormData,
   club: club,
-  member: member
+  member: member,
+  // routing: routerReducer
 });
 
 const middleware= [thunk];
