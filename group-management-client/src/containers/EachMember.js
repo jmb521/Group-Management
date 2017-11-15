@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Button} from 'react-bootstrap'
 import { removeMember } from '../actions/membership'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 class EachMember extends Component {
   constructor() {
     super()
@@ -13,7 +14,8 @@ class EachMember extends Component {
   }
   RemoveOnClick = (member) => {
     console.log(member)
-    // this.props.removeMember()
+    this.props.removeMember(member)
+
   }
 
   render() {
@@ -27,7 +29,7 @@ class EachMember extends Component {
       <td>{this.props.member.membership_status.is_member + " "}</td>
       <td>
       <Button bsStyle="success" onClick={this.RenewOnClick}>Renew</Button>
-      <Button bsStyle="danger" id={this.props.key} onClick={this.RemoveOnClick(this.props.key)}>Remove</Button>
+      <Button bsStyle="danger" id={this.props.member.id} onClick={this.RemoveOnClick.bind(this, this.props.member)}>Remove</Button>
       </td>
 
       </tr>
@@ -39,9 +41,17 @@ class EachMember extends Component {
     )
   }
 }
+
+function mapDispatchToProps(dispatch){
+
+  return bindActionCreators({
+    removeMember: removeMember
+  }, dispatch)
+}
 const mapStateToProps = (state) => {
   return({
     members: state.members
+    
   })
 }
-export default connect(mapStateToProps, { removeMember })(EachMember);
+export default connect(mapStateToProps, mapDispatchToProps)(EachMember);
