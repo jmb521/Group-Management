@@ -1,10 +1,6 @@
 class Api::MembershipStatusesController < ApplicationController
-  before_action :set_membership_status, only [:show, :update]
-  def index
-    @membership_statuses = MembershipStatus.all
-    render json: @membership_statuses
+  before_action :set_membership_status, only: [:show, :update, :destroy, :new]
 
-  end
 
   def show
     render json: @member
@@ -21,9 +17,10 @@ class Api::MembershipStatusesController < ApplicationController
 
 private
   def set_membership_status
-    @membership_statuss = MembershipStatus.find(params[:id])
+    @membership_status = MembershipStatus.find(params[:id])
   end
 
   def membership_status_params
     params.require(:membership_status).permit(:user_id, :club_id, :is_member, :membership_paid)
+  end
 end
