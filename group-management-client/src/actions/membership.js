@@ -6,9 +6,9 @@ const setMembers = members => {
     members
   };
 }
-
+//action creator
 export const updateMemberStatus = () => {
-  
+
   return {
     type: 'UPDATE_MEMBERSHIP_STATUS',
     payload: {is_member: "not a member"}

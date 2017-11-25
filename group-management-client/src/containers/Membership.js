@@ -3,15 +3,39 @@ import EachMember from './EachMember'
 import { connect } from 'react-redux'
 import { Grid, Table} from 'react-bootstrap'
 import { getMembers } from '../actions/membership'
-
+import { bindActionCreators } from 'redux'
+import { membership } from '../reducers/MembershipReducer'
+import { updateMemberStatus } from '../actions/membership'
+import {removeMember } from '../actions/membership'
 class Membership extends Component {
+
   componentDidMount() {
     this.props.getMembers()
-
+    // this.currentMember()
+  }
+  handleDeactiveMember = (memberId) => {
+    console.log(memberId + ' was deactivated')
   }
 
-  render() {
 
+
+  render() {
+    const currentMember = () => {
+      let eachMember = ""
+      debugger;
+      if(this.props.members.length > 0){
+
+        this.props.members.map((member) => {
+          if(member.membership_status.is_member !== "not a member") {
+            eachMember = <EachMember member={member} key={member.id} onDeactivate={this.handleDeactivateMember} />
+          }
+        })
+      } else {
+        eachMember = "No members to display"
+      }
+
+      return eachMember
+    }
 
 
     return(
@@ -29,17 +53,38 @@ class Membership extends Component {
       </tr>
       </thead>
 
-          {this.props.members.map((member) => <EachMember member={member} key={member.id} />)}
 
+    {currentMember}
 
       </Table>
       </Grid>
     )
   }
 }
+
+// const mapStateToProps = ({membership: membership}) => {
+//   return({
+//     membership: membership
+//   })
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {updateMemberStatus: bindActionCreators(updateMemberStatus, dispatch)}
+// }
+
+// I think this one is wrong
 const mapStateToProps = (state) => {
   return({
-    members: state.members
+    members: state.members,
+
   })
 }
-export default connect(mapStateToProps, { getMembers })(Membership);
+//
+const mapDispatchToProps = (dispatch) => {
+
+  return bindActionCreators({
+    removeMember: removeMember
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps, { getMembers })(Membership);
