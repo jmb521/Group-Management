@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css'
 import { Router, Route } from 'react-router';
-import Membership from './Membership'
+import MembershipManagement from './MembershipManagement'
 import Kids from './Kids'
 import ContactInfo from './ContactInfo'
 import Family from './Family'
@@ -38,7 +38,7 @@ class App extends React.Component {
         <Router history={history}>
         <div>
           <Route exact path="/" component={Home} />
-          <Route exact path="/membership" render={()=><Membership />}/>
+          <Route exact path="/membershipmanagement" render={()=><MembershipManagement />}/>
           <Route exact path="/addmember" component={AddMember} />
           <Route exact path="/addclub" component={Club} />
           <Route exact path="/contactinfo" component={ContactInfo} />
