@@ -1,3 +1,5 @@
+//shows demographics for all members.
+
 import React, { Component } from 'react';
 import EachMember from './EachMember'
 import { connect } from 'react-redux'
