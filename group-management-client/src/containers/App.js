@@ -3,7 +3,7 @@ import '../App.css'
 import { Router, Route } from 'react-router';
 import MembershipManagement from './MembershipManagement'
 import Kids from './Kids'
-import ContactInfo from './ContactInfo'
+import {ContactInfo} from './ContactInfo'
 import Family from './Family'
 import Navigation from './Nav'
 import Home from './Home'
