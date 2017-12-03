@@ -12,15 +12,15 @@ import {MemberCount} from './MemberCount'
 // import {removeMember } from '../actions/membership'
 class MembershipManagement extends Component {
   state = {
-
+    memberCount: "1,543",
   }
 
-  //shows the current member count
+
   render() {
     return(
       <div>
         <div className="member_count">
-          <MemberCount />
+          <MemberCount memberCount={this.state.memberCount} />
         </div>
       </div>
     )
