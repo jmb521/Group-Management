@@ -45,15 +45,36 @@ div.member_count {
   width: 150px;
   height:  150px;
   background-color:  beige;
-  margin-left:  200px;
-  margin-top:  100px;
+
+
+  border:  red 1px solid;
 }
 div.member_count h1 {
   font-size:  1.5em;
   text-align: center;
-  text-decoration: underline
+  text-decoration: underline;
+
 }
 div.member_count h3 {
   text-align:  center;
   font-size:  2em;
+}
+div.pending_member_count {
+  background-color:  beige;
+  width: 150px;
+  height:  150px;
+  text-align: center;
+
+
+
+}
+div.pending_member_count h1 {
+  font-size:  1.5em;
+  text-align: center;
+  text-decoration:  underline;
+}
+
+.dashboardheader {
+    text-align: center;
+    padding-bottom:  50px;
 }
