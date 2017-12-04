@@ -48,7 +48,7 @@ class App extends React.Component {
           <Route exact path="/kids" component={Kids} />
           <Route exact path="/membershipmanagement/pendingmembers" component={PendingMembers} />
           <Route exact path="/membershipmanagement/memberrenewal" component={MemberRenewal} />
-          <Route exact path="/membershipmanagement/removedmembrers" component={RemovedMembers} />
+          <Route exact path="/membershipmanagement/removedmembers" component={RemovedMembers} />
         </div>
         </Router>
         <NavFooter />

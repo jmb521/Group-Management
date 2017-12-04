@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import {Grid, Table, Button} from 'react-bootstrap'
 
+
 class MemberRenewal extends Component {
   state = {
     members: [
@@ -10,24 +11,43 @@ class MemberRenewal extends Component {
         firstName: "Jennifer",
         lastName: "Pazos",
         email: "them@them.com",
-        membership_status: "2016-2017",
+        memberStatus: "2016-2017",
       }
     ]
   }
+
+
+    renewOnClick = (e) => {
+      e.preventDefault();
+      this.setState({
+        memberStatus: "renewed for 2017-2018"
+      })
+    }
+
+    removeOnClick = (e) => {
+      e.preventDefault();
+      this.setState({
+        memberStatus: "removed"
+      })
+    }
+
+
   render() {
     const memberList = this.state.members.map((m) => {
-      return (
+    return (
       <tbody key={m.id}>
-        <tr>
-          <td>{m.firstName}</td>
-          <td>{m.lastName}</td>
-          <td>{m.email}</td>
-          <td>{m.membership_status}</td>
-          <td><Button>Renew</Button> &nbsp; <Button>Remove</Button></td>
-        </tr>
+      <tr>
+        <td>{m.firstName}</td>
+        <td>{m.lastName}</td>
+        <td>{m.email}</td>
+        <td>{m.membership_status}</td>
+        <td><Button onClick={this.renewOnClick}>Renew</Button> &nbsp; <Button onClick={this.removeOnClick}>Remove</Button></td>
+      </tr>
       </tbody>
     )
-    })
+
+    });
+
     return (
       <div className="memberrenewal">
         <Grid>
@@ -44,7 +64,9 @@ class MemberRenewal extends Component {
                 <th></th>
               </tr>
             </thead>
-            {memberList}
+
+              {memberList}
+
 
           </Table>
         </Grid>

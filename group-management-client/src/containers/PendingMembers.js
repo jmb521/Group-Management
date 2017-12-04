@@ -12,6 +12,7 @@ class PendingMembers extends Component {
         lastName: "Pazos",
         email: "me@me.com",
         signUpDate: "July 1, 2017",
+        
         onClick:'',
       },
       {
