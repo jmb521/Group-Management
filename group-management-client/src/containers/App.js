@@ -13,6 +13,7 @@ import NavFooter from './NavFooter'
 import createBrowserHistory from 'history/createBrowserHistory'
 import PendingMembers from './PendingMembers'
 import MemberRenewal from './MemberRenewal'
+import RemovedMembers from './RemovedMembers'
 const history = createBrowserHistory()
 
 // import { synchHistoryWithStore } from 'react-router-redux'
@@ -47,6 +48,7 @@ class App extends React.Component {
           <Route exact path="/kids" component={Kids} />
           <Route exact path="/membershipmanagement/pendingmembers" component={PendingMembers} />
           <Route exact path="/membershipmanagement/memberrenewal" component={MemberRenewal} />
+          <Route exact path="/membershipmanagement/removedmembrers" component={RemovedMembers} />
         </div>
         </Router>
         <NavFooter />
