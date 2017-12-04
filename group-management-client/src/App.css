@@ -78,3 +78,17 @@ div.pending_member_count h1 {
     text-align: center;
     padding-bottom:  50px;
 }
+table.pendinggrid {
+  text-align: center;
+  font-weight: bold;
+}
+
+table.pendinggrid th {
+  background-color:  teal;
+  text-align:  center;
+  font-weight:  bolder;
+}
+
+.pendingmembersheader {
+  text-align:  center;
+}

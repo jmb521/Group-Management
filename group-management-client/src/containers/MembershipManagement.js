@@ -15,6 +15,7 @@ class MembershipManagement extends Component {
   state = {
     memberCount: "1,543",
     pendingMemberCount: 42,
+    
   }
 
 
