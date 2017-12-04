@@ -28,7 +28,8 @@ class Navigation extends React.Component{
           <MenuItem eventKey={3.1} href="/membershipmanagement">Membership</MenuItem>
           <MenuItem divider />
           <MenuItem eventKey={3.2} href="/membershipmanagement/pendingmembers">Pending Members</MenuItem>
-          <MenuItem eventKey={3.3} href="/membershipmanagement/removedmembers">Remove Members</MenuItem>
+          <MenuItem eventKey={3.3} href='/membershipmanagement/memberrenewal'>Member Renewal</MenuItem>
+          <MenuItem eventKey={3.4} href="/membershipmanagement/removedmembers">Removed Members</MenuItem>
 
         </NavDropdown>
 
