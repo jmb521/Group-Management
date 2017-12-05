@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import clubFormData from '../reducers/clubFormData'
 import {updateClubFormData} from '../actions/clubform'
 import { createClub } from '../actions/clubform'
-import { resetClubForm} from '../actions/clubform'
+
 
 function FieldGroup({id, label, help, inputRef, ...props}) {
   return (
@@ -115,7 +115,7 @@ class Club extends Component {
             <Button bsStyle="primary" type="submit">
               Submit
             </Button>&nbsp;
-            
+
             </Col>
             </Row>
 
