@@ -14,12 +14,7 @@ export const addClub = club => {
 
   }
 }
-export const resetClubForm = () => {
-  return {
-    type: 'RESET_CLUB_FORM',
 
-  }
-}
 export const createClub = club => {
 
   return dispatch => {
@@ -32,9 +27,9 @@ export const createClub = club => {
     })
     .then(response => response.json())
     .then(club => {
-      console.log(club.id)
+
       dispatch(addClub(club))
-      dispatch(resetClubForm())
+      
     })
     .catch(error => console.log(error))
   }
