@@ -13,7 +13,7 @@ class Navigation extends React.Component{
       <Navbar inverse>
       <Navbar.Header>
       <Navbar.Brand>
-      <a href="/home">Group Management</a>
+      <a href="/">Group Management</a>
       </Navbar.Brand>
       <Navbar.Toggle />
       </Navbar.Header>
