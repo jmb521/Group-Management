@@ -97,26 +97,6 @@ class RemovedMembers extends Component {
 
 
 
-
-
-
-
-      // const n = this.props.memberFormData
-      // console.log("props", this.props)
-   //  this.props.clubs.filter((n) => {
-
-        // console.log("m => ", m.club_id)
-        // if(n.id === m.club_id) {
-      // }
-
-
-
-
-// const filteredClubId = this.props.clubs.filter((n) => {
-// n.id === m.club_id
-// }
-
-
     return(
       <div>
         <Grid>
