@@ -59,7 +59,7 @@ class UserInfoForm extends Component {
 
 
    render() {
-     const { club_id, first_name, last_name, address1, address2, city, state, zipcode} = this.props.memberFormData;
+    //  const { club_id, first_name, last_name, address1, address2, city, state, zipcode} = this.props.memberFormData;
      return(
        <div>
        <Grid>
