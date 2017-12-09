@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
     resources :clubs do
       resources :users
+      resources :membership_statuses
     end
     resources :users do
       resources :membership_statuses, only: [:show, :edit, :update]

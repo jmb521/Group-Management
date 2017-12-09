@@ -1,7 +1,10 @@
 class Api::MembershipStatusesController < ApplicationController
   before_action :set_membership_status, only: [:show, :update, :destroy, :new]
 
-
+  def index
+    @membership_statuses = MembershipStatus.all
+    render json: @membership_statuses
+  end
   def show
     render json: @member
   end
