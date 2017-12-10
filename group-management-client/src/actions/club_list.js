@@ -15,5 +15,6 @@ export const getClubs = () => {
      .then(response => response.json())
      .then(clubs => dispatch(setClubs(clubs)))
      .catch(error => console.log(error));
+
     }
   };
