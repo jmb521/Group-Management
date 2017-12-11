@@ -4,7 +4,7 @@ import {GetClubs} from './GetClubs'
 import { Grid, Table, Button} from 'react-bootstrap';
 
 export const RemovedMembers = function(props) {
-  console.log("removedMembers", props)
+
   const memberList = props.members.map((m) => {
 
          if(parseInt(m.club_id, 10) === parseInt(props.memberFormData.club_id, 10)) {
@@ -18,10 +18,6 @@ export const RemovedMembers = function(props) {
              <td><Button onClick={props.onClick}>Reinstate</Button></td>
              </tr>
              </tbody>
-           )
-         } else {
-           return(
-             <p> No members to remove</p>
            )
          }
        })

@@ -10,7 +10,6 @@ import Navigation from './Nav'
 import Home from './Home'
 import AddMember from './AddMember'
 import Club from './Club'
-import NavFooter from './NavFooter'
 import createBrowserHistory from 'history/createBrowserHistory'
 import {PendingMembers} from './PendingMembers'
 import {MemberRenewal} from './MemberRenewal'
@@ -59,7 +58,7 @@ class App extends React.Component {
 
         </div>
         </Router>
-        <NavFooter />
+
       </div>
     )
 
