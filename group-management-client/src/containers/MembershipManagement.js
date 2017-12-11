@@ -8,14 +8,14 @@ import {PendingMemberCount} from './PendingMemberCount'
 import { Grid, Row, Col} from 'react-bootstrap'
 // import { getMembers } from '../actions/membership'
 // import { bindActionCreators } from 'redux'
-// import { membership } from '../reducers/MembershipReducer'
+
 // import { updateMemberStatus } from '../actions/membership'
 // import {removeMember } from '../actions/membership'
 class MembershipManagement extends Component {
   state = {
     memberCount: "1,543",
     pendingMemberCount: 42,
-    
+
   }
 
 

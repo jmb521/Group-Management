@@ -9,42 +9,28 @@ import {memberFormData} from '../reducers/memberFormData'
 import { updateMemberFormData } from '../actions/memberForm'
 import {getClubs} from '../actions/club_list'
 import {PendingMembers} from './PendingMembers'
-
+// import store from '../store.js'
 import {MemberRenewal} from './MemberRenewal'
+import membersreducer from '../reducers/membersreducer'
 
 
 class MemberListContainer extends Component {
-  
+
   state = {
-    members: [
-      {
-        id: 3,
-        firstName: "Jen",
-        lastName: "Pazos",
-        email: "jmp521@gmail.com",
-        membership_status: "current member",
-        club_id: 34,
-    }
-  ],
+    members: [],
     clubs: [],
   }
   componentDidMount() {
     // this.props.memberFormData();
     this.props.getClubs();
-
-
-
+    // store.subscribe(() => this.forceUpdate());
   }
 
   loadUpdatedMembers = (club_id) => {
+  //  this.props.getMemberList(club_id);
 
-    this.props.getMemberList(club_id).then((members) => {
-      console.log("getmembers", members)
-      this.setState({
-        members: members
-      })
-    })
-    console.log("state")
+    this.props.getMemberList(club_id)
+    console.log("&&", this.props.members)
   }
 
   handleClick = () => {
@@ -97,7 +83,7 @@ class MemberListContainer extends Component {
 
   render() {
     const WhichToRender = () => {
-
+      console.log("which to render", this.props)
 
       if(window.location.pathname === "/membershipmanagement/removedmembers") {
         return(
@@ -113,7 +99,7 @@ class MemberListContainer extends Component {
       } else if (window.location.pathname === "/membershipmanagement/memberrenewal") {
         return(
           <MemberRenewal
-          members={this.state.members}
+          members={this.props.members}
           memberFormData={this.props.memberFormData}
           clubs={this.props.clubs}
           renewOnClick={this.renewOnClick}
@@ -124,7 +110,7 @@ class MemberListContainer extends Component {
       } else if (window.location.pathname === "/membershipmanagement/pendingmembers") {
         return(
           <PendingMembers
-          members={this.state.members}
+          members={this.props.members}
           clubs={this.props.clubs}
           approvePendingMemberOnClick={this.approvePendingMemberOnClick}
           handleOnChange={this.handleOnChange}
@@ -154,6 +140,7 @@ class MemberListContainer extends Component {
 
 export default connect(mapStateToProps, {
   getClubs,
+  getMemberList,
   updateMemberFormData,
-
+  membersreducer,
 })(MemberListContainer)

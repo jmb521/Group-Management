@@ -9,12 +9,11 @@ const updateMembers = members => {
 export const getMemberList = (club_id) => {
 
   return dispatch => {
-    return fetch(`http://localhost:3001/api/clubs/${club_id}/membership_statuses`)
-
+    return fetch(`http://localhost:3001/api/clubs/${club_id}/users`)
       .then(response => response.json())
       .then(members => dispatch(updateMembers(members)))
       .then(response => console.log("getmemberlist", response))
-      .catch(error => console.log("error from getMembers", error));
+      .catch(error => console.log("error from getMembers", error))
 
-  }
+    }
 };

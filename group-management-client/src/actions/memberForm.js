@@ -9,10 +9,10 @@ export const updateMemberFormData = memberFormData => {
   }
 }
 
-export const addMember = member => {
+export const addMember = members => {
   return {
     type: 'CREATE_MEMBER_DATA',
-    member
+    members
 
   }
 }
@@ -31,7 +31,7 @@ export const createMember = user => {
     .then(user => {
       console.log(user.id)
       dispatch(addMember(user))
-      
+
     })
     .catch(error => console.log(error))
   }

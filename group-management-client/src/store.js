@@ -4,21 +4,24 @@ import {
   combineReducers
 } from 'redux'
 import thunk from 'redux-thunk'
-import members from './reducers/MembershipReducer'
+import membersreducer from './reducers/membersreducer'
 import clubs from './reducers/clubListReducer'
 import clubFormData from './reducers/clubFormData'
 import memberFormData from './reducers/memberFormData'
 import club from './reducers/clubs'
-import member from './reducers/members'
+// import member from './reducers/members'
+
 // import {routerReducer} from 'react-router-redux'
 
 const reducers = combineReducers({
-  members: members,
+  members: membersreducer,
   clubFormData: clubFormData,
   clubs: clubs,
   memberFormData: memberFormData,
   club: club,
-  member: member,
+
+  // member: member,
+
   // routing: routerReducer
 });
 

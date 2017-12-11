@@ -12,9 +12,9 @@ export const PendingMembers = function(props) {
         <tbody key={m.id}>
 
         <tr>
-            <td>{m.firstName}</td>
-            <td>{m.lastName}</td>
-            <td>{m.email}</td>
+            <td>{m.first_name}</td>
+            <td>{m.last_name}</td>
+            <td>{m.user_contact_info.email}</td>
             <td>{m.signUpDate}</td>
             <td><Button id={m.id} onClick={props.approvePendingMemberOnClick}>Approve</Button></td>
         </tr>
@@ -26,7 +26,7 @@ export const PendingMembers = function(props) {
       <div>
         <Grid>
           <h1 className="pendingmembersheader">Pending Members</h1>
-          <GetClubs clubs={props.clubs} handleOnChange={props.handlOnChange}/>
+          <GetClubs clubs={props.clubs} handleOnChange={props.handleOnChange}/>
           <Table className="pendinggrid">
             <thead>
             <tr>
