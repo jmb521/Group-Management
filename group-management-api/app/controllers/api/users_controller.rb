@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
   before_action :set_club
   def index
     @user = @club.users
-    render json: @user, :include => [:user_kids, :membership_status]
+    render json: @user, :include => [:user_kids, :membership_status, :user_contact_info]
   end
 
   def show
