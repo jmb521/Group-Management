@@ -19,6 +19,10 @@ export const RemovedMembers = function(props) {
              </tr>
              </tbody>
            )
+         } else {
+           return(
+             <p> No members to remove</p>
+           )
          }
        })
 
