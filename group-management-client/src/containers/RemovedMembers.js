@@ -12,9 +12,9 @@ export const RemovedMembers = function(props) {
 
              <tbody key={m.id}>
              <tr>
-             <td>{m.firstName}</td>
-             <td>{m.lastName}</td>
-             <td>{m.email}</td>
+             <td>{m.first_name}</td>
+             <td>{m.last_name}</td>
+             <td>{m.user_contact_info.email}</td>
              <td><Button onClick={props.onClick}>Reinstate</Button></td>
              </tr>
              </tbody>
