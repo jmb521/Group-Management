@@ -8,7 +8,6 @@ import { connect } from 'react-redux'
 import {memberFormData} from '../reducers/memberFormData'
 import { updateMemberFormData } from '../actions/memberForm'
 import {getClubs} from '../actions/club_list'
-import {GetClubs} from './GetClubs'
 import {PendingMembers} from './PendingMembers'
 
 import {MemberRenewal} from './MemberRenewal'
