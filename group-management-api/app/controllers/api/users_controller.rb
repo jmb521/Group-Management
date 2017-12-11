@@ -1,8 +1,9 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:update, :destroy, :show]
-
+  before_action :set_club
   def index
-    render json: User.all, :include => [:user_kids, :membership_status]
+    @user = @club.users
+    render json: @user, :include => [:user_kids, :membership_status]
   end
 
   def show
@@ -44,6 +45,12 @@ class Api::UsersController < ApplicationController
       @user = User.find(params[:id])
 
     end
+
+    def set_club
+      @club = Club.find_by(:id => params[:club_id])
+    end
+
+
 
     def user_params
       params.require(:user).permit(
