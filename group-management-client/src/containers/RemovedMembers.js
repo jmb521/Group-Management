@@ -1,11 +1,10 @@
 // //shows a list of former members
 import React from 'react';
 import {GetClubs} from './GetClubs'
-import { Grid, Table, Button, Form, Row, Col, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import { Grid, Table, Button} from 'react-bootstrap';
 
 export const RemovedMembers = function(props) {
-  console.log("removed", props)
-  console.log("props", props)
+
   const memberList = props.members.map((m) => {
 
          if(parseInt(m.club_id, 10) === parseInt(props.memberFormData.club_id, 10)) {
@@ -29,7 +28,7 @@ export const RemovedMembers = function(props) {
     <div>
       <Grid>
         <h1>Former Member List</h1>
-          <GetClubs />
+          <GetClubs clubs={props.clubs} handleOnChange={props.handleOnChange} />
           <Table>
             <thead>
               <tr>

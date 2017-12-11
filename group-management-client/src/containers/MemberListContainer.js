@@ -8,8 +8,10 @@ import { connect } from 'react-redux'
 import {memberFormData} from '../reducers/memberFormData'
 import { updateMemberFormData } from '../actions/memberForm'
 import {getClubs} from '../actions/club_list'
+import {GetClubs} from './GetClubs'
+import {PendingMembers} from './PendingMembers'
 
-import MemberRenewal from './MemberRenewal'
+import {MemberRenewal} from './MemberRenewal'
 
 
 class MemberListContainer extends Component {
@@ -32,25 +34,45 @@ class MemberListContainer extends Component {
   componentDidMount() {
     // this.props.memberFormData();
     this.props.getClubs();
-    console.log("componentDidMount", this.props.getClubs())
+    
+
+
   }
 
-//     this.loadUpdatedMembers(value)
-//   loadUpdatedMembers = (club_id) => {
-//     this.props.getMemberList(club_id).then((members) => {
-//       this.setState({
-//         members: members
-//       })
-//     })
-//     console.log("state")
-//   }
+  loadUpdatedMembers = (club_id) => {
+
+    this.props.getMemberList(club_id).then((members) => {
+      console.log("getmembers", members)
+      this.setState({
+        members: members
+      })
+    })
+    console.log("state")
+  }
 
   handleClick = () => {
 
   }
+  approvePendingMemberOnClick = () => {
+
+  }
+
+  renewOnClick = (e) => {
+    e.preventDefault();
+    this.setState({
+      memberStatus: "renewed for 2017-2018"
+    })
+  }
+
+  removeOnClick = (e) => {
+    e.preventDefault();
+    this.setState({
+      memberStatus: "removed"
+    })
+  }
 
   handleOnChange = (event) => {
-    // console.log(event.target.options[event.target.selectedIndex].id)
+
 
     let name=""
     let value=""
@@ -70,25 +92,44 @@ class MemberListContainer extends Component {
     })
 
     this.props.updateMemberFormData(currentMemberFormData)
-
+    this.loadUpdatedMembers(value)
   }
 
   render() {
     const WhichToRender = () => {
-      // console.log(window.location.pathname === "/membershipmanagement/removedmembers")
+
+
       if(window.location.pathname === "/membershipmanagement/removedmembers") {
-        console.log("matched pathname")
         return(
+        <div>
           <RemovedMembers
-            members={this.state.members}
+            members={this.props.members}
             memberFormData={this.props.memberFormData}
             onClick={this.handleClick}
-            onChange={this.handleOnChange}/>
-
+            handleOnChange={this.handleOnChange}
+            clubs={this.props.clubs} />
+            </div>
         )
       } else if (window.location.pathname === "/membershipmanagement/memberrenewal") {
         return(
-          <MemberRenewal />
+          <MemberRenewal
+          members={this.state.members}
+          memberFormData={this.props.memberFormData}
+          clubs={this.props.clubs}
+          renewOnClick={this.renewOnClick}
+          removeOnClick={this.removeOnClick}
+          handleOnChange={this.handleOnChange}
+          />
+        )
+      } else if (window.location.pathname === "/membershipmanagement/pendingmembers") {
+        return(
+          <PendingMembers
+          members={this.state.members}
+          clubs={this.props.clubs}
+          approvePendingMemberOnClick={this.approvePendingMemberOnClick}
+          handleOnChange={this.handleOnChange}
+          />
+
         )
       }
 
@@ -98,6 +139,7 @@ class MemberListContainer extends Component {
     return(
       <div>
         <WhichToRender />
+
       </div>
     )
   }

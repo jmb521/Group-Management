@@ -7,7 +7,7 @@ export const GetClubs = function(props) {
   console.log("getclub props", props)
     return(
       <div>
-      <h1>can you see me</h1>
+      
         <Form>
           <Row>
            <Col xs={12} md={4}>

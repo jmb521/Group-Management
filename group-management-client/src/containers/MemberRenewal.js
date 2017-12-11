@@ -1,39 +1,11 @@
 //this is for setting all members to a "holding" position so that the membership person can process all members and see which ones still need to be changed.
-import React, {Component} from 'react';
+import React from 'react';
 import {Grid, Table, Button} from 'react-bootstrap'
+import {GetClubs} from './GetClubs'
 
+export const MemberRenewal = function(props) {
 
-class MemberRenewal extends Component {
-  state = {
-    members: [
-      {
-        id: 1,
-        firstName: "Jennifer",
-        lastName: "Pazos",
-        email: "them@them.com",
-        memberStatus: "2016-2017",
-      }
-    ]
-  }
-
-
-    renewOnClick = (e) => {
-      e.preventDefault();
-      this.setState({
-        memberStatus: "renewed for 2017-2018"
-      })
-    }
-
-    removeOnClick = (e) => {
-      e.preventDefault();
-      this.setState({
-        memberStatus: "removed"
-      })
-    }
-
-
-  render() {
-    const memberList = this.state.members.map((m) => {
+    const memberList = props.members.map((m) => {
     return (
       <tbody key={m.id}>
       <tr>
@@ -41,7 +13,7 @@ class MemberRenewal extends Component {
         <td>{m.lastName}</td>
         <td>{m.email}</td>
         <td>{m.membership_status}</td>
-        <td><Button onClick={this.renewOnClick}>Renew</Button> &nbsp; <Button onClick={this.removeOnClick}>Remove</Button></td>
+        <td><Button onClick={props.renewOnClick}>Renew</Button> &nbsp; <Button onClick={props.removeOnClick}>Remove</Button></td>
       </tr>
       </tbody>
     )
@@ -53,6 +25,8 @@ class MemberRenewal extends Component {
         <Grid>
           <h1>Membership Renewal</h1>
           <h5> This is only for current members</h5>
+          <br />
+          <GetClubs clubs={props.clubs} handleOnChange={props.handleOnChange} />
           <br />
           <Table>
             <thead>
@@ -73,5 +47,3 @@ class MemberRenewal extends Component {
       </div>
     )
   }
-}
-export default MemberRenewal

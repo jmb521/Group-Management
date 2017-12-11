@@ -1,33 +1,13 @@
 //shows a list of potential members. They need to be approved to have full access.
 import React, {Component} from 'react';
 import { Grid, Table, Button} from 'react-bootstrap';
+import {GetClubs} from './GetClubs'
+
+export const PendingMembers = function(props) {
 
 
-class PendingMembers extends Component {
-  state = {
-    members: [
-      {
-        id: 1,
-        firstName: "Jennifer",
-        lastName: "Pazos",
-        email: "me@me.com",
-        signUpDate: "July 1, 2017",
-        
-        onClick:'',
-      },
-      {
-        id: 2,
-        firstName: "Ashley",
-        lastName: "Buttercup",
-        email: "you@you.com",
-        signUpDate: "July 2, 2017",
-        onClick: '',
-      }
-    ]
-  }
 
-  render() {
-    const memberList = this.state.members.map((m) => {
+    const memberList = props.members.map((m) => {
       return (
         <tbody key={m.id}>
 
@@ -36,7 +16,7 @@ class PendingMembers extends Component {
             <td>{m.lastName}</td>
             <td>{m.email}</td>
             <td>{m.signUpDate}</td>
-            <td><Button id={m.id} onClick={m.onClick}>Approve</Button></td>
+            <td><Button id={m.id} onClick={props.approvePendingMemberOnClick}>Approve</Button></td>
         </tr>
 
         </tbody>
@@ -46,7 +26,8 @@ class PendingMembers extends Component {
       <div>
         <Grid>
           <h1 className="pendingmembersheader">Pending Members</h1>
-          <Table striped bordered condensed hover className="pendinggrid">
+          <GetClubs clubs={props.clubs} handleOnChange={props.handlOnChange}/>
+          <Table className="pendinggrid">
             <thead>
             <tr>
               <th>First Name</th>
@@ -66,5 +47,3 @@ class PendingMembers extends Component {
       </div>
     )
   }
-}
-export default PendingMembers;
