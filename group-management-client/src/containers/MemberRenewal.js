@@ -9,10 +9,10 @@ export const MemberRenewal = function(props) {
     return (
       <tbody key={m.id}>
       <tr>
-        <td>{m.firstName}</td>
-        <td>{m.lastName}</td>
-        <td>{m.email}</td>
-        <td>{m.membership_status}</td>
+        <td>{m.first_name}</td>
+        <td>{m.last_name}</td>
+        <td>{m.user_contact_info.email}</td>
+        <td>{m.membership_status.is_member}</td>
         <td><Button onClick={props.renewOnClick}>Renew</Button> &nbsp; <Button onClick={props.removeOnClick}>Remove</Button></td>
       </tr>
       </tbody>
