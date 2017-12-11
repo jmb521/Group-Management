@@ -14,9 +14,7 @@ import {MemberRenewal} from './MemberRenewal'
 
 
 class MemberListContainer extends Component {
-  constructor(props) {
-    super(props)
-  }
+  
   state = {
     members: [
       {
