@@ -34,7 +34,7 @@ class MemberListContainer extends Component {
   componentDidMount() {
     // this.props.memberFormData();
     this.props.getClubs();
-    
+
 
 
   }
@@ -66,6 +66,9 @@ class MemberListContainer extends Component {
 
   removeOnClick = (e) => {
     e.preventDefault();
+
+    //I think this may need to dispatch an action that would set the state AND
+    //update the server with the data.
     this.setState({
       memberStatus: "removed"
     })
@@ -135,7 +138,6 @@ class MemberListContainer extends Component {
 
     }
 
-
     return(
       <div>
         <WhichToRender />
@@ -148,7 +150,8 @@ class MemberListContainer extends Component {
  const mapStateToProps = (state) => {
   return({
     clubs: state.clubs,
-    memberFormData: state.memberFormData
+    memberFormData: state.memberFormData,
+    members: state.members,
   })
 }
 

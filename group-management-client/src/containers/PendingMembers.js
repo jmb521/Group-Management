@@ -1,5 +1,5 @@
 //shows a list of potential members. They need to be approved to have full access.
-import React, {Component} from 'react';
+import React from 'react';
 import { Grid, Table, Button} from 'react-bootstrap';
 import {GetClubs} from './GetClubs'
 
