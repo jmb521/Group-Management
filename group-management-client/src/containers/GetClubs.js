@@ -1,13 +1,13 @@
 //gets a list of clubs and adds them to state
 import React from 'react';
 
-import { Grid, Table, Button, Form, Row, Col, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import { Form, Row, Col, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 export const GetClubs = function(props) {
   console.log("getclub props", props)
     return(
       <div>
-      
+
         <Form>
           <Row>
            <Col xs={12} md={4}>
