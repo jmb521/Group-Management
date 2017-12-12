@@ -94,9 +94,9 @@ class MemberListContainer extends Component {
 
     }
     const WhichToRender = () => {
-      console.log("which to render", this.props)
+      console.log(window)
 
-      if(window.location.pathname === "/membershipmanagement/removedmembers") {
+      if(window.location.href === "http://localhost:3000/membershipmanagement/removedmembers") {
 
         return(
 
@@ -108,7 +108,7 @@ class MemberListContainer extends Component {
             clubs={this.props.clubs} />
 
         )
-      } else if (window.location.pathname === "/membershipmanagement/memberrenewal") {
+      } else if (window.location.href === "http://localhost:3000/membershipmanagement/memberrenewal") {
         return(
           <MemberRenewal
           members={filteredMembers(this.props.members, "current")}
@@ -119,7 +119,7 @@ class MemberListContainer extends Component {
           handleOnChange={this.handleOnChange}
           />
         )
-      } else if (window.location.pathname === "/membershipmanagement/pendingmembers") {
+      } else if (window.location.href === "http://localhost:3000/membershipmanagement/pendingmembers") {
         return(
           <PendingMembers
           members={filteredMembers(this.props.members, "pending")}
@@ -128,6 +128,11 @@ class MemberListContainer extends Component {
           handleOnChange={this.handleOnChange}
           />
 
+        )
+      } else {
+        return(
+          <div>
+          </div>
         )
       }
 

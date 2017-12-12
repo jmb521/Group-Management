@@ -41,20 +41,20 @@ class App extends React.Component {
         <Router history={history}>
         <div>
           <Route exact path="/" component={Home} />
-          
+
           <Route exact path="/membershipmanagement" component={MembershipManagement} />
           <Route exact path="/addmember" component={AddMember} />
           <Route exact path="/addclub" component={Club} />
           <Route exact path="/contactinfo" component={ContactInfo} />
           <Route exact path="/family" component={Family} />
           <Route exact path="/kids" component={Kids} />
-
           <MemberListContainer>
 
-            <Route exact path="/membershipmanagement/pendingmembers" component={PendingMembers} />
-            <Route exact path="/membershipmanagement/memberrenewal" component={MemberRenewal} />
-            <Route exact path="/membershipmanagement/removedmembers" component={RemovedMembers} />
+          <Route exact path="/membershipmanagement/pendingmembers" component={PendingMembers} />
+          <Route exact path="/membershipmanagement/memberrenewal" component={MemberRenewal} />
+          <Route exact path="/membershipmanagement/removedmembers" component={RemovedMembers} />
           </MemberListContainer>
+
 
 
         </div>
