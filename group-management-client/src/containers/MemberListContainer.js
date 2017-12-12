@@ -82,24 +82,36 @@ class MemberListContainer extends Component {
   }
 
   render() {
+    const filteredMembers = (members, filter) => {
+    if(filter === "pending") {
+      return members.filter((m)=> m.membership_status.is_member === filter);
+    } else if(filter === "current") {
+      return members.filter((m) => m.membership_status.is_member === filter)
+    } else if(filter === "removed") {
+      return members.filter((m)=> m.membership_status.is_member === filter)
+    }
+
+
+    }
     const WhichToRender = () => {
       console.log("which to render", this.props)
 
       if(window.location.pathname === "/membershipmanagement/removedmembers") {
+
         return(
-        <div>
+
           <RemovedMembers
-            members={this.props.members}
+            members={filteredMembers(this.props.members, "removed")}
             memberFormData={this.props.memberFormData}
             onClick={this.handleClick}
             handleOnChange={this.handleOnChange}
             clubs={this.props.clubs} />
-            </div>
+
         )
       } else if (window.location.pathname === "/membershipmanagement/memberrenewal") {
         return(
           <MemberRenewal
-          members={this.props.members}
+          members={filteredMembers(this.props.members, "current")}
           memberFormData={this.props.memberFormData}
           clubs={this.props.clubs}
           renewOnClick={this.renewOnClick}
@@ -110,7 +122,7 @@ class MemberListContainer extends Component {
       } else if (window.location.pathname === "/membershipmanagement/pendingmembers") {
         return(
           <PendingMembers
-          members={this.props.members}
+          members={filteredMembers(this.props.members, "pending")}
           clubs={this.props.clubs}
           approvePendingMemberOnClick={this.approvePendingMemberOnClick}
           handleOnChange={this.handleOnChange}

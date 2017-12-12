@@ -41,7 +41,8 @@ class App extends React.Component {
         <Router history={history}>
         <div>
           <Route exact path="/" component={Home} />
-          <Route exact path="/membershipmanagement" render={()=><MembershipManagement />}/>
+          
+          <Route exact path="/membershipmanagement" component={MembershipManagement} />
           <Route exact path="/addmember" component={AddMember} />
           <Route exact path="/addclub" component={Club} />
           <Route exact path="/contactinfo" component={ContactInfo} />
