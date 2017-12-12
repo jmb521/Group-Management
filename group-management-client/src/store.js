@@ -5,7 +5,7 @@ import {
 } from 'redux'
 import thunk from 'redux-thunk'
 import membersreducer from './reducers/membersreducer'
-import clubs from './reducers/clubListReducer'
+import clubs from './reducers/clubs'
 import clubFormData from './reducers/clubFormData'
 import memberFormData from './reducers/memberFormData'
 import club from './reducers/clubs'

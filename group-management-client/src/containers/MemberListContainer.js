@@ -94,7 +94,7 @@ class MemberListContainer extends Component {
 
     }
     const WhichToRender = () => {
-      console.log(window)
+      
 
       if(window.location.href === "http://localhost:3000/membershipmanagement/removedmembers") {
 
