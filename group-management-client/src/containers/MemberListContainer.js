@@ -5,21 +5,19 @@ import React, {Component} from 'react';
 import {getMemberList} from '../reducers/client.js'
 import {RemovedMembers} from './RemovedMembers'
 import { connect } from 'react-redux'
-import {memberFormData} from '../reducers/memberFormData'
+// import {memberFormData} from '../reducers/memberFormData'
 import { updateMemberFormData } from '../actions/memberForm'
 import {getClubs} from '../actions/club_list'
 import {PendingMembers} from './PendingMembers'
 // import store from '../store.js'
 import {MemberRenewal} from './MemberRenewal'
-import membersreducer from '../reducers/membersreducer'
+// import membersreducer from '../reducers/membersreducer'
+import {bindActionCreators} from 'redux'
+import {MembershipManagement} from './MembershipManagement'
 
 
 class MemberListContainer extends Component {
 
-  state = {
-    members: [],
-    clubs: [],
-  }
   componentDidMount() {
     // this.props.memberFormData();
     this.props.getClubs();
@@ -94,7 +92,7 @@ class MemberListContainer extends Component {
 
     }
     const WhichToRender = () => {
-      
+
 
       if(window.location.href === "http://localhost:3000/membershipmanagement/removedmembers") {
 
@@ -129,7 +127,15 @@ class MemberListContainer extends Component {
           />
 
         )
-      } else {
+      } else if(window.location.href === "http://localhost:3000/membershipmanagement") {
+        return(
+        <MembershipManagement
+        members={this.props.members}
+        clubs={this.props.clubs}
+        handleOnChange={this.handleOnChange}
+        />
+      )
+      }else {
         return(
           <div>
           </div>
@@ -155,9 +161,12 @@ class MemberListContainer extends Component {
   })
 }
 
-export default connect(mapStateToProps, {
-  getClubs,
-  getMemberList,
-  updateMemberFormData,
-  membersreducer,
-})(MemberListContainer)
+const mapDispatchToProps = (dispatch)  => {
+  return bindActionCreators({
+    getClubs: getClubs,
+    getMemberList: getMemberList,
+    updateMemberFormData: updateMemberFormData,
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MemberListContainer)
