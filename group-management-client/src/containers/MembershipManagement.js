@@ -1,6 +1,6 @@
 //shows demographics for all members.
 
-import React, { Component } from 'react';
+import React from 'react';
 import {MemberCount} from './MemberCount'
 import {PendingMemberCount} from './PendingMemberCount'
 import { Grid, Row, Col} from 'react-bootstrap'
