@@ -14,7 +14,7 @@ console.log(store);
 
 
 ReactDOM.render(
-<Provider store = { store }>
+<Provider store={ store }>
   <App />
 
 </Provider>,

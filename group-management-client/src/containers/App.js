@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css'
 
 import { Router, Route } from 'react-router';
-import MembershipManagement from './MembershipManagement'
+import {MembershipManagement} from './MembershipManagement'
 import Kids from './Kids'
 import {ContactInfo} from './ContactInfo'
 import Family from './Family'
@@ -42,13 +42,13 @@ class App extends React.Component {
         <div>
           <Route exact path="/" component={Home} />
 
-          <Route exact path="/membershipmanagement" component={MembershipManagement} />
           <Route exact path="/addmember" component={AddMember} />
           <Route exact path="/addclub" component={Club} />
           <Route exact path="/contactinfo" component={ContactInfo} />
           <Route exact path="/family" component={Family} />
           <Route exact path="/kids" component={Kids} />
           <MemberListContainer>
+          <Route exact path="/membershipmanagement" component={MembershipManagement} />
 
           <Route exact path="/membershipmanagement/pendingmembers" component={PendingMembers} />
           <Route exact path="/membershipmanagement/memberrenewal" component={MemberRenewal} />
