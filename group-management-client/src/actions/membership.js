@@ -3,7 +3,11 @@ import fetch from 'isomorphic-fetch'
 const setMembers = members => {
   return {
     type: 'GET_MEMBERS_SUCCESS',
+    
     members
+
+    }
+
   };
 }
 //action creator

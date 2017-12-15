@@ -32,7 +32,7 @@ class Club extends Component {
   handleSubmitClick = (event) => {
     event.preventDefault();
     this.props.createClub(this.props.clubFormData)
-
+    window.location = "/membershipmanagement"
   }
 
 

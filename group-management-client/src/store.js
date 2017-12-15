@@ -9,7 +9,7 @@ import clubs from './reducers/clubs'
 import clubFormData from './reducers/clubFormData'
 import memberFormData from './reducers/memberFormData'
 import club from './reducers/clubs'
-import pendingmembercount from './reducers/membershipdashboardreducer'
+
 // import member from './reducers/members'
 
 // import {routerReducer} from 'react-router-redux'
@@ -20,8 +20,8 @@ const reducers = combineReducers({
   clubs: clubs,
   memberFormData: memberFormData,
   club: club,
-  pendingmembercount: pendingmembercount,
   
+
   // member: member,
 
   // routing: routerReducer

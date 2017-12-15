@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { Grid, Row, Col} from 'react-bootstrap'
 // import { getMembers } from '../actions/membership'
 // import { bindActionCreators } from 'redux'
-import membershipdashboardreducer from '../reducers/membershipdashboardreducer'
+
 import membersreducer from '../reducers/membersreducer'
 // import { updateMemberStatus } from '../actions/membership'
 // import {removeMember } from '../actions/membership'
