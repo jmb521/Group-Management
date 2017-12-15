@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import UserInfo from './UserInfo'
 import { Grid, Row, Col} from 'react-bootstrap'
 
-class AddMember extends Component {
 
-  render() {
+const AddMember = (props) => {
+
     return(
       <div>
         <Grid>
@@ -27,6 +27,6 @@ class AddMember extends Component {
       </div>
     )
   }
-}
+
 
 export default AddMember
