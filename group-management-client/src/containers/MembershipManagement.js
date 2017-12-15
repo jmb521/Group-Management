@@ -3,22 +3,10 @@
 import React, { Component } from 'react';
 import {MemberCount} from './MemberCount'
 import {PendingMemberCount} from './PendingMemberCount'
-// import {bindActionCreators} from 'redux'
-// import EachMember from './EachMember'
-import { connect } from 'react-redux'
 import { Grid, Row, Col} from 'react-bootstrap'
-// import { getMembers } from '../actions/membership'
-// import { bindActionCreators } from 'redux'
-
-import membersreducer from '../reducers/membersreducer'
-// import { updateMemberStatus } from '../actions/membership'
-// import {removeMember } from '../actions/membership'
 import {GetClubs} from './GetClubs'
-import store from '../store.js'
+
 export const MembershipManagement = function(props) {
-
-
-
     const pendingmembercount = props.members.filter((m) => m.membership_status.is_member === "pending").length
     const membercount = props.members.length
     return(
