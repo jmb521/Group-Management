@@ -14,7 +14,7 @@ import {MemberRenewal} from './MemberRenewal'
 // import membersreducer from '../reducers/membersreducer'
 import {bindActionCreators} from 'redux'
 import {MembershipManagement} from './MembershipManagement'
-
+import {updatePendingStatus} from './actions/membership'
 
 class MemberListContainer extends Component {
 
@@ -34,9 +34,10 @@ class MemberListContainer extends Component {
   handleClick = () => {
 
   }
-  approvePendingMemberOnClick = () => {
-
+  approvePendingMemberOnClick = (id) => {
+    this.props.updatePendingStatus(id)
   }
+
 
   renewOnClick = (e) => {
     e.preventDefault();
