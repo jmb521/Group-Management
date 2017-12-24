@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resources :membership_statuses
     end
     resources :users do
-      resources :membership_statuses, only: [:show, :edit, :update]
+      resources :membership_statuses, only: [:show, :edit, :update, :index]
     end
 
   end

@@ -1,8 +1,10 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:update, :destroy, :show]
-  before_action :set_club, only: [:index]
+  before_action :set_club, only: [:index, :create]
   def index
+
     @user = @club.users
+    # render json: @users, :include => [:membership_status]
     render json: @user, :include => [:user_kids, :membership_status, :user_contact_info]
   end
 
@@ -15,7 +17,8 @@ class Api::UsersController < ApplicationController
 
     @user.build_user_family
     @user.build_user_contact_info
-    
+    @user.build_membership_status
+
     if @user.save
       render json: @user
     else
