@@ -9,19 +9,21 @@ export default (state = [], action) => {
     case 'REMOVE_MEMBER':
         return action.members;
     case 'UPDATE_PENDING_MEMBER':
-      console.log("the state in the reducer: ", state)
-        const updatedMembers = state.map((m) => {
-          if(m.id === action.membership_status.id) {
-            m.membership_status = action.membership_status;
-          }
-          return {
-            ...state,
-            updatedMembers
-          }
+    return state.map( (item) => {
+    if(item.id !== action.membership_status.id) {
+        // This isn't the item we care about - keep it as-is
+        return item;
+    }
 
-        });
-        console.log("state after changes: ", state)
-        
+    // Otherwise, this is the one we want - return an updated value
+    return {
+        ...item,
+        ...action
+    };
+
+})
+
+
 
     default:
       return state;

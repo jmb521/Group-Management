@@ -24,7 +24,7 @@ class MemberListContainer extends Component {
   }
   approvePendingMemberOnClick = (membershipStatusId, id) => {
     store.dispatch(updatePendingStatus(membershipStatusId, id));
-
+    
   }
 
 
@@ -44,8 +44,6 @@ class MemberListContainer extends Component {
       memberStatus: "removed"
     })
   }
-
-
 
 
 

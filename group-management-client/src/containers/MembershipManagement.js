@@ -4,7 +4,7 @@ import React from 'react';
 import {MemberCount} from './MemberCount'
 import {PendingMemberCount} from './PendingMemberCount'
 import { Grid, Row, Col} from 'react-bootstrap'
-import {GetClubs} from './GetClubs'
+import GetClubs from './GetClubs'
 
 export const MembershipManagement = function(props) {
     const pendingmembercount = props.members.filter((m) => m.membership_status.is_member === "pending").length
