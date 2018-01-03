@@ -1,7 +1,7 @@
 //this is for setting all members to a "holding" position so that the membership person can process all members and see which ones still need to be changed.
 import React from 'react';
 import {Grid, Table, Button} from 'react-bootstrap'
-import {GetClubs} from './GetClubs'
+import GetClubs from './GetClubs'
 
 export const MemberRenewal = function(props) {
 
@@ -26,7 +26,7 @@ export const MemberRenewal = function(props) {
           <h1>Membership Renewal</h1>
           <h5> This is only for current members</h5>
           <br />
-          <GetClubs clubs={props.clubs} handleOnChange={props.handleOnChange} />
+          <GetClubs />
           <br />
           <Table>
             <thead>

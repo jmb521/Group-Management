@@ -2,40 +2,29 @@
 //pulls state for all member status.
 //allows for filtering of club_id and membership_status
 import React, {Component} from 'react';
-import {getMemberList} from '../reducers/client.js'
+
 import {RemovedMembers} from './RemovedMembers'
 import { connect } from 'react-redux'
 // import {memberFormData} from '../reducers/memberFormData'
-import { updateMemberFormData } from '../actions/memberForm'
-import {getClubs} from '../actions/club_list'
+
+
 import {PendingMembers} from './PendingMembers'
-// import store from '../store.js'
+import store from '../store.js'
 import {MemberRenewal} from './MemberRenewal'
 // import membersreducer from '../reducers/membersreducer'
 import {bindActionCreators} from 'redux'
 import {MembershipManagement} from './MembershipManagement'
-import {updatePendingStatus} from './actions/membership'
+import {updatePendingStatus} from '../actions/membership'
+import {updatependingmember} from '../actions/membership'
 
 class MemberListContainer extends Component {
-
-  componentDidMount() {
-    // this.props.memberFormData();
-    this.props.getClubs();
-    // store.subscribe(() => this.forceUpdate());
-  }
-
-  loadUpdatedMembers = (club_id) => {
-  //  this.props.getMemberList(club_id);
-
-    this.props.getMemberList(club_id)
-    console.log("&&", this.props.members)
-  }
 
   handleClick = () => {
 
   }
-  approvePendingMemberOnClick = (id) => {
-    this.props.updatePendingStatus(id)
+  approvePendingMemberOnClick = (membershipStatusId, id) => {
+    store.dispatch(updatePendingStatus(membershipStatusId, id));
+
   }
 
 
@@ -56,29 +45,9 @@ class MemberListContainer extends Component {
     })
   }
 
-  handleOnChange = (event) => {
 
 
-    let name=""
-    let value=""
-    if(event.target.name === "club_id") {
-      name = event.target.name;
-      value = event.target.options[event.target.selectedIndex].id
 
-    } else {
-
-       name = event.target.name;
-       value = event.target.value;
-
-    }
-
-    const currentMemberFormData = Object.assign({}, this.props.memberFormData, {
-      [name]: value
-    })
-
-    this.props.updateMemberFormData(currentMemberFormData)
-    this.loadUpdatedMembers(value)
-  }
 
   render() {
     const filteredMembers = (members, filter) => {
@@ -104,7 +73,7 @@ class MemberListContainer extends Component {
             memberFormData={this.props.memberFormData}
             onClick={this.handleClick}
             handleOnChange={this.handleOnChange}
-            clubs={this.props.clubs} />
+             />
 
         )
       } else if (window.location.href === "http://localhost:3000/membershipmanagement/memberrenewal") {
@@ -112,7 +81,7 @@ class MemberListContainer extends Component {
           <MemberRenewal
           members={filteredMembers(this.props.members, "current")}
           memberFormData={this.props.memberFormData}
-          clubs={this.props.clubs}
+
           renewOnClick={this.renewOnClick}
           removeOnClick={this.removeOnClick}
           handleOnChange={this.handleOnChange}
@@ -122,7 +91,7 @@ class MemberListContainer extends Component {
         return(
           <PendingMembers
           members={filteredMembers(this.props.members, "pending")}
-          clubs={this.props.clubs}
+
           approvePendingMemberOnClick={this.approvePendingMemberOnClick}
           handleOnChange={this.handleOnChange}
           />
@@ -132,7 +101,7 @@ class MemberListContainer extends Component {
         return(
         <MembershipManagement
         members={this.props.members}
-        clubs={this.props.clubs}
+
         handleOnChange={this.handleOnChange}
         />
       )
@@ -156,17 +125,18 @@ class MemberListContainer extends Component {
 
  const mapStateToProps = (state) => {
   return({
-    clubs: state.clubs,
+
     memberFormData: state.memberFormData,
     members: state.members,
+    selectedClub: state.selectedClub,
   })
 }
 
 const mapDispatchToProps = (dispatch)  => {
   return bindActionCreators({
-    getClubs: getClubs,
-    getMemberList: getMemberList,
-    updateMemberFormData: updateMemberFormData,
+    // updateMemberFormData: updateMemberFormData,
+    updatePendingStatus: updatePendingStatus,
+    updatependingmember: updatependingmember,
   }, dispatch)
 }
 

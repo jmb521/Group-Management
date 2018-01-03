@@ -1,6 +1,6 @@
 // //shows a list of former members
 import React from 'react';
-import {GetClubs} from './GetClubs'
+import GetClubs from './GetClubs'
 import { Grid, Table, Button} from 'react-bootstrap';
 
 export const RemovedMembers = function(props) {
@@ -28,7 +28,7 @@ export const RemovedMembers = function(props) {
     <div>
       <Grid>
         <h1>Former Member List</h1>
-          <GetClubs clubs={props.clubs} handleOnChange={props.handleOnChange} />
+          <GetClubs />
           <Table>
             <thead>
               <tr>

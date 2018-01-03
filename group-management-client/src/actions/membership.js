@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
+
 const setMembers = members => {
   return {
     type: 'GET_MEMBERS_SUCCESS',
@@ -9,16 +10,23 @@ const setMembers = members => {
     }
 
   };
-}
+
 //action creator
-export const updateMemberStatus = () => {
+export const updateMemberStatus = users => {
 
   return {
     type: 'UPDATE_MEMBERSHIP_STATUS',
-    payload: {is_member: "not a member"}
+
   }
 }
+export const updatependingmember = (membership_status) => {
 
+    return {
+      type: 'UPDATE_PENDING_MEMBER',
+      membership_status: membership_status,
+
+  }
+}
 
 
 export const getMembers = () => {
@@ -40,7 +48,22 @@ export const removeMember = (member) => {
       body: JSON.stringify({membership_status: {"is_member": "not a member"}})
     })
     .then(response => response.json())
-    .then(user => dispatch(updateMemberStatus({membership_status: {"is_member": "not a member"}})))
+    .then(user => dispatch(updateMemberStatus(user)))
     .then(error => console.log(error))
   }
 }
+ export const updatePendingStatus = (membershipStatusId, id) => {
+   return (dispatch) => {
+     return fetch(`http://localhost:3001/api/users/${id}/membership_statuses/${membershipStatusId}`, {
+       method: "PUT",
+       headers: {
+         'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({"is_member": "current"})
+     })
+     .then(response => response.json())
+     .then(user => dispatch(updatependingmember(user)))
+     .catch(error => console.log(error))
+   }
+
+ }

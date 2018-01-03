@@ -1,10 +1,11 @@
 // import { hashHistory } from 'react-router'
 
 export const updateMemberFormData = memberFormData => {
-
+  console.log("inside updatememberformdata", memberFormData)
   return {
     type: 'UPDATED_MEMBER',
-    memberFormData
+    memberFormData,
+    
 
   }
 }
@@ -18,21 +19,22 @@ export const addMember = members => {
 }
 
 export const createMember = user => {
+  console.log(user)
   return dispatch => {
-    console.log(user)
+
     return fetch(`http://localhost:3001/api/clubs/${user.club_id}/users`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({user: user})
+     body: JSON.stringify(user)
     })
+    .catch(error => console.log(error))
     .then(response => response.json())
     .then(user => {
-      console.log(user.id)
+
       dispatch(addMember(user))
 
     })
-    .catch(error => console.log(error))
   }
 }

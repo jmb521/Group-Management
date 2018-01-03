@@ -1,13 +1,14 @@
 //shows a list of potential members. They need to be approved to have full access.
 import React from 'react';
 import { Grid, Table, Button} from 'react-bootstrap';
-import {GetClubs} from './GetClubs'
+import GetClubs from './GetClubs'
+
+
 
 export const PendingMembers = function(props) {
 
-
-
     const memberList = props.members.map((m) => {
+
       return (
         <tbody key={m.id}>
 
@@ -16,7 +17,7 @@ export const PendingMembers = function(props) {
             <td>{m.last_name}</td>
             <td>{m.user_contact_info.email}</td>
             <td>{m.signUpDate}</td>
-            <td><Button id={m.id} onClick={props.approvePendingMemberOnClick}>Approve</Button></td>
+            <td><Button onClick={() => props.approvePendingMemberOnClick(m.membership_status.id, m.id)}>Approve</Button></td>
         </tr>
 
         </tbody>
@@ -26,7 +27,7 @@ export const PendingMembers = function(props) {
       <div>
         <Grid>
           <h1 className="pendingmembersheader">Pending Members</h1>
-          <GetClubs clubs={props.clubs} handleOnChange={props.handleOnChange}/>
+          <GetClubs />
           <Table className="pendinggrid">
             <thead>
             <tr>
