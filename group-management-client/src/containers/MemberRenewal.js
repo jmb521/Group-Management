@@ -13,7 +13,7 @@ export const MemberRenewal = function(props) {
         <td>{m.last_name}</td>
         <td>{m.user_contact_info.email}</td>
         <td>{m.membership_status.is_member}</td>
-        <td><Button onClick={() => {props.renewOnClick(m.membership_status.id, m.id)}}>Renew</Button> &nbsp; <Button onClick={props.removeOnClick(m.membership_status.id, m.id)}>Remove</Button></td>
+        <td><Button onClick={() => {props.renewOnClick(m.membership_status.id, m.id)}}>Renew</Button> &nbsp; <Button onClick={()=>{props.removeOnClick(m.membership_status.id, m.id)}}>Remove</Button></td>
       </tr>
       </tbody>
     )

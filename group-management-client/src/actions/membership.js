@@ -40,6 +40,12 @@ export const updateRemovalStatus = (membership_status) => {
     membership_status: membership_status,
   }
 }
+export const updateReinstateStatus = (membership_status) => {
+  return {
+    type: 'UPDATE_REINSTATE_STATUS',
+    membership_status: membership_status,
+  }
+}
 
 
 export const getMembers = () => {
@@ -107,6 +113,20 @@ export const removeMember = (member) => {
      })
      .then(response => response.json())
      .then(user => dispatch(updateRemovalStatus(user)))
+     .catch(error => console.log(error))
+   }
+ }
+ export const updatereinstatestatus = (membershipStatusId, id) => {
+   return (dispatch) => {
+     return fetch(`http://localhost:3001/api/users/${id}/membership_statuses/${membershipStatusId}`, {
+       method: "PUT",
+       headers: {
+         'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({"is_member": "current"})
+     })
+     .then(response => response.json())
+     .then(user => dispatch(updateReinstateStatus(user)))
      .catch(error => console.log(error))
    }
  }

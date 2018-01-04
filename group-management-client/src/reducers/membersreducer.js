@@ -42,6 +42,17 @@ export default (state = [], action) => {
         }
       })
 
+      case 'UPDATE_REINSTATE_STATUS':
+       return state.map((item) => {
+         if(item.id !== action.membership_status.id) {
+           return item;
+         }
+         return {
+           ...item,
+           ...action
+         }
+       })
+
     default:
       return state;
 

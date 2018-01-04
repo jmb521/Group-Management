@@ -15,7 +15,7 @@ export const RemovedMembers = function(props) {
              <td>{m.first_name}</td>
              <td>{m.last_name}</td>
              <td>{m.user_contact_info.email}</td>
-             <td><Button onClick={props.onClick}>Reinstate</Button></td>
+             <td><Button onClick={()=>{props.reinstateOnClick(m.membership_status.id, m.id)}}>Reinstate</Button></td>
              </tr>
              </tbody>
            )
