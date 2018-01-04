@@ -3,7 +3,7 @@ import {getClubs} from '../actions/club_list'
 import { Form, Row, Col, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux'
-import store from '../store.js'
+
 import {getMemberList} from '../reducers/client.js'
 import { updateMemberFormData } from '../actions/memberForm'
 
@@ -19,7 +19,7 @@ class GetClubs extends Component {
     if(event.target.name === "club_id") {
       name = event.target.name;
       value = event.target.options[event.target.selectedIndex].id
-      
+
 
     } else {
 
