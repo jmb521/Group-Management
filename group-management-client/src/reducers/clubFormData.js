@@ -11,7 +11,9 @@ const initialState = {
 
   switch(action.type) {
     case 'UPDATED_DATA':
+      
       return action.clubFormData
+
     case 'RESET_CLUB_FORM':
       return initialState;
     default:

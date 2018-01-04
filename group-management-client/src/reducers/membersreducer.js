@@ -53,6 +53,17 @@ export default (state = [], action) => {
          }
        })
 
+       case 'RESET_MEMBERSHIP':
+       return state.map((item) => {
+         if(item.id !== action.membership_status.id) {
+           return item;
+         }
+         return {
+           ...item,
+           ...action
+         }
+       })
+
     default:
       return state;
 

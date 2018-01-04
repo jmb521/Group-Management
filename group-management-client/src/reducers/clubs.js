@@ -4,6 +4,7 @@ export default (state = [], action) => {
       return state.concat(action.club);
     case 'GET_CLUBS_SUCCESS':
       return action.clubs
+    
     default:
       return state;
 

@@ -21,6 +21,7 @@ const reducers = combineReducers({
   clubs: clubs,
   memberFormData: memberFormData,
   club: club,
+  
 
 
 

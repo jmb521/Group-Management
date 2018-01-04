@@ -46,6 +46,12 @@ export const updateReinstateStatus = (membership_status) => {
     membership_status: membership_status,
   }
 }
+export const resetMembership = (membership_status) => {
+  return {
+    type: 'RESET_MEMBERSHIP',
+    membership_status: membership_status,
+  }
+}
 
 
 export const getMembers = () => {
@@ -94,7 +100,7 @@ export const removeMember = (member) => {
        headers: {
          'Content-Type': 'application/json'
        },
-       body: JSON.stringify({"is_member": "renewed", "membership_paid": "true"})
+       body: JSON.stringify({"is_member": "current", "membership_paid": "true", "updated_at": Date.now()})
      })
      .then(response => response.json())
      .then(user => dispatch(updateRenewalStatus(user)))
@@ -127,6 +133,22 @@ export const removeMember = (member) => {
      })
      .then(response => response.json())
      .then(user => dispatch(updateReinstateStatus(user)))
+     .catch(error => console.log(error))
+   }
+ }
+
+ export const resetmembership = (id) => {
+   console.log("resetmembership id", id)
+   return(dispatch) => {
+     return fetch(`http://localhost:3001/api/users/${id}/membership_statuses/${id}`, {
+       method: "PUT",
+       headers: {
+         'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({"membership_paid": "false"})
+     })
+     .then(response => response.json())
+     .then(members => dispatch(resetMembership(members)))
      .catch(error => console.log(error))
    }
  }
