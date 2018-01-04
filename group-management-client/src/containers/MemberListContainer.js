@@ -17,6 +17,7 @@ import {MembershipManagement} from './MembershipManagement'
 import {updatependingmember} from '../actions/membership'
 import {updaterenewalstatus} from '../actions/membership'
 import {updatePendingStatus} from '../actions/membership'
+import {updateremovalstatus} from '../actions/membership'
 
 
 class MemberListContainer extends Component {
@@ -34,8 +35,8 @@ class MemberListContainer extends Component {
 
     store.dispatch(updaterenewalstatus(membershipStatusId, id))
   }
-  removeOnClick = () => {
-
+  removeOnClick = (membershipStatusId, id) => {
+    store.dispatch(updateremovalstatus(membershipStatusId, id))
   }
 
 
@@ -94,7 +95,7 @@ class MemberListContainer extends Component {
         return(
         <MembershipManagement
         members={this.props.members}
-
+        
         handleOnChange={this.handleOnChange}
         />
       )
@@ -103,6 +104,7 @@ class MemberListContainer extends Component {
         <CurrentMembers
         members={filteredMembers(this.props.members, "renewed, current")}
         handleOnChange={this.handleOnChange}
+        removeOnClick={this.removeOnClick}
         />
       )
     } else {
@@ -138,6 +140,7 @@ const mapDispatchToProps = (dispatch)  => {
     updatePendingStatus: updatePendingStatus,
     updatependingmember: updatependingmember,
     updaterenewastatus: updaterenewalstatus,
+    updateremovalstatus: updateremovalstatus,
   }, dispatch)
 }
 
