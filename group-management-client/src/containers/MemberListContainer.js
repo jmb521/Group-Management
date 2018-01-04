@@ -14,8 +14,10 @@ import {MemberRenewal} from './MemberRenewal'
 // import membersreducer from '../reducers/membersreducer'
 import {bindActionCreators} from 'redux'
 import {MembershipManagement} from './MembershipManagement'
-import {updatePendingStatus} from '../actions/membership'
 import {updatependingmember} from '../actions/membership'
+import {updaterenewalstatus} from '../actions/membership'
+import {updatePendingStatus} from '../actions/membership'
+
 
 class MemberListContainer extends Component {
 
@@ -24,25 +26,16 @@ class MemberListContainer extends Component {
   }
   approvePendingMemberOnClick = (membershipStatusId, id) => {
     store.dispatch(updatePendingStatus(membershipStatusId, id));
+
+  }
+
+
+  renewOnClick = (membershipStatusId, id) => {
+
+    store.dispatch(updaterenewalstatus(membershipStatusId, id))
+  }
+  removeOnClick = () => {
     
-  }
-
-
-  renewOnClick = (e) => {
-    e.preventDefault();
-    this.setState({
-      memberStatus: "renewed for 2017-2018"
-    })
-  }
-
-  removeOnClick = (e) => {
-    e.preventDefault();
-
-    //I think this may need to dispatch an action that would set the state AND
-    //update the server with the data.
-    this.setState({
-      memberStatus: "removed"
-    })
   }
 
 
@@ -126,7 +119,7 @@ class MemberListContainer extends Component {
 
     memberFormData: state.memberFormData,
     members: state.members,
-    selectedClub: state.selectedClub,
+
   })
 }
 
@@ -135,6 +128,7 @@ const mapDispatchToProps = (dispatch)  => {
     // updateMemberFormData: updateMemberFormData,
     updatePendingStatus: updatePendingStatus,
     updatependingmember: updatependingmember,
+    updaterenewastatus: updaterenewalstatus,
   }, dispatch)
 }
 

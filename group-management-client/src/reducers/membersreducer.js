@@ -21,7 +21,17 @@ export default (state = [], action) => {
         ...action
     };
 
-})
+  })
+    case 'UPDATE_RENEWAL_STATUS':
+     return state.map((item) => {
+       if(item.id !== action.membership_status.id) {
+         return item;
+       }
+       return {
+         ...item,
+         ...action
+       }
+     })
 
 
 
