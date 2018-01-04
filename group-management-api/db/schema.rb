@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20180104172122) do
     t.integer "user_id"
     t.string "membership_paid"
     t.integer "club_id"
-    t.date "updated_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_contact_infos", force: :cascade do |t|
