@@ -81,7 +81,7 @@ export const removeMember = (member) => {
        headers: {
          'Content-Type': 'application/json'
        },
-       body: JSON.stringify({"is_member": "renewed"})
+       body: JSON.stringify({"is_member": "renewed", "membership_paid": "true"})
      })
      .then(response => response.json())
      .then(user => dispatch(updateRenewalStatus(user)))

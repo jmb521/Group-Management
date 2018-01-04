@@ -7,7 +7,7 @@ import {RemovedMembers} from './RemovedMembers'
 import { connect } from 'react-redux'
 // import {memberFormData} from '../reducers/memberFormData'
 
-
+import {CurrentMembers} from './CurrentMembers'
 import {PendingMembers} from './PendingMembers'
 import store from '../store.js'
 import {MemberRenewal} from './MemberRenewal'
@@ -35,19 +35,21 @@ class MemberListContainer extends Component {
     store.dispatch(updaterenewalstatus(membershipStatusId, id))
   }
   removeOnClick = () => {
-    
+
   }
 
 
 
   render() {
-    const filteredMembers = (members, filter) => {
+    const filteredMembers = (members, filter, alternate_filter) => {
     if(filter === "pending") {
       return members.filter((m)=> m.membership_status.is_member === filter);
     } else if(filter === "current") {
       return members.filter((m) => m.membership_status.is_member === filter)
     } else if(filter === "removed") {
       return members.filter((m)=> m.membership_status.is_member === filter)
+    } else if(filter !== "removed" || filter !== "pending") {
+      return members.filter((m) => m.membership_status.is_member !== "removed" && m.membership_status.is_member !== "pending")
     }
 
 
@@ -96,7 +98,14 @@ class MemberListContainer extends Component {
         handleOnChange={this.handleOnChange}
         />
       )
-      }else {
+    } else if(window.location.href === "http://localhost:3000/membershipmanagement/currentmembers") {
+      return(
+        <CurrentMembers
+        members={filteredMembers(this.props.members, "renewed, current")}
+        handleOnChange={this.handleOnChange}
+        />
+      )
+    } else {
         return(
           <div>
           </div>
