@@ -1,21 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { Grid, Row, Col, FormGroup, ControlLabel, Form, FormControl, HelpBlock, Checkbox} from 'react-bootstrap'
 
-class UserContactInfo extends Component {
-  constructor() {
-    super()
-    this.state = {
-      email: "",
-      phone: "",
-      preferred_method: "Facebook",
-      text_message: "true"
-    }
-  }
+function FieldGroup({ id, label, help, ...props }) {
+   return (
+     <FormGroup controlId={id}>
+       <ControlLabel>{label}</ControlLabel>
+       <FormControl {...props} />
+       {help && <HelpBlock>{help}</HelpBlock>}
+     </FormGroup>
+   );
+}
+export const UserContactInfo = (props) => {
 
-  render() {
+
     return (
       <Grid>
         <Form>
-        </Row>
+
         <h3>Contact Info</h3>
         <Row>
           <Col xs={12} md={4}>
@@ -24,6 +25,7 @@ class UserContactInfo extends Component {
           type="text"
           label="Email"
           placeholder="Enter email"
+          onChange={props.handleOnChange}
           />
           </Col>
           <Col xs={12} md={4}>
@@ -32,13 +34,14 @@ class UserContactInfo extends Component {
           type="text"
           label="Phone"
           placeholder="Enter phone"
+          onChange={props.handleOnChange}
           />
           </Col>
           </Row>
           <Row>
           <Col xs={12} md={4}>
-          <Checkbox checked readOnly>
-            Yes, you can send me a text. 
+          <Checkbox onChange={props.handleOnChange}>
+            Yes, you can send me a text.
           </Checkbox>
           </Col>
           </Row>
@@ -46,7 +49,7 @@ class UserContactInfo extends Component {
           <Col xs={12} md={8}>
             <FormGroup controlId="formControlsSelect">
             <ControlLabel>Preferred Method of Contact</ControlLabel>
-              <FormControl componentClass="select" placeholder="Preferred Method">
+              <FormControl componentClass="select" placeholder="Preferred Method" onChange={props.handleOnChange}>
                 <option value="Facebook">Facebook</option>
                 <option value="Email">Email</option>
                 <option value="Text Message">Text Message</option>
@@ -58,4 +61,3 @@ class UserContactInfo extends Component {
       </Grid>
     )
   }
-}

@@ -1,18 +1,45 @@
-import React from 'react'
+import React, {Component} from 'react'
+import {UserContactInfo} from './UserContactInfo'
+import { connect } from 'react-redux'
+import {bindActionCreators} from 'redux'
+import store from '../store.js'
+import {Kids} from './Kids'
+import {Family} from './Family'
 
+class ContactInfo extends Component {
+  //use the member id from the newly created member
 
-// class ContactInfo extends Component {
+  render() {
 
-  // render() {
-    // return(
-export const ContactInfo = () => {
-  return (
+    return (
 
-           <div>
-          <h3>You made it!</h3>
-          </div>
+      <div>
+        <div>
+          <UserContactInfo />
+        </div>
+        <div>
+          <Family />
+        </div>
+        <div>
+          <Kids />
+        </div>
 
-  )
+      </div>
+
+    )
+  }
+  }
+  const mapStateToProps = state => {
+    return ({
+      members: state.members,
+
+    })
   }
 
-// export default ContactInfo
+  const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+
+    })
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactInfo)

@@ -3,9 +3,9 @@ import '../App.css'
 
 import { Router, Route } from 'react-router';
 import {MembershipManagement} from './MembershipManagement'
-import Kids from './Kids'
-import {ContactInfo} from './ContactInfo'
-import Family from './Family'
+import {Kids} from './Kids'
+import ContactInfo from './ContactInfo'
+import {Family} from './Family'
 import Navigation from './Nav'
 import Home from './Home'
 import AddMember from './AddMember'
@@ -44,8 +44,9 @@ class App extends React.Component {
           <Route exact path="/" component={Home} />
 
           <Route exact path="/addmember" component={AddMember} />
-          <Route exact path="/addclub" component={Club} />
           <Route exact path="/contactinfo" component={ContactInfo} />
+
+          <Route exact path="/addclub" component={Club} />
           <Route exact path="/family" component={Family} />
           <Route exact path="/kids" component={Kids} />
           <MemberListContainer>
