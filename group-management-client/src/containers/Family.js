@@ -1,13 +1,12 @@
-import React, {Component} from 'react'
+import React from 'react'
 
 
-class Family extends Component {
+export const Family = (props) => {
 
-  render() {
+
     return(
       <div>
+      User Family
       </div>
     )
   }
-}
-export default Family

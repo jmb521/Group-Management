@@ -1,13 +1,11 @@
-import React, {Component} from 'react'
+import React from 'react'
 
 
-class Kids extends Component {
+export const Kids = (props) => {
 
-  render() {
     return(
       <div>
+      User Kids
       </div>
     )
   }
-}
-export default Kids
