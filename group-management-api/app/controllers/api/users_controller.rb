@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
 
     @user = @club.users
     # render json: @users, :include => [:membership_status]
-    render json: @user, :include => [:user_kids, :membership_status, :user_contact_info]
+    render json: @user, :include => [:user_kids, :membership_status, :user_contact_info, :user_family]
   end
 
   def show
@@ -18,6 +18,7 @@ class Api::UsersController < ApplicationController
     @user.build_user_family
     @user.build_user_contact_info
     @user.build_membership_status
+
 
     if @user.save
       render json: @user
@@ -65,9 +66,9 @@ class Api::UsersController < ApplicationController
       :city,
       :state,
       :zipcode,
-      {user_kids: []},
+      user_kids: [:user_id, :kid_name, :kid_birthday ],
       user_family_attributes: [:user_id, :user_birthday, :spouse, :spouse_birthday],
-      user_contact_infos: [:user_id, :email, :home_phone, :text_message, :preferred_method]
+      user_contact_infos: [:user_id, :email, :home_phone, :text_message, :preferred_method],
       )
     end
 end
