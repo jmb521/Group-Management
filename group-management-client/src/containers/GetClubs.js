@@ -11,6 +11,7 @@ class GetClubs extends Component {
   componentDidMount() {
     this.props.getClubs()
   }
+  
   handleOnChange = (event) => {
 
 
@@ -33,7 +34,10 @@ class GetClubs extends Component {
     })
 
     this.props.updateMemberFormData(currentMemberFormData)
-    this.loadUpdatedMembers(value)
+
+    if(window.location.href !== "http://localhost:3000/addmember") {
+      this.loadUpdatedMembers(value)
+    }
   }
 
   loadUpdatedMembers = (club_id) => {
@@ -47,12 +51,12 @@ class GetClubs extends Component {
 
         <Form>
           <Row>
-           <Col xs={12} md={4}>
+           <Col xs={12} md={6}>
              <FormGroup controlId="formControlsSelect">
                    <ControlLabel>Select</ControlLabel>
                      <FormControl componentClass="select" placeholder="select" onChange={this.handleOnChange} name="club_id">
                       <option value="test">...</option>
-                       {this.props.clubs.map((club, key) => <option name="club_id" id={club.id} key={club.id}>{club.name}</option>)}
+                       {this.props.clubs.map((club, key) => <option name="club_id" id={club.id} key={club.id} value={club.name}>{club.name}</option>)}
                      </FormControl>
               </FormGroup>
           </Col>
@@ -74,6 +78,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return({
     clubs: state.clubs,
+
   })
 }
 export default connect(mapStateToProps, mapDispatchToProps)(GetClubs)

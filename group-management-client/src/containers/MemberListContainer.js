@@ -43,8 +43,10 @@ class MemberListContainer extends Component {
   resetMembership = (club_id) => {
     this.props.members.map((m) => {
       if(m.club_id === club_id && m.membership_status.is_member === "current") {
-        store.dispatch(resetmembership(m.id))
+        return (
 
+          store.dispatch(resetmembership(m.id))
+        )
       }
     })
   }

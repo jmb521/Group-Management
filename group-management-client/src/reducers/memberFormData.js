@@ -1,4 +1,5 @@
 const initialState = {
+  id: "",
   club_id: "",
   first_name: "",
   last_name: "",
@@ -6,15 +7,15 @@ const initialState = {
   address2: "",
   city: "",
   state: "",
-  zipcode: ""
+  zipcode: "",
 }
 
   export default (state = initialState, action) => {
 
   switch(action.type) {
     case 'UPDATED_MEMBER':
+      
       return action.memberFormData
-
     default:
       return state;
   }

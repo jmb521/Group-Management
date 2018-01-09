@@ -5,18 +5,9 @@ import { connect } from 'react-redux'
 import clubFormData from '../reducers/clubFormData'
 import {updateClubFormData} from '../actions/clubform'
 import { createClub } from '../actions/clubform'
+import FieldGroup from '../fieldgroup.js'
 
 
-function FieldGroup({id, label, help, inputRef, ...props}) {
-  return (
-    <FormGroup controlId={id}>
-    <ControlLabel>{label}</ControlLabel>
-    <FormControl {...props} inputRef={inputRef} />
-    {help && <HelpBlock>{help}</HelpBlock>}
-    </FormGroup>
-  )
-
-}
 class Club extends Component {
 
 

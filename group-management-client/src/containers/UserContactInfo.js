@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Row, Col, FormGroup, ControlLabel, Form, FormControl, HelpBlock, Checkbox} from 'react-bootstrap'
+import {Row, Col, FormGroup, ControlLabel, FormControl, HelpBlock, Checkbox} from 'react-bootstrap'
 
 function FieldGroup({ id, label, help, ...props }) {
    return (
@@ -14,9 +14,9 @@ export const UserContactInfo = (props) => {
 
 
     return (
-      <Grid>
-        <Form>
 
+
+      <div>
         <h3>Contact Info</h3>
         <Row>
           <Col xs={12} md={4}>
@@ -57,7 +57,6 @@ export const UserContactInfo = (props) => {
             </FormGroup>
           </Col>
           </Row>
-        </Form>
-      </Grid>
+        </div>
     )
   }

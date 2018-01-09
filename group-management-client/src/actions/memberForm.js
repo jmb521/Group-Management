@@ -5,14 +5,15 @@ export const updateMemberFormData = memberFormData => {
   return {
     type: 'UPDATED_MEMBER',
     memberFormData,
-    
+
 
   }
 }
 
 export const addMember = members => {
+  console.log("in addMember: ", members)
   return {
-    type: 'CREATE_MEMBER_DATA',
+    type: 'CREATE_MEMBER_SUCCESS',
     members
 
   }
@@ -32,9 +33,13 @@ export const createMember = user => {
     .catch(error => console.log(error))
     .then(response => response.json())
     .then(user => {
-
+      console.log("user in createMember", user)
       dispatch(addMember(user))
 
     })
   }
+}
+
+export const updateContactInfo = user => {
+  console.log("within the updatecontactinfo", user)
 }
