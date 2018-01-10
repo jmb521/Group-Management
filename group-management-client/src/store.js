@@ -11,6 +11,7 @@ import memberFormData from './reducers/memberFormData'
 import club from './reducers/clubs'
 import userKidsFormData from './reducers/userKidsFormData'
 import userFamiliesFormData from './reducers/userFamiliesFormData'
+import contactInfoFormData from './reducers/contactInfoFormData'
 
 // import member from './reducers/members'
 
@@ -24,6 +25,7 @@ const reducers = combineReducers({
   club: club,
   userKidsFormData: userKidsFormData,
   userFamiliesFormData: userFamiliesFormData,
+  contactInfoFormData: contactInfoFormData,
 
   // member: member,
 
