@@ -1,22 +1,47 @@
 import React from 'react'
-import { Grid, Row, Col} from 'react-bootstrap'
-
-
+import { Row, Col, Panel, FormGroup, ControlLabel} from 'react-bootstrap'
+import FieldGroup from '../fieldgroup.js'
+var DatePicker = require("react-bootstrap-date-picker");
 export const Family = (props) => {
 
 
     return(
+      <Panel>
       <div>
-      <Grid>
+
       <Row>
-        <Col xs={4} md={2}></Col>
-        <Col xs={12} md={8}>
+
+        <Col xs={12} md={12}>
           <h3>Family Info</h3>
-          
-        </Col>
-        <Col xs={4} md={2}></Col>
+          <FormGroup>
+            <ControlLabel>Your Birthday</ControlLabel>
+            <DatePicker
+            id="user_birthday"
+            onChange={props.handleOnChange}
+            name="family"
+             />
+            </FormGroup>
+
+            <FieldGroup
+            id="spouses_name"
+            placeholder="Enter your Spouse's name"
+            label="Spouse Name"
+            onChange={props.handleOnChange}
+            name="family"
+            />
+            <FormGroup>
+              <ControlLabel>Spouse Birthday</ControlLabel>
+              <DatePicker
+              id="spouses_birthday"
+              onChange={props.handleOnChange}
+              name="family"
+              />
+              </FormGroup>
+              </Col>
+
       </Row>
-      </Grid>
+
       </div>
+      </Panel>
     )
   }

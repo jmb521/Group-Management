@@ -13,7 +13,7 @@ export const Kids = (props) => {
              type="text"
              label="Kid Name"
              placeholder="Enter your child's first and last name"
-             name="kid_name"
+             name="kids"
              onChange={props.handleOnChange}
             //  value={first_name}
          />
@@ -26,6 +26,7 @@ export const Kids = (props) => {
         label="Kid Birthday"
         id="kid_birthday"
         onChange={props.handleOnChange}
+        name="kids"
         />
         </Col>
       </Row>
