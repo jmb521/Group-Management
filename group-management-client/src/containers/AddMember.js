@@ -32,18 +32,7 @@ class AddMember extends Component {
     this.props.updateMemberFormData(this.formData(event))
 
   }
-  handleContactInfoOnChange = (event) => {
-
-  }
-  handleKidsOnChange = (event) => {
-    let name=""
-    let value=""
-
-  }
-
-  handleFamiliesOnChange = (event) => {
-
-  }
+  
   handleSubmitClick = (event) => {
 
     event.preventDefault();
