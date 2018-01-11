@@ -43,7 +43,7 @@ export const UserContactInfo = (props) => {
           </Row>
           <Row>
           <Col xs={12} md={4}>
-          <Checkbox onChange={props.handleOnChange} name="contactinfo" id="text_message">
+          <Checkbox onChange={props.handleOnChange} name="contactinfo" id="text_message" >
             Yes, you can send me a text.
           </Checkbox>
           </Col>
@@ -53,6 +53,7 @@ export const UserContactInfo = (props) => {
             <FormGroup controlId="formControlsSelect">
             <ControlLabel>Preferred Method of Contact</ControlLabel>
               <FormControl componentClass="select" placeholder="Preferred Method" onChange={props.handleOnChange} name="contactinfo" id="preferred_method">
+                <option>...</option>
                 <option value="Facebook">Facebook</option>
                 <option value="Email">Email</option>
                 <option value="Text Message">Text Message</option>

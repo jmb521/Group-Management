@@ -4,7 +4,7 @@ import FieldGroup from '../fieldgroup.js'
 var DatePicker = require("react-bootstrap-date-picker");
 export const Family = (props) => {
 
-
+console.log("family props", props.handleOnChange)
     return(
       <Panel>
       <div>
@@ -35,6 +35,8 @@ export const Family = (props) => {
               id="spouses_birthday"
               onChange={props.handleOnChange}
               name="family"
+              className="spouses_birthday"
+
               />
               </FormGroup>
               </Col>
