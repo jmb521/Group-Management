@@ -12,8 +12,10 @@ import club from './reducers/clubs'
 import userKidsFormData from './reducers/userKidsFormData'
 import userFamiliesFormData from './reducers/userFamiliesFormData'
 import contactInfoFormData from './reducers/contactInfoFormData'
+import updateFamily from './reducers/updateFamily'
+import updateKids from './reducers/updateKids'
+import updateContactInfo from './reducers/updateContactInfo'
 
-// import member from './reducers/members'
 
 // import {routerReducer} from 'react-router-redux'
 
@@ -26,6 +28,9 @@ const reducers = combineReducers({
   userKidsFormData: userKidsFormData,
   userFamiliesFormData: userFamiliesFormData,
   contactInfoFormData: contactInfoFormData,
+  family: updateFamily,
+  kids: updateKids,
+  contact_info: updateContactInfo
 
   // member: member,
 
