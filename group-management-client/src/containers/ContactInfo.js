@@ -80,7 +80,8 @@ class ContactInfo extends Component {
 
   handleUserBirthdayOnChange = (usr_bday) => {
     const ubd= Object.assign({}, this.props.userFamiliesFormData, {
-      user_birthday: usr_bday
+      user_birthday: usr_bday,
+      user_id: this.props.members[0].id,
     })
     this.props.updateFamilyFormData(ubd)
   }
@@ -102,6 +103,7 @@ class ContactInfo extends Component {
 
     event.preventDefault();
     this.props.updateContactInfo(this.props.contactInfoFormData)
+
     this.props.updateFamily(this.props.userFamiliesFormData)
     this.props.updateKids(this.props.kidsFormData)
     // this.props.createMember(this.props.memberFormData);
