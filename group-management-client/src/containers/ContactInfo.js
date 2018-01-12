@@ -6,8 +6,12 @@ import store from '../store.js'
 import {Kids} from './Kids'
 import {Family} from './Family'
 import { Grid, Row, Col, Form, Panel, Button} from 'react-bootstrap'
-import
-
+import {updateContactInfoFormData} from '../actions/memberForm'
+import {updateFamilyFormData} from '../actions/memberForm'
+import {updateKidsFormData} from '../actions/memberForm'
+import {updateContactInfo} from '../actions/memberForm'
+import {updateKids} from '../actions/memberForm'
+import {updateFamily} from '../actions/memberForm'
 
 class ContactInfo extends Component {
   constructor() {
@@ -19,36 +23,89 @@ class ContactInfo extends Component {
 
   }
 
-  formData = (event) => {
+  contactData = (event) => {
     let name=""
     let value=""
-    if(event.target.name === "contactinfo") {
-      name = event.target.name;
-      value = event.target.options[event.target.selectedIndex].id
-    } else if (event.target.name === "kids") {
+    if(event.target.id === "text_message") {
 
-    } else if (event.target.name === "family"){
-       name = event.target.name;
-       value = event.target.value;
+        name = event.target.id
+        value = "true"
+
+    } else if(event.target.id === "preferred_method") {
+        name = event.target.id;
+        value = event.target.options[event.target.selectedIndex].value
+
+    } else {
+      name = event.target.id;
+      value = event.target.value
     }
-    const currentMemberFormData = Object.assign({},this.props.memberFormData, {
+
+    const currentContactInfoFormData = Object.assign({}, this.props.contactInfoFormData, {
       [name]: value
     })
-    return currentMemberFormData
+    console.log("currentContactInfoFormData", currentContactInfoFormData)
+    return currentContactInfoFormData
+  }
+
+  kidData = () => {
+
+  }
+
+  addUserToContact = (fD) => {
+
+    const updatedContactInfo = Object.assign({}, fD, {
+        "user_id": this.props.members[0].id
+    })
+    console.log("updatedContactInfo", updatedContactInfo)
+    return updatedContactInfo
   }
   handleContactInfoOnChange = (event) => {
-    console.log("contact", event.target.id)
+    const fD = this.contactData(event)
+    this.addUserToContact(fD)
 
-    // this.props.updateMemberFormData(this.formData(event))
+    console.log("addUserToContact: ", this.addUserToContact(fD))
 
+      this.props.updateContactInfoFormData(this.addUserToContact(fD))
+    // const kidsWithDates = () => {
+    //   const kidBirthday = document.getElementById("kid_birthday")
+    //   return (Object.assign({}, fD[1], {
+    //     "kid_birthday": kidBirthday,
+    //     "user_id": this.props.members[0].id
+    //   }))
+    // }
+    //   console.log("###", this.kidsWithDates)
+    //   // this.props.updateKidsFormData(this.kidsWithDates)
+
+  }
+
+  handleUserBirthdayOnChange = (usr_bday) => {
+    const ubd= Object.assign({}, this.props.userFamiliesFormData, {
+      user_birthday: usr_bday
+    })
+    this.props.updateFamilyFormData(ubd)
+  }
+  handleSpousesBirthdayOnChange = (spouses_birthday) => {
+    const sbd = Object.assign({}, this.props.userFamiliesFormData, {
+       spouses_birthday: spouses_birthday
+    })
+    this.props.updateFamilyFormData(sbd)
+  }
+  handleSpousesNameOnChange = (event) => {
+
+    const sn = Object.assign({}, this.props.userFamiliesFormData, {
+      spouses_name: event.target.value
+    })
+    this.props.updateFamilyFormData(sn)
   }
 
   handleSubmitClick = (event) => {
 
     event.preventDefault();
-
-    this.props.createMember(this.props.memberFormData);
-    this.props.history.push(`/contactinfo`);
+    this.props.updateContactInfo(this.props.contactInfoFormData)
+    this.props.updateFamily(this.props.userFamiliesFormData)
+    this.props.updateKids(this.props.kidsFormData)
+    // this.props.createMember(this.props.memberFormData);
+    // this.props.history.push(`/contactinfo`);
 
     // window.location = "/contactinfo"
   }
@@ -88,11 +145,15 @@ render() {
         <div>
           <UserContactInfo
           handleOnChange={this.handleContactInfoOnChange}
+          contactInfoFormData={this.props.contactInfoFormData}
+
           />
         </div>
         <div>
           <Family
-          handleOnChange={this.handleContactInfoOnChange}
+            handleUserBirthdayOnChange={this.handleUserBirthdayOnChange}
+            handleSpousesBirthdayOnChange={this.handleSpousesBirthdayOnChange}
+            handleOnChange={this.handleSpousesNameOnChange}
            />
         </div>
         <div>
@@ -124,8 +185,13 @@ render() {
 
   const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-
-    })
+      updateKidsFormData,
+      updateContactInfoFormData,
+      updateFamilyFormData,
+      updateContactInfo,
+      updateKids,
+      updateFamily,
+    }, dispatch)
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactInfo)

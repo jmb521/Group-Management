@@ -1,8 +1,8 @@
 const initialState = {
   user_id: "",
   user_birthday: "",
-  spouse: "",
-  spouse_birthday: "",
+  spouses_name: "",
+  spouses_birthday: "",
 }
 
   export default (state = initialState, action) => {
@@ -10,10 +10,7 @@ const initialState = {
   switch(action.type) {
     case 'ADD_FAMILY':
     console.log("inside the ADD_KID reducer")
-      return {
-        ...state,
-        ...action.userFamiliesFormData
-      }
+    return action.familyFormData
 
     default:
       return state;

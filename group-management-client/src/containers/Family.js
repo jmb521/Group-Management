@@ -1,10 +1,11 @@
 import React from 'react'
 import { Row, Col, Panel, FormGroup, ControlLabel} from 'react-bootstrap'
 import FieldGroup from '../fieldgroup.js'
-var DatePicker = require("react-bootstrap-date-picker");
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 export const Family = (props) => {
 
-console.log("family props", props.handleOnChange)
+console.log("family, ", props)
     return(
       <Panel>
       <div>
@@ -14,11 +15,11 @@ console.log("family props", props.handleOnChange)
         <Col xs={12} md={12}>
           <h3>Family Info</h3>
           <FormGroup>
-            <ControlLabel>Your Birthday</ControlLabel>
-            <DatePicker
+            <ControlLabel>Your Birthday </ControlLabel>
+            <DayPickerInput
             id="user_birthday"
-            onChange={props.handleOnChange}
-            name="family"
+            onDayChange={user_birthday => {props.handleUserBirthdayOnChange(user_birthday)}}
+
              />
             </FormGroup>
 
@@ -30,11 +31,11 @@ console.log("family props", props.handleOnChange)
             name="family"
             />
             <FormGroup>
-              <ControlLabel>Spouse Birthday</ControlLabel>
-              <DatePicker
+              <ControlLabel>Spouse Birthday </ControlLabel>
+              <DayPickerInput
               id="spouses_birthday"
-              onChange={props.handleOnChange}
-              name="family"
+              onDayChange={spouses_birthday => {props.handleSpousesBirthdayOnChange(spouses_birthday)}}
+              name=""
               className="spouses_birthday"
 
               />

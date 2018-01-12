@@ -1,7 +1,8 @@
 import React from 'react'
 import { Row, Col, Button} from 'react-bootstrap'
 import FieldGroup from '../fieldgroup.js'
-var DatePicker = require("react-bootstrap-date-picker");
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 export const Kids = (props) => {
 
     return(
@@ -22,7 +23,7 @@ export const Kids = (props) => {
       </Row>
       <Row>
         <Col xs={12} md={8}>
-        <DatePicker
+        <DayPickerInput
         label="Kid Birthday"
         id="kid_birthday"
         onChange={props.handleOnChange}
