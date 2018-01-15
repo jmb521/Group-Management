@@ -105,13 +105,13 @@ class ContactInfo extends Component {
 }
 
   handleSubmitClick = (event) => {
-    //
-    // event.preventDefault();
-    // this.props.updateContactInfo(this.props.contactInfoFormData)
+    event.preventDefault();
+    console.log("inside submit")
+    this.props.updateContactInfo(this.props.contactInfoFormData)
     //
     // this.props.updateFamily(this.props.userFamiliesFormData)
     // this.props.updateKids(this.props.kidsFormData)
-    // this.props.createMember(this.props.memberFormData);
+
     // this.props.history.push(`/contactinfo`);
 
     // window.location = "/contactinfo"
@@ -133,9 +133,9 @@ class ContactInfo extends Component {
      this.props.removeKid(id)
   }
 
-  handleOnSubmit = (event) => {
-    console.log("submit event data: ", event)
-  }
+  // handleOnSubmit = (event) => {
+  //   console.log("submit event data: ", event)
+  // }
 
 render() {
 
@@ -150,28 +150,26 @@ render() {
     return (
       <Grid>
       <div>
-        <Form onSubmit={this.handleOnSubmit}>
-        <div>
+        <Form onSubmit={this.handleSubmitClick}>
+
           <UserContactInfo
           handleOnChange={this.handleContactInfoOnChange}
           contactInfoFormData={this.props.contactInfoFormData}
 
           />
-        </div>
-        <div>
+
           <Family
             handleUserBirthdayOnChange={this.handleUserBirthdayOnChange}
             handleSpousesBirthdayOnChange={this.handleSpousesBirthdayOnChange}
             handleOnChange={this.handleSpousesNameOnChange}
            />
-        </div>
-        <div>
+
         <Button onClick={this.addKid}> Add Kid</Button>
 
           {Kidcomponent}
 
-          <Button bsStyle="success">Submit</Button>
-        </div>
+          <Button bsStyle="success" onClick={this.handleSubmitClick}>Submit</Button>
+
 
         </Form>
       </div>

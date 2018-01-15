@@ -14,7 +14,8 @@
         }
         return {
           ...data,
-          ...{[action.kidkey]: action.value}
+          ...{[action.kidkey]: action.value},
+          ...{user_id: action.user_id}
         }
       })
     } else {

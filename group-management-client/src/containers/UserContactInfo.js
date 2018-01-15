@@ -43,7 +43,7 @@ export const UserContactInfo = (props) => {
           </Row>
           <Row>
           <Col xs={12} md={4}>
-          <Checkbox onChange={props.handleOnChange} name="contactinfo" id="text_message" >
+          <Checkbox onChange={props.handleOnChange} name="contactinfo" id="text_message">
             Yes, you can send me a text.
           </Checkbox>
           </Col>

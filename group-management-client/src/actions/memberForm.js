@@ -5,17 +5,52 @@ export const updateMemberFormData = memberFormData => {
   return {
     type: 'UPDATED_MEMBER',
     memberFormData,
+  }
+}
 
+export const updateFamilyFormData = familyFormData => {
+  return {
+    type:"ADD_FAMILY",
+    familyFormData
+  }
+}
 
+export const updateKidsFormData = kidsFormData => {
+  return {
+    type:"ADD_KID",
+    id: kidsFormData.id,
+    kidkey: kidsFormData.kidkey,
+    value: kidsFormData.value,
+    user_id: kidsFormData.user_id
+  }
+}
+export const updateContactInfoFormData = contactInfoFormData => {
+  return {
+    type: "ADD_CONTACT_INFO",
+    contactInfoFormData
+  }
+}
+export const addContactInfo = contact_info => {
+  console.log("addContactInfo", contact_info)
+  return {
+    type: "UPDATE_CONTACT_INFO",
+    contact_info
   }
 }
 
 export const addMember = members => {
-  console.log("in addMember: ", members)
+
   return {
     type: 'CREATE_MEMBER_SUCCESS',
     members
 
+  }
+}
+export const removeKid = (id) => {
+  console.log("removeKid id", typeof(id))
+  return {
+    type: 'REMOVE_KID',
+    id
   }
 }
 
@@ -40,6 +75,27 @@ export const createMember = user => {
   }
 }
 
-export const updateContactInfo = user => {
-  console.log("within the updatecontactinfo", user)
+export const updateContactInfo = contact_info => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/users/${contact_info.user_id}/user_contact_infos/1`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(contact_info)
+    })
+    .catch(error => console.log(error))
+    .then(response => response.json())
+    .then(contact_info => {
+      dispatch(addContactInfo(contact_info))
+    })
+  }
+}
+
+export const updateFamily = family => {
+  console.log('from within updateFamily', family)
+}
+
+export const updateKids = kids => {
+  console.log('from within updateKids', kids)
 }
