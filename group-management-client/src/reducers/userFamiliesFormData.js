@@ -1,8 +1,8 @@
 const initialState = {
   user_id: "",
   user_birthday: "",
-  spouses_name: "",
-  spouses_birthday: "",
+  spouse: "",
+  spouse_birthday: "",
 }
 
   export default (state = initialState, action) => {

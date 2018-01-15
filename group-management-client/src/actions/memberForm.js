@@ -38,6 +38,14 @@ export const addContactInfo = contact_info => {
   }
 }
 
+export const addUserFamily = user_families => {
+  return {
+    type: 'UPDATE_FAMILY_INFO',
+    user_families
+  }
+}
+
+
 export const addMember = members => {
 
   return {
@@ -93,7 +101,21 @@ export const updateContactInfo = contact_info => {
 }
 
 export const updateFamily = family => {
-  console.log('from within updateFamily', family)
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/users/${family.user_id}/user_families/1`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(family)
+    })
+    .catch(error => console.log(error))
+    .then(response => response.json())
+    .then(family => {
+      dispatch(addUserFamily(family))
+    })
+
+  }
 }
 
 export const updateKids = kids => {

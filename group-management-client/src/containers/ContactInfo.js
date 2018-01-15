@@ -71,14 +71,14 @@ class ContactInfo extends Component {
   }
   handleSpousesBirthdayOnChange = (spouses_birthday) => {
     const sbd = Object.assign({}, this.props.userFamiliesFormData, {
-       spouses_birthday: spouses_birthday
+       spouse_birthday: spouses_birthday
     })
     this.props.updateFamilyFormData(sbd)
   }
   handleSpousesNameOnChange = (event) => {
 
     const sn = Object.assign({}, this.props.userFamiliesFormData, {
-      spouses_name: event.target.value
+      spouse: event.target.value
     })
     this.props.updateFamilyFormData(sn)
   }
@@ -106,10 +106,9 @@ class ContactInfo extends Component {
 
   handleSubmitClick = (event) => {
     event.preventDefault();
-    console.log("inside submit")
+
     this.props.updateContactInfo(this.props.contactInfoFormData)
-    //
-    // this.props.updateFamily(this.props.userFamiliesFormData)
+    this.props.updateFamily(this.props.userFamiliesFormData)
     // this.props.updateKids(this.props.kidsFormData)
 
     // this.props.history.push(`/contactinfo`);
