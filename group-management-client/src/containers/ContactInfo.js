@@ -12,6 +12,7 @@ import {updateKidsFormData} from '../actions/memberForm'
 import {updateContactInfo} from '../actions/memberForm'
 import {updateKids} from '../actions/memberForm'
 import {updateFamily} from '../actions/memberForm'
+import {removeKid} from '../actions/memberForm'
 
 class ContactInfo extends Component {
   constructor() {
@@ -47,10 +48,6 @@ class ContactInfo extends Component {
     return currentContactInfoFormData
   }
 
-  kidData = () => {
-
-  }
-
   addUserToContact = (fD) => {
 
     const updatedContactInfo = Object.assign({}, fD, {
@@ -62,21 +59,8 @@ class ContactInfo extends Component {
   handleContactInfoOnChange = (event) => {
     const fD = this.contactData(event)
     this.addUserToContact(fD)
-
-    console.log("addUserToContact: ", this.addUserToContact(fD))
-
-      this.props.updateContactInfoFormData(this.addUserToContact(fD))
-    // const kidsWithDates = () => {
-    //   const kidBirthday = document.getElementById("kid_birthday")
-    //   return (Object.assign({}, fD[1], {
-    //     "kid_birthday": kidBirthday,
-    //     "user_id": this.props.members[0].id
-    //   }))
-    // }
-    //   console.log("###", this.kidsWithDates)
-    //   // this.props.updateKidsFormData(this.kidsWithDates)
-
-  }
+    this.props.updateContactInfoFormData(this.addUserToContact(fD))
+    }
 
   handleUserBirthdayOnChange = (usr_bday) => {
     const ubd= Object.assign({}, this.props.userFamiliesFormData, {
@@ -99,13 +83,34 @@ class ContactInfo extends Component {
     this.props.updateFamilyFormData(sn)
   }
 
+  handleKidsNameOnChange = (event) => {
+    const kidName = event.target.value
+    const kidId = event.target.id
+
+    this.combineKidData("name", kidName, kidId)
+  }
+
+  handleKidsBirthdayOnChange = (kidsBirthday, id) => {
+
+    this.combineKidData("birthday", kidsBirthday, id)
+  }
+  combineKidData = (which, value, id) => {
+    console.log("which", which)
+    this.props.updateKidsFormData({
+      user_id: this.props.members[0].id,
+      kidkey: which,
+      id: parseInt(id, 10),
+      value: value
+    })
+}
+
   handleSubmitClick = (event) => {
-
-    event.preventDefault();
-    this.props.updateContactInfo(this.props.contactInfoFormData)
-
-    this.props.updateFamily(this.props.userFamiliesFormData)
-    this.props.updateKids(this.props.kidsFormData)
+    //
+    // event.preventDefault();
+    // this.props.updateContactInfo(this.props.contactInfoFormData)
+    //
+    // this.props.updateFamily(this.props.userFamiliesFormData)
+    // this.props.updateKids(this.props.kidsFormData)
     // this.props.createMember(this.props.memberFormData);
     // this.props.history.push(`/contactinfo`);
 
@@ -124,6 +129,8 @@ class ContactInfo extends Component {
     this.setState({
       KidCount: this.state.KidCount -1,
     })
+
+     this.props.removeKid(id)
   }
 
   handleOnSubmit = (event) => {
@@ -135,7 +142,7 @@ render() {
     const Kidcomponent = [];
 
     for(var i=0; i< this.state.KidCount; i++) {
-      Kidcomponent.push(<Panel key={i}><Kids key={i} id={i} onRemoveClick={this.handleRemoveClick} handleOnChange={this.handleContactInfoOnChange} /></Panel>)
+      Kidcomponent.push(<Panel key={i} id={i}><Kids key={i} id={i} onRemoveClick={this.handleRemoveClick} handleKidsNameOnChange={this.handleKidsNameOnChange} handleKidsBirthdayOnChange={this.handleKidsBirthdayOnChange} /></Panel>)
     }
     console.log("$%", Kidcomponent)
 
@@ -193,6 +200,7 @@ render() {
       updateContactInfo,
       updateKids,
       updateFamily,
+      removeKid,
     }, dispatch)
   }
 

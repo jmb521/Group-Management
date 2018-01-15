@@ -10,12 +10,12 @@ export const Kids = (props) => {
       <Row>
         <Col xs={12} md={8}>
         <FieldGroup
-             id="kid_name"
+             id={props.id.toString()}
              type="text"
              label="Kid Name"
              placeholder="Enter your child's first and last name"
-             name="kids"
-             onChange={props.handleOnChange}
+             name="kids_name"
+             onChange={props.handleKidsNameOnChange}
             //  value={first_name}
          />
 
@@ -26,8 +26,8 @@ export const Kids = (props) => {
         <DayPickerInput
         label="Kid Birthday"
         id="kid_birthday"
-        onChange={props.handleOnChange}
-        name="kids"
+        onDayChange={kidsBirthday =>{props.handleKidsBirthdayOnChange(kidsBirthday, props.id)}}
+
         />
         </Col>
       </Row>
