@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   namespace :api do
 
-    resources :user_kids
-    resources :user_families
-    resources :user_contact_infos
 
     resources :clubs do
       resources :users
@@ -11,6 +8,10 @@ Rails.application.routes.draw do
     end
     resources :users do
       resources :membership_statuses, only: [:show, :edit, :update, :index]
+
+      resources :user_kids
+      resources :user_families
+      resources :user_contact_infos
     end
 
   end
