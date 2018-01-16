@@ -1,11 +1,14 @@
 class Api::UserKidsController < ApplicationController
   before_action :set_user_kid, only: [:show, :update, :destroy, :index]
-  def index
-    render json: UserKid.all
-  end
+  before_action :set_user, only: [:index, :show, :update]
+  # def index
+  #   @user_kids = @user.user_kids
+  #   render json: @user_kids
+  # end
 
   def show
-    render json: @user_kids
+    @user_kid = @user.user_kid
+    render json: @user_kid
   end
 
   def create
@@ -38,6 +41,9 @@ class Api::UserKidsController < ApplicationController
 
   def set_user_kid
     @user_kid = UserKid.find(params[:id])
+  end
+  def set_user
+    @user = User.find_by(:id => params[:user_id])
   end
 
   def user_kid_params
