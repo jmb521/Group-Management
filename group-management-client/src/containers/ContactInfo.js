@@ -115,7 +115,7 @@ class ContactInfo extends Component {
 
     // this.props.history.push(`/membershipmanagement`);
     //
-    // window.location = "/membershipmanagement"
+    window.location = "/membershipmanagement"
   }
 
 

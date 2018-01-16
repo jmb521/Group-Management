@@ -9,8 +9,8 @@ export const MemberRenewal = function(props) {
 
       if(m.membership_status.membership_paid !== "true") {
     return (
-      <tbody key={m.id}>
-      <tr>
+
+      <tr key={m.id}>
         <td>{m.first_name}</td>
         <td>{m.last_name}</td>
         <td>{m.user_contact_info.email}</td>
@@ -19,11 +19,7 @@ export const MemberRenewal = function(props) {
         <td>{m.membership_status.membership_paid}</td>
         <td><Button onClick={() => {props.renewOnClick(m.membership_status.id, m.id)}}>Renew</Button> &nbsp; <Button onClick={()=>{props.removeOnClick(m.membership_status.id, m.id)}}>Remove</Button></td>
       </tr>
-      </tbody>
-    )
-  } else {
-    return (
-      <div></div>
+
     )
   }
 
@@ -52,9 +48,9 @@ export const MemberRenewal = function(props) {
                 <th></th>
               </tr>
             </thead>
-
+            <tbody>
               {memberList}
-
+              </tbody>
 
           </Table>
         </Grid>
