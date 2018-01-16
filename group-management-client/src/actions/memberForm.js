@@ -44,7 +44,12 @@ export const addUserFamily = user_families => {
     user_families
   }
 }
-
+export const addUserKid = user_kids => {
+  return {
+    type: 'UPDATE_KIDS_INFO',
+    user_kids
+  }
+}
 
 export const addMember = members => {
 
@@ -119,5 +124,19 @@ export const updateFamily = family => {
 }
 
 export const updateKids = kids => {
-  console.log('from within updateKids', kids)
+  console.log("kids --", kids)
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/users/${kids.user_id}/user_kids/`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(kids)
+    })
+    .catch(error => console.log(error))
+    .then(response => response.json())
+    .then(kids => {
+      dispatch(addUserKid(kids))
+    })
+  }
 }

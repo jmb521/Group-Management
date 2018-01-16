@@ -87,12 +87,12 @@ class ContactInfo extends Component {
     const kidName = event.target.value
     const kidId = event.target.id
 
-    this.combineKidData("name", kidName, kidId)
+    this.combineKidData("kid_name", kidName, kidId)
   }
 
   handleKidsBirthdayOnChange = (kidsBirthday, id) => {
 
-    this.combineKidData("birthday", kidsBirthday, id)
+    this.combineKidData("kid_birthday", kidsBirthday, id)
   }
   combineKidData = (which, value, id) => {
     console.log("which", which)
@@ -109,7 +109,9 @@ class ContactInfo extends Component {
 
     this.props.updateContactInfo(this.props.contactInfoFormData)
     this.props.updateFamily(this.props.userFamiliesFormData)
-    // this.props.updateKids(this.props.kidsFormData)
+    this.props.userKidsFormData.map((kid) => {
+      this.props.updateKids(kid)
+    })
 
     // this.props.history.push(`/contactinfo`);
 
@@ -131,10 +133,6 @@ class ContactInfo extends Component {
 
      this.props.removeKid(id)
   }
-
-  // handleOnSubmit = (event) => {
-  //   console.log("submit event data: ", event)
-  // }
 
 render() {
 
