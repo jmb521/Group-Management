@@ -51,7 +51,7 @@ class ContactInfo extends Component {
   addUserToContact = (fD) => {
 
     const updatedContactInfo = Object.assign({}, fD, {
-        "user_id": this.props.members[0].id
+        user_id: this.props.members[0].id
     })
     console.log("updatedContactInfo", updatedContactInfo)
     return updatedContactInfo
@@ -106,16 +106,16 @@ class ContactInfo extends Component {
 
   handleSubmitClick = (event) => {
     event.preventDefault();
-
+    console.log("contactINFOFORMDATA", this.props.contactInfoFormData)
     this.props.updateContactInfo(this.props.contactInfoFormData)
     this.props.updateFamily(this.props.userFamiliesFormData)
     this.props.userKidsFormData.map((kid) => {
       this.props.updateKids(kid)
     })
 
-    // this.props.history.push(`/contactinfo`);
-
-    // window.location = "/contactinfo"
+    // this.props.history.push(`/membershipmanagement`);
+    //
+    // window.location = "/membershipmanagement"
   }
 
 

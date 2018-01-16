@@ -89,9 +89,10 @@ export const createMember = user => {
 }
 
 export const updateContactInfo = contact_info => {
+  console.log("update contact info", contact_info)
   return dispatch => {
-    return fetch(`http://localhost:3001/api/users/${contact_info.user_id}/user_contact_infos/1`, {
-      method: "PUT",
+    return fetch(`http://localhost:3001/api/users/${contact_info.user_id}/user_contact_infos/`, {
+      method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
@@ -106,9 +107,10 @@ export const updateContactInfo = contact_info => {
 }
 
 export const updateFamily = family => {
+  console.log("inside updateFamily", family)
   return dispatch => {
-    return fetch(`http://localhost:3001/api/users/${family.user_id}/user_families/1`, {
-      method: "PUT",
+    return fetch(`http://localhost:3001/api/users/${family.user_id}/user_families/`, {
+      method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
@@ -117,6 +119,7 @@ export const updateFamily = family => {
     .catch(error => console.log(error))
     .then(response => response.json())
     .then(family => {
+      console.log("inside family action creator", family)
       dispatch(addUserFamily(family))
     })
 
