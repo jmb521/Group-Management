@@ -3,6 +3,10 @@ import { Row, Col, Panel, FormGroup, ControlLabel} from 'react-bootstrap'
 import FieldGroup from '../fieldgroup.js'
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
+import MomentLocaleUtils, {
+  formatDate,
+  parseDate,
+} from 'react-day-picker/moment';
 export const Family = (props) => {
 
 console.log("family, ", props)
@@ -19,7 +23,9 @@ console.log("family, ", props)
             <DayPickerInput
             id="user_birthday"
             onDayChange={user_birthday => {props.handleUserBirthdayOnChange(user_birthday)}}
-
+            formatDate={formatDate}
+            parseDate={parseDate}
+            placeholder={`${formatDate(new Date())}`}
              />
             </FormGroup>
 
@@ -37,6 +43,9 @@ console.log("family, ", props)
               onDayChange={spouses_birthday => {props.handleSpousesBirthdayOnChange(spouses_birthday)}}
               name=""
               className="spouses_birthday"
+              formatDate={formatDate}
+              parseDate={parseDate}
+              placeholder={`${formatDate(new Date())}`}
 
               />
               </FormGroup>
