@@ -6,7 +6,7 @@ import FieldGroup from '../fieldgroup.js'
 
 
 export const UserInfo = (props) => {
-
+  console.log("props for UserInfo", props)
      return(
        <div>
        <Grid>
@@ -14,7 +14,7 @@ export const UserInfo = (props) => {
        <h3>Personal Information</h3>
        <br />
 
-       <GetClubs />
+       <GetClubs validationState={props.clubIdStatus ? "success" : null} />
        <Form onSubmit={props.handleSubmitClick}>
        <Row>
 
@@ -30,7 +30,7 @@ export const UserInfo = (props) => {
                placeholder="Enter first name"
                name="first_name"
                onChange={props.handleOnChange}
-              //  value={first_name}
+               validationState={props.formErrors.first_name ? "success" : null}
            />
           </Col>
           <Col xs={12} md={4}>
@@ -41,7 +41,7 @@ export const UserInfo = (props) => {
              placeholder="Enter last name"
              name="last_name"
              onChange={props.handleOnChange}
-            //  value={last_name}
+             validationState={props.formErrors.last_name ? "success" : null}
           />
           </Col>
        </Row>
@@ -54,7 +54,7 @@ export const UserInfo = (props) => {
        placeholder="Enter street address"
        name="address1"
        onChange={props.handleOnChange}
-      //  value={address1}
+       validationState={props.formErrors.address1 ? "success" : null}
        />
 
        </Col>
@@ -64,11 +64,10 @@ export const UserInfo = (props) => {
           <FieldGroup
           id="address2"
           type="text"
-          label="Address"
+          label="Address (Optional)"
           placeholder="Enter apt. number or additional details"
           name="address2"
           onChange={props.handleOnChange}
-          // value={address2}
           />
         </Col>
         </Row>
@@ -81,7 +80,7 @@ export const UserInfo = (props) => {
           placeholder="Enter City"
           name="city"
           onChange={props.handleOnChange}
-          // value={city}
+          validationState={props.formErrors.city ? "success" : null}
           />
         </Col>
         <Col xs={12} md={2}>
@@ -92,7 +91,7 @@ export const UserInfo = (props) => {
           placeholder="Enter State"
           name="state"
           onChange={props.handleOnChange}
-          // value={state}
+          validationState={props.formErrors.state ? "success" : null}
           />
         </Col>
         <Col xs={12} md={2}>
@@ -103,7 +102,7 @@ export const UserInfo = (props) => {
         placeholder="Enter ZipCode"
         name="zipcode"
         onChange={props.handleOnChange}
-        // value={zipcode}
+        validationState={props.formErrors.zipcode ? "success" : null}
         />
         </Col>
         </Row>
@@ -111,7 +110,7 @@ export const UserInfo = (props) => {
         <Row>
 
           <Col xs={4} md={4}>
-          <Button bsStyle="primary" type="submit" onClick={props.handleSubmitClick}>
+          <Button bsStyle="primary" type="submit" onClick={props.handleSubmitClick} disabled={props.disabled}>
           Submit
           </Button>&nbsp;
 

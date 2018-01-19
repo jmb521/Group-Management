@@ -11,7 +11,7 @@ class GetClubs extends Component {
   componentDidMount() {
     this.props.getClubs()
   }
-  
+
   handleOnChange = (event) => {
 
 
@@ -52,7 +52,7 @@ class GetClubs extends Component {
         <Form>
           <Row>
            <Col xs={12} md={6}>
-             <FormGroup controlId="formControlsSelect">
+             <FormGroup controlId="formControlsSelect" validationState={this.props.validationState}>
                    <ControlLabel>Select</ControlLabel>
                      <FormControl componentClass="select" placeholder="select" onChange={this.handleOnChange} name="club_id">
                       <option value="test">...</option>

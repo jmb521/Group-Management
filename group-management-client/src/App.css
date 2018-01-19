@@ -87,3 +87,6 @@ div.pending_member_count h1 {
 .memberrenewal h1, h5 {
   text-align:  center;
 }
+/*.formErrors {
+  color: red;
+}*/
