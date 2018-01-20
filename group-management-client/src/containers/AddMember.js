@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { createMember } from '../actions/memberForm'
 import { updateMemberFormData } from '../actions/memberForm'
 import {bindActionCreators} from 'redux'
+import { memberAdded } from '../actions/memberForm'
 
 class AddMember extends Component {
   constructor() {
@@ -30,6 +31,7 @@ class AddMember extends Component {
 
       }
     }
+
   }
   validateInput = (name, value) => {
     let fieldValidationErrors = this.state.formErrors;
@@ -119,8 +121,9 @@ class AddMember extends Component {
     event.preventDefault();
 
     this.props.createMember(this.props.memberFormData);
-    this.props.history.push(`/contactinfo`);
+    this.props.memberAdded(true);
 
+    this.props.history.push(`/contactinfo`);
     // window.location = "/contactinfo"
   }
 
@@ -168,7 +171,7 @@ const mapStateToProps = (state) => {
     clubs: state.clubs,
     memberFormData: state.memberFormData,
     members: state.members,
-
+    member_added: state.member_added
 
   })
 
@@ -177,7 +180,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch)  => {
   return bindActionCreators({
     updateMemberFormData,
-    createMember
+    createMember,
+    memberAdded
 
   }, dispatch)
 }

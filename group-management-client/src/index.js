@@ -7,10 +7,15 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import { Provider } from 'react-redux'
 import store from './store.js'
-
+import {loadState, saveState} from './localStorage'
 
 // export let store = createStore(Membership)
 console.log(store);
+export const persistedState = loadState()
+store.subscribe(() => {
+  saveState({
+    member_added: store.getState().member_added})
+})
 
 
 ReactDOM.render(

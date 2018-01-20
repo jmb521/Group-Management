@@ -66,6 +66,12 @@ export const removeKid = (id) => {
     id
   }
 }
+export const memberAdded = (memberAdded) => {
+  return {
+    type: 'MEMBER_ADDED',
+    memberAdded
+  }
+}
 
 export const createMember = user => {
   console.log(user)

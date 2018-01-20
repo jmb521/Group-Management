@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css'
-
-import { Router, Route } from 'react-router';
+import { connect } from 'react-redux'
+import { Router, Route, Redirect } from 'react-router';
 import {MembershipManagement} from './MembershipManagement'
 import {Kids} from './Kids'
 import ContactInfo from './ContactInfo'
@@ -16,20 +16,30 @@ import {MemberRenewal} from './MemberRenewal'
 import {RemovedMembers} from './RemovedMembers'
 import {CurrentMembers} from './CurrentMembers'
 import MemberListContainer from './MemberListContainer'
+
+import store from '../store.js'
 const history = createBrowserHistory()
 
 // import { synchHistoryWithStore } from 'react-router-redux'
-// import store from '../store.js'
 // const history = synchHistoryWithStore(browserHistory, store)
-
-
 
 
 class App extends React.Component {
 
-
-
   render() {
+
+    const AuthenticatedRoute = ({component: Component, authenticated, ...rest}) => {
+
+
+      return (
+        <Route
+          {...rest}
+          render={(props) => authenticated === true
+              ? <Component {...props} {...rest} />
+              : <Redirect to='/addmember' />} />
+      )
+    }
+
 
     return(
 
@@ -43,8 +53,14 @@ class App extends React.Component {
         <div>
           <Route exact path="/" component={Home} />
 
+
           <Route exact path="/addmember" component={AddMember} />
-          <Route exact path="/contactinfo" component={ContactInfo} />
+          // <Route exact path="/contactinfo" component={ContactInfo} />
+          <AuthenticatedRoute
+            exact path="/contactinfo"
+            component={ContactInfo}
+            authenticated={this.props.member_added}
+          />
 
           <Route exact path="/addclub" component={Club} />
           <Route exact path="/family" component={Family} />
@@ -70,4 +86,10 @@ class App extends React.Component {
 
 }
 
-export default App;
+const mapStateToProps = state => {
+  return ({
+    member_added: state.member_added,
+  })
+}
+
+export default connect(mapStateToProps)(App);
