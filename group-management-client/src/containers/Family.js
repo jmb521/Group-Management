@@ -18,7 +18,7 @@ console.log("family, ", props)
 
         <Col xs={12} md={12}>
           <h3>Family Info</h3>
-          <FormGroup>
+          <FormGroup validationState={props.formErrors.user_birthday ? "success" : null}>
             <ControlLabel>Your Birthday </ControlLabel>
             <DayPickerInput
             id="user_birthday"
@@ -26,6 +26,7 @@ console.log("family, ", props)
             formatDate={formatDate}
             parseDate={parseDate}
             placeholder={`${formatDate(new Date())}`}
+
              />
             </FormGroup>
 
@@ -35,13 +36,14 @@ console.log("family, ", props)
             label="Spouse Name"
             onChange={props.handleOnChange}
             name="family"
+            validationState={props.formErrors.spouses_name ? "success" : null}
             />
-            <FormGroup>
+            <FormGroup validationState={props.formErrors.spouses_birthday ? "success" : null}>
               <ControlLabel>Spouse Birthday </ControlLabel>
               <DayPickerInput
               id="spouses_birthday"
               onDayChange={spouses_birthday => {props.handleSpousesBirthdayOnChange(spouses_birthday)}}
-              name=""
+              name="spouses_birthday"
               className="spouses_birthday"
               formatDate={formatDate}
               parseDate={parseDate}

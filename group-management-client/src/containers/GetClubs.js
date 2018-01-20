@@ -52,7 +52,7 @@ class GetClubs extends Component {
         <Form>
           <Row>
            <Col xs={12} md={6}>
-             <FormGroup controlId="formControlsSelect" validationState={this.props.validationState}>
+             <FormGroup controlId="formControlsSelect">
                    <ControlLabel>Select</ControlLabel>
                      <FormControl componentClass="select" placeholder="select" onChange={this.handleOnChange} name="club_id">
                       <option value="test">...</option>
