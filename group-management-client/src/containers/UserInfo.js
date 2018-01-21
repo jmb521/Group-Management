@@ -6,15 +6,15 @@ import FieldGroup from '../fieldgroup.js'
 
 
 export const UserInfo = (props) => {
-  
+
      return(
        <div>
        <Grid>
 
        <h3>Personal Information</h3>
        <br />
-
        <GetClubs validationState={props.clubIdStatus ? "success" : null} />
+
        <Form onSubmit={props.handleSubmitClick}>
        <Row>
 
@@ -22,7 +22,7 @@ export const UserInfo = (props) => {
         </Col>
        </Row>
        <Row>
-          <Col xs={12} md={4}>
+          <Col xs={12} md={6}>
           <FieldGroup
                id="first_name"
                type="text"
@@ -33,7 +33,7 @@ export const UserInfo = (props) => {
                validationState={props.formErrors.first_name ? "success" : null}
            />
           </Col>
-          <Col xs={12} md={4}>
+          <Col xs={12} md={6}>
           <FieldGroup
              id="last_name"
              type="text"
@@ -46,7 +46,7 @@ export const UserInfo = (props) => {
           </Col>
        </Row>
        <Row>
-       <Col xs={12} md={8}>
+       <Col xs={12} md={12}>
        <FieldGroup
        id="address1"
        type="text"
@@ -60,7 +60,7 @@ export const UserInfo = (props) => {
        </Col>
        </Row>
        <Row>
-        <Col xs={12} md={8}>
+        <Col xs={12} md={12}>
           <FieldGroup
           id="address2"
           type="text"
@@ -83,7 +83,7 @@ export const UserInfo = (props) => {
           validationState={props.formErrors.city ? "success" : null}
           />
         </Col>
-        <Col xs={12} md={2}>
+        <Col xs={12} md={4}>
           <FieldGroup
           id="state"
           type="text"
@@ -94,7 +94,7 @@ export const UserInfo = (props) => {
           validationState={props.formErrors.state ? "success" : null}
           />
         </Col>
-        <Col xs={12} md={2}>
+        <Col xs={12} md={4}>
         <FieldGroup
         id="zipcode"
         type="text"

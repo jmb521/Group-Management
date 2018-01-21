@@ -130,18 +130,15 @@ class AddMember extends Component {
       <div>
         <Grid>
         <Row>
-          <Col xs={4} md={2}>
-
-          </Col>
           <Col xs={8} md={8}>
             <h1>Add Member</h1>
           </Col>
-          <Col xs={4} md={2}></Col>
+
         </Row>
         <br />
         <Row className="show-grid">
-          <Col xs={4} md={2}></Col>
-          <Col xs={8} md={8}>
+
+          <Col xs={8} md={12}>
             <UserInfo
             handleOnChange={this.handleMemberOnChange}
             handleSubmitClick={this.handleSubmitClick}
@@ -150,7 +147,7 @@ class AddMember extends Component {
             clubIdStatus={this.state.clubIdValid}
               />
             </Col>
-            <Col xs={4} md={2}></Col>
+
           </Row>
         </Grid>
       </div>
