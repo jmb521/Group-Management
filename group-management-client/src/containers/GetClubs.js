@@ -4,7 +4,7 @@ import { Form, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-import {getMemberList} from '../reducers/client.js'
+import {getMemberList} from '../actions/client.js'
 import { updateMemberFormData } from '../actions/memberForm'
 
 class GetClubs extends Component {
