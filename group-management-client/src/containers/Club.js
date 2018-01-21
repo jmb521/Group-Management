@@ -101,8 +101,8 @@ class Club extends Component {
           <Form onSubmit={this.handleSubmitClick}>
 
           <Row>
-          <Col xs={4} md={2}></Col>
-            <Col xs={4} md={8}>
+
+            <Col xs={4} md={12}>
             <FieldGroup
               id="name"
               type="text"
@@ -116,8 +116,8 @@ class Club extends Component {
             </Col>
             </Row>
             <Row>
-            <Col xs={4} md={2}></Col>
-            <Col xs={12} md={8}>
+
+            <Col xs={12} md={12}>
             <FieldGroup
               id="address"
               type="text"
@@ -131,7 +131,7 @@ class Club extends Component {
             </Col>
             </Row>
             <Row>
-            <Col xs={4} md={2}></Col>
+
             <Col xs={12} md={4}>
             <FieldGroup
               id="city"
@@ -144,7 +144,7 @@ class Club extends Component {
               validationState={this.state.cityValid ? "success" : null}
               />
               </Col>
-            <Col xs={12} md={2}>
+            <Col xs={12} md={4}>
             <FieldGroup
               id="state"
               type="text"
@@ -156,7 +156,7 @@ class Club extends Component {
               validationState={this.state.stateValid ? "success" : null}
               />
               </Col>
-            <Col xs={12} md={2}>
+            <Col xs={12} md={4}>
               <FieldGroup
                 id="zipcode"
                 type="text"
@@ -170,7 +170,7 @@ class Club extends Component {
             </Col>
             </Row>
             <Row>
-            <Col xs={4} md={2}></Col>
+            
             <Col xs={4} md={4}>
             <Button bsStyle="primary" disabled={!this.state.formValid}type="submit">
               Submit
