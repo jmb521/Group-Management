@@ -1,18 +1,9 @@
 import React from 'react'
 import {Row, Col, FormGroup, ControlLabel, Panel, FormControl, HelpBlock, Checkbox} from 'react-bootstrap'
-
-function FieldGroup({ id, label, help, ...props }) {
-   return (
-     <FormGroup controlId={id}>
-       <ControlLabel>{label}</ControlLabel>
-       <FormControl {...props} />
-       {help && <HelpBlock>{help}</HelpBlock>}
-     </FormGroup>
-   );
-}
+import FieldGroup from '../fieldgroup.js'
 export const UserContactInfo = (props) => {
-
-
+console.log("usercontactinfo", props)
+console.log("email form errors", props.formErrors.email)
     return (
 
 
@@ -28,6 +19,7 @@ export const UserContactInfo = (props) => {
           name="contactinfo"
           placeholder="Enter email"
           onChange={props.handleOnChange}
+          validationState={props.formErrors.email ? "success" : null}
           />
           </Col>
           <Col xs={12} md={4}>
@@ -38,6 +30,7 @@ export const UserContactInfo = (props) => {
           name="contactinfo"
           placeholder="Enter phone"
           onChange={props.handleOnChange}
+          validationState={props.formErrors.home_phone ? "success" : null}
           />
           </Col>
           </Row>
@@ -50,10 +43,10 @@ export const UserContactInfo = (props) => {
           </Row>
           <Row>
           <Col xs={12} md={8}>
-            <FormGroup controlId="formControlsSelect">
+            <FormGroup controlId="formControlsSelect" validationState={props.formErrors.preferred_method ? "success" : null}>
             <ControlLabel>Preferred Method of Contact</ControlLabel>
-              <FormControl componentClass="select" placeholder="Preferred Method" onChange={props.handleOnChange} name="contactinfo" id="preferred_method">
-                <option>...</option>
+              <FormControl componentClass="select" placeholder="Preferred Method" onChange={props.handleOnChange} name="contactinfo" id="preferred_method" >
+                <option value="...">...</option>
                 <option value="Facebook">Facebook</option>
                 <option value="Email">Email</option>
                 <option value="Text Message">Text Message</option>

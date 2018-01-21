@@ -17,7 +17,7 @@ import {RemovedMembers} from './RemovedMembers'
 import {CurrentMembers} from './CurrentMembers'
 import MemberListContainer from './MemberListContainer'
 
-import store from '../store.js'
+
 const history = createBrowserHistory()
 
 // import { synchHistoryWithStore } from 'react-router-redux'
@@ -52,10 +52,8 @@ class App extends React.Component {
         <Router history={history}>
         <div>
           <Route exact path="/" component={Home} />
-
-
           <Route exact path="/addmember" component={AddMember} />
-          // <Route exact path="/contactinfo" component={ContactInfo} />
+
           <AuthenticatedRoute
             exact path="/contactinfo"
             component={ContactInfo}

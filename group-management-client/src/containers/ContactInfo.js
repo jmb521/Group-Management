@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {UserContactInfo} from './UserContactInfo'
 import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux'
-
+import { Redirect } from 'react-router';
 import {Kids} from './Kids'
 import {Family} from './Family'
 import { Grid, Form, Panel, Button} from 'react-bootstrap'
@@ -13,6 +13,7 @@ import {updateContactInfo} from '../actions/memberForm'
 import {updateKids} from '../actions/memberForm'
 import {updateFamily} from '../actions/memberForm'
 import {removeKid} from '../actions/memberForm'
+import store from '../store.js'
 var moment = require('moment');
 class ContactInfo extends Component {
   constructor(props) {
@@ -40,6 +41,9 @@ class ContactInfo extends Component {
 
     }
 
+  }
+  componentDidMount() {
+    console.log("this.props.member_added", this.props.member_added)
   }
 
   validateInput = (name, value) => {
@@ -287,6 +291,7 @@ render() {
       userKidsFormData: state.userKidsFormData,
       userFamiliesFormData: state.userFamiliesFormData,
       contactInfoFormData: state.contactInfoFormData,
+      member_added: state.member_added,
     })
   }
 

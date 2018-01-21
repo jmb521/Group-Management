@@ -2,7 +2,7 @@ const updateMembers = (members, club_id) => {
   return {
     type: 'GET_MEMBERLIST_SUCCESS',
     members,
-    
+
   }
 }
 

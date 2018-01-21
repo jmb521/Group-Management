@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Button} from 'react-bootstrap'
+import { Row, Col, Button, FormGroup, ControlLabel} from 'react-bootstrap'
 import FieldGroup from '../fieldgroup.js'
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
@@ -10,7 +10,7 @@ import MomentLocaleUtils, {
 
 import 'moment/locale/it';
 export const Kids = (props) => {
-
+console.log("this kids birthday", props.formErrors.kid_birthday)
     return(
       <div>
       <Row>
@@ -22,13 +22,15 @@ export const Kids = (props) => {
              placeholder="Enter your child's first and last name"
              name="kids_name"
              onChange={props.handleKidsNameOnChange}
-            //  value={first_name}
+            validationState={props.formErrors.kid_name ? "success" : null}
          />
 
         </Col>
       </Row>
       <Row>
         <Col xs={12} md={8}>
+        <FormGroup validationState={props.formErrors.kid_birthday ? "success" : null}>
+          <ControlLabel>Kid Birthday</ControlLabel>
         <DayPickerInput
         label="Kid Birthday"
         id="kid_birthday"
@@ -38,6 +40,7 @@ export const Kids = (props) => {
         onDayChange={kidsBirthday =>{props.handleKidsBirthdayOnChange(kidsBirthday, props.id)}}
 
         />
+        </FormGroup>
         </Col>
       </Row>
       <Button onClick={() => {props.onRemoveClick(props.id)}}>Remove</Button>

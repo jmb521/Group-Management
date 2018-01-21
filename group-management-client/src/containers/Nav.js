@@ -25,7 +25,7 @@ class Navigation extends React.Component{
         <NavItem eventKey={3} href="/addmember">Add Member</NavItem>
       <NavDropdown eventKey={4} title="Membership Management" id="basic-nav-dropdown">
 
-          <MenuItem eventKey={4.1} href="/membershipmanagement">Membership</MenuItem>
+          <MenuItem eventKey={4.1} href="/membershipmanagement">Membership Dashboard</MenuItem>
           <MenuItem divider />
           <MenuItem eventKey={4.2} href="/membershipmanagement/pendingmembers">Pending Members</MenuItem>
           <MenuItem eventKey={4.3} href='/membershipmanagement/memberrenewal'>Member Renewal</MenuItem>

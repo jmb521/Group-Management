@@ -15,7 +15,6 @@ export const PendingMembers = function(props) {
         <tr>
             <td>{m.first_name}</td>
             <td>{m.last_name}</td>
-
             <td><Button onClick={() => props.approvePendingMemberOnClick(m.membership_status.id, m.id)}>Approve</Button></td>
         </tr>
 
@@ -32,7 +31,7 @@ export const PendingMembers = function(props) {
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
-            
+              
               <th></th>
             </tr>
             </thead>
