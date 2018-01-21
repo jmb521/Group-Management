@@ -9,7 +9,6 @@ import MomentLocaleUtils, {
 } from 'react-day-picker/moment';
 export const Family = (props) => {
 
-console.log("family, ", props)
     return(
       <Panel>
       <div>

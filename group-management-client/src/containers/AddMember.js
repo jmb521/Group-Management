@@ -43,9 +43,6 @@ class AddMember extends Component {
     let cityValid = this.state.cityValid;
     let clubIdValid = this.state.clubIdValid;
 
-    console.log("name -> ", name)
-    console.log("value -> ", value)
-
     switch(name) {
       case 'first_name':
         firstNameValid = value.match(/[a-zA-Z]+/)
@@ -124,11 +121,8 @@ class AddMember extends Component {
     this.props.memberAdded(true);
 
     this.props.history.push(`/contactinfo`);
-    // window.location = "/contactinfo"
+
   }
-
-
-
 
   render() {
 

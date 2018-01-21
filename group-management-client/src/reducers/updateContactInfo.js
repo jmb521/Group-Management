@@ -8,7 +8,7 @@
   }
 
 export default(state = initialState, action) => {
-  console.log("state", state)
+  
   switch(action.type) {
     case 'UPDATE_CONTACT_INFO':
       return action.contact_info

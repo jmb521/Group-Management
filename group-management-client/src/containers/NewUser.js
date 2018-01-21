@@ -25,8 +25,6 @@ class NewUser extends Component {
     }
 
     handleOnChange = (event) => {
-      // console.log(event.target.options[event.target.selectedIndex].id)
-      console.log(event.target.name)
       let name=""
       let value=""
       if(event.target.name === "club_id") {
@@ -48,13 +46,9 @@ class NewUser extends Component {
 
     }
     handleSubmitClick = (event) => {
-
       event.preventDefault();
-      console.log("handleclick", this.props.memberFormData)
       this.props.createMember(this.props.memberFormData)
   }
-
-
 
   render() {
     const { club_id, username, password} = this.props.memberFormData;

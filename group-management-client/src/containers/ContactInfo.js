@@ -42,10 +42,6 @@ class ContactInfo extends Component {
     }
 
   }
-  componentDidMount() {
-    console.log("this.props.member_added", this.props.member_added)
-  }
-
   validateInput = (name, value) => {
     let fieldValidationErrors = this.state.formErrors;
     let phoneValid = this.state.phoneValid;
@@ -105,20 +101,12 @@ class ContactInfo extends Component {
       kidNameValid: kidNameValid,
       kidBirthdayValid: kidBirthdayValid,
     }, this.validateForm)
-    console.log("email", this.state.emailValid)
-    console.log("phone", this.state.phoneValid)
-    console.log("preferredMethod", this.state.preferredMethodValid)
-    console.log("userBirthday", this.state.userBirthdayValid)
-    console.log('spouseName', this.state.spouseNameValid)
-    console.log("spouseBirthday", this.state.spouseBirthdayValid)
-    console.log("kidName", this.state.kidNameValid)
-    console.log("kidBirthday", this.state.kidBirthdayValid)
   }
   validateForm = () => {
     this.setState({
       formValid: this.state.emailValid && this.state.phoneValid && this.state.preferredMethodValid && this.state.userBirthdayValid && this.state.spouseNameValid && this.state.spouseBirthdayValid && this.state.kidNameValid && this.state.kidBirthdayValid
     })
-    console.log("formValid", this.state.formValid)
+
   }
 
   contactData = (event) => {
@@ -141,7 +129,7 @@ class ContactInfo extends Component {
     const currentContactInfoFormData = Object.assign({}, this.props.contactInfoFormData, {
       [name]: value
     })
-    console.log("currentContactInfoFormData", currentContactInfoFormData)
+
     return currentContactInfoFormData
   }
 
@@ -150,7 +138,7 @@ class ContactInfo extends Component {
     const updatedContactInfo = Object.assign({}, fD, {
         user_id: this.props.members[0].id
     })
-    console.log("updatedContactInfo", updatedContactInfo)
+
     return updatedContactInfo
     }
 
@@ -167,7 +155,7 @@ class ContactInfo extends Component {
       user_birthday: usr_bday,
       user_id: this.props.members[0].id,
     })
-    console.log("user_birthday => ", usr_bday)
+
     this.validateInput("user_birthday", usr_bday)
     this.props.updateFamilyFormData(ubd)
   }
@@ -199,8 +187,6 @@ class ContactInfo extends Component {
     this.combineKidData("kid_birthday", kidsBirthday, id)
   }
   combineKidData = (which, value, id) => {
-
-    console.log("which", which)
     this.props.updateKidsFormData({
       user_id: this.props.members[0].id,
       kidkey: which,
@@ -211,7 +197,6 @@ class ContactInfo extends Component {
 
   handleSubmitClick = (event) => {
     event.preventDefault();
-    console.log("contactINFOFORMDATA", this.props.contactInfoFormData)
     this.props.updateContactInfo(this.props.contactInfoFormData)
     this.props.updateFamily(this.props.userFamiliesFormData)
     this.props.userKidsFormData.map((kid) => {
@@ -247,8 +232,6 @@ render() {
     for(var i=0; i< this.state.KidCount; i++) {
       Kidcomponent.push(<Panel key={i} id={i}><Kids key={i} id={i} formErrors={this.state.formErrors} onRemoveClick={this.handleRemoveClick} handleKidsNameOnChange={this.handleKidsNameOnChange} handleKidsBirthdayOnChange={this.handleKidsBirthdayOnChange} /></Panel>)
     }
-    console.log("$%", Kidcomponent)
-
 
     return (
       <Grid>

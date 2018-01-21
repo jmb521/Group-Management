@@ -1,17 +1,11 @@
 //container component to hold state for the remove, pending and member renewal.
-//pulls state for all member status.
-//allows for filtering of club_id and membership_status
 import React, {Component} from 'react';
-
 import {RemovedMembers} from './RemovedMembers'
 import { connect } from 'react-redux'
-// import {memberFormData} from '../reducers/memberFormData'
-
 import {CurrentMembers} from './CurrentMembers'
 import {PendingMembers} from './PendingMembers'
 import store from '../store.js'
 import {MemberRenewal} from './MemberRenewal'
-// import membersreducer from '../reducers/membersreducer'
 import {bindActionCreators} from 'redux'
 import {MembershipManagement} from './MembershipManagement'
 import {updatependingmember} from '../actions/membership'
@@ -20,7 +14,6 @@ import {updatePendingStatus} from '../actions/membership'
 import {updateremovalstatus} from '../actions/membership'
 import {updatereinstatestatus} from '../actions/membership'
 import {resetmembership} from '../actions/membership'
-
 
 class MemberListContainer extends Component {
 
@@ -143,7 +136,7 @@ class MemberListContainer extends Component {
 
     memberFormData: state.memberFormData,
     members: state.members,
-    
+
   })
 }
 

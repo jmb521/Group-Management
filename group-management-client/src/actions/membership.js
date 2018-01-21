@@ -11,7 +11,7 @@ const setMembers = members => {
 
   };
 
-//action creator
+
 export const updateMemberStatus = users => {
 
   return {
@@ -138,7 +138,7 @@ export const removeMember = (member) => {
  }
 
  export const resetmembership = (id) => {
-   console.log("resetmembership id", id)
+   
    return(dispatch) => {
      return fetch(`http://localhost:3001/api/users/${id}/membership_statuses/${id}`, {
        method: "PUT",

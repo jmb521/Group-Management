@@ -9,7 +9,7 @@ const initialState = {
 
   switch(action.type) {
     case 'ADD_FAMILY':
-    console.log("inside the ADD_KID reducer")
+    
     return action.familyFormData
 
     default:

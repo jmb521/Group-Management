@@ -2,10 +2,6 @@ import React from 'react';
 import { Navbar, Nav, NavDropdown, MenuItem, NavItem } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
-
-
-
-
 class Navigation extends React.Component{
   render() {
     return(

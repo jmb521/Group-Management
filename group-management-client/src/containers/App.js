@@ -72,16 +72,12 @@ class App extends React.Component {
           <Route exact path="/membershipmanagement/currentmembers" component={CurrentMembers} />
           </MemberListContainer>
 
-
-
         </div>
         </Router>
 
       </div>
     )
-
   }
-
 }
 
 const mapStateToProps = state => {

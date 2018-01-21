@@ -10,7 +10,7 @@ import MomentLocaleUtils, {
 
 import 'moment/locale/it';
 export const Kids = (props) => {
-console.log("this kids birthday", props.formErrors.kid_birthday)
+
     return(
       <div>
       <Row>

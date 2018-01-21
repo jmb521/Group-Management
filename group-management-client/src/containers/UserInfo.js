@@ -6,7 +6,7 @@ import FieldGroup from '../fieldgroup.js'
 
 
 export const UserInfo = (props) => {
-  console.log("props for UserInfo", props)
+  
      return(
        <div>
        <Grid>

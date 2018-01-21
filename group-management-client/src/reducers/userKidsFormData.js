@@ -4,12 +4,12 @@
 
   switch(action.type) {
     case 'ADD_KID':
-    console.log("action", action)
+
     if (state[action.id] !== undefined) {
 
       return state.map((data, index) => {
         if(index !== action.id) {
-          console.log("doesn't match", typeof(action.id))
+    
           return data
         }
         return {

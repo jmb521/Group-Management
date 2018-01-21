@@ -31,7 +31,7 @@ export const updateContactInfoFormData = contactInfoFormData => {
   }
 }
 export const addContactInfo = contact_info => {
-  console.log("addContactInfo", contact_info)
+
   return {
     type: "UPDATE_CONTACT_INFO",
     contact_info
@@ -60,7 +60,7 @@ export const addMember = members => {
   }
 }
 export const removeKid = (id) => {
-  console.log("removeKid id", typeof(id))
+
   return {
     type: 'REMOVE_KID',
     id
@@ -74,7 +74,7 @@ export const memberAdded = (memberAdded) => {
 }
 
 export const createMember = user => {
-  console.log(user)
+
   return dispatch => {
 
     return fetch(`http://localhost:3001/api/clubs/${user.club_id}/users`, {
@@ -95,7 +95,7 @@ export const createMember = user => {
 }
 
 export const updateContactInfo = contact_info => {
-  console.log("update contact info", contact_info)
+
   return dispatch => {
     return fetch(`http://localhost:3001/api/users/${contact_info.user_id}/user_contact_infos/`, {
       method: "POST",
@@ -113,7 +113,7 @@ export const updateContactInfo = contact_info => {
 }
 
 export const updateFamily = family => {
-  console.log("inside updateFamily", family)
+
   return dispatch => {
     return fetch(`http://localhost:3001/api/users/${family.user_id}/user_families/`, {
       method: "POST",
@@ -125,7 +125,7 @@ export const updateFamily = family => {
     .catch(error => console.log(error))
     .then(response => response.json())
     .then(family => {
-      console.log("inside family action creator", family)
+
       dispatch(addUserFamily(family))
     })
 
@@ -133,7 +133,7 @@ export const updateFamily = family => {
 }
 
 export const updateKids = kids => {
-  console.log("kids --", kids)
+  
   return dispatch => {
     return fetch(`http://localhost:3001/api/users/${kids.user_id}/user_kids/`, {
       method: "POST",
