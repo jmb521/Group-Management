@@ -1,9 +1,8 @@
 import React from 'react'
-import {Row, Col, FormGroup, ControlLabel, Panel, FormControl, HelpBlock, Checkbox} from 'react-bootstrap'
+import {Row, Col, FormGroup, ControlLabel, Panel, FormControl, Checkbox} from 'react-bootstrap'
 import FieldGroup from '../fieldgroup.js'
 export const UserContactInfo = (props) => {
-console.log("usercontactinfo", props)
-console.log("email form errors", props.formErrors.email)
+
     return (
 
 
