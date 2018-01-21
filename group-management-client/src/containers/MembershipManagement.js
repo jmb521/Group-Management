@@ -13,10 +13,12 @@ export const MembershipManagement = function(props) {
       <div>
         <Grid className="membershipmanagement">
           <Row>
-            <Col sm={6} md={12} className="dashboardheader">
+
+            <Col sm={8} md={12} className="dashboardheader">
               <h1>Membership Dashboard</h1>
               <GetClubs clubs={props.clubs} handleOnChange={props.handleOnChange}/>
             </Col>
+
           </Row>
           <Row>
             <Col sm={6} md={3} className="member_count">

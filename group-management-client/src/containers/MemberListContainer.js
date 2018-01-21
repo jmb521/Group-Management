@@ -78,6 +78,7 @@ class MemberListContainer extends Component {
             memberFormData={this.props.memberFormData}
             reinstateOnClick={this.reinstateOnClick}
             handleOnChange={this.handleOnChange}
+
              />
 
         )
@@ -90,6 +91,7 @@ class MemberListContainer extends Component {
           renewOnClick={this.renewOnClick}
           removeOnClick={this.removeOnClick}
           handleOnChange={this.handleOnChange}
+
           />
         )
       } else if (window.location.href === "http://localhost:3000/membershipmanagement/pendingmembers") {
@@ -141,8 +143,7 @@ class MemberListContainer extends Component {
 
     memberFormData: state.memberFormData,
     members: state.members,
-
-
+    
   })
 }
 
