@@ -1,11 +1,11 @@
   require 'pry'
 
 class Api::UserFamiliesController < ApplicationController
-  before_action :set_user_family
+  before_action :set_user_family, only: [:index, :show, :update]
   before_action :set_user, only: [:index, :show, :update]
   def show
-    @user_family = @user.user_family
-    render json: @user_family
+    @user_families = @user.user_family
+    render json: @user_families
   end
 
   def create
@@ -22,7 +22,7 @@ class Api::UserFamiliesController < ApplicationController
   end
 
   def update
-    
+
     if @user_family.update(user_family_params)
       render json: @user_family
     else

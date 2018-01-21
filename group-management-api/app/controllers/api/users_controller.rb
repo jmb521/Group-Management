@@ -15,8 +15,8 @@ class Api::UsersController < ApplicationController
 
     @user = User.new(user_params)
 
-    @user.build_user_family
-    @user.build_user_contact_info
+    # @user.build_user_family
+    # @user.build_user_contact_info
     @user.build_membership_status
 
 
