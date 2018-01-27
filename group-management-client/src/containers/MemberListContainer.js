@@ -17,6 +17,7 @@ import {resetmembership} from '../actions/membership'
 
 class MemberListContainer extends Component {
 
+
   reinstateOnClick = (membershipStatusId, id) => {
     store.dispatch(updatereinstatestatus(membershipStatusId, id))
   }
@@ -43,8 +44,7 @@ class MemberListContainer extends Component {
       }
     })
   }
-
-
+  
   render() {
     const filteredMembers = (members, filter, alternate_filter) => {
     if(filter === "pending") {

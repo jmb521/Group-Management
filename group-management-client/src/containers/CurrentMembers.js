@@ -1,27 +1,16 @@
 import React from 'react'
 import {Grid, Table, Button} from 'react-bootstrap'
 import GetClubs from './GetClubs'
-
+import MemberList from './MemberList'
 
 
 export const CurrentMembers = function(props) {
+  const List = props.members.map((m) => {
+    return(
 
-  const memberList = props.members.map((m) => {
-  return (
-    <tbody key={m.id}>
-    <tr>
-      <td>{m.first_name}</td>
-      <td>{m.last_name}</td>
-      <td>{m.user_contact_info.email}</td>
-      <td>{m.membership_status.is_member}</td>
-      <td><Button onClick={()=>{props.removeOnClick(m.membership_status.id, m.id)}}>Remove</Button></td>
-
-    </tr>
-    </tbody>
-  )
-
-  });
-
+      <MemberList member={m} />
+    )
+  })
 
 return (
   <div className="currentmembers">
@@ -37,12 +26,12 @@ return (
             <th>Last Name</th>
             <th>Email</th>
             <th>Membership Status</th>
-
+            <th></th>
+            <th>Vote</th>
+            <th>Votes Received</th>
           </tr>
         </thead>
-
-          {memberList}
-
+        {List}
 
       </Table>
     </Grid>
