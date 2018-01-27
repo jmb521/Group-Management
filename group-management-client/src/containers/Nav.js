@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, Nav, NavDropdown, MenuItem, NavItem } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom'
+import {LinkContainer} from 'react-router-bootstrap'
 
 class Navigation extends React.Component{
   render() {
@@ -10,24 +11,26 @@ class Navigation extends React.Component{
       <Navbar inverse>
       <Navbar.Header>
       <Navbar.Brand>
-      <a href="/">Group Management</a>
+      <Link
+        to="/"
+        className="home_link">Group Management</Link>
       </Navbar.Brand>
       <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
       <Nav>
       <NavDropdown eventKey={2} title="Club" id="basic-nav-dropdown">
-        <MenuItem eventKey={2.1} href="/addclub">Add Club</MenuItem>
+        <LinkContainer to="/addclub"><MenuItem eventKey={2.1} >Add Club</MenuItem></LinkContainer>
         </NavDropdown>
-        <NavItem eventKey={3} href="/addmember">Add Member</NavItem>
+        <LinkContainer to="/addmember"><NavItem eventKey={3}>Add Member</NavItem></LinkContainer>
       <NavDropdown eventKey={4} title="Membership Management" id="basic-nav-dropdown">
 
-          <MenuItem eventKey={4.1} href="/membershipmanagement">Membership Dashboard</MenuItem>
+          <LinkContainer to="/membershipmanagement"><MenuItem eventKey={4.1}>Membership Dashboard</MenuItem></LinkContainer>
           <MenuItem divider />
-          <MenuItem eventKey={4.2} href="/membershipmanagement/pendingmembers">Pending Members</MenuItem>
-          <MenuItem eventKey={4.3} href='/membershipmanagement/memberrenewal'>Member Renewal</MenuItem>
-          <MenuItem eventKey={4.4} href="/membershipmanagement/removedmembers">Removed Members</MenuItem>
-          <MenuItem eventKey={4.5} href="/membershipmanagement/currentmembers">Current Members</MenuItem>
+          <LinkContainer to="/membershipmanagement/pendingmembers"><MenuItem eventKey={4.2}>Pending Members</MenuItem></LinkContainer>
+          <LinkContainer to='/membershipmanagement/memberrenewal'><MenuItem eventKey={4.3}>Member Renewal</MenuItem></LinkContainer>
+          <LinkContainer to="/membershipmanagement/removedmembers"><MenuItem eventKey={4.4}>Removed Members</MenuItem></LinkContainer>
+          <LinkContainer to="/membershipmanagement/currentmembers"><MenuItem eventKey={4.5}>Current Members</MenuItem></LinkContainer>
 
         </NavDropdown>
 

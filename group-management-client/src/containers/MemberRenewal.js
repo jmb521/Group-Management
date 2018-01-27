@@ -57,3 +57,8 @@ export const MemberRenewal = function(props) {
       </div>
     )
   }
+  const mapStateToProps = (state) => {
+    return({
+      members: state.members,
+    })
+  }

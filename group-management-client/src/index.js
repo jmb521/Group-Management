@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import store from './store.js'
 import {loadState, saveState} from './localStorage'
 
+
 // export let store = createStore(Membership)
 
 export const persistedState = loadState()
@@ -21,7 +22,6 @@ store.subscribe(() => {
 ReactDOM.render(
 <Provider store={ store }>
   <App />
-
 </Provider>,
   document.getElementById('root')
 );

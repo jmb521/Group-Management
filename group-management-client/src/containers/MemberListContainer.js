@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import {RemovedMembers} from './RemovedMembers'
 import { connect } from 'react-redux'
-import {CurrentMembers} from './CurrentMembers'
+
 import {PendingMembers} from './PendingMembers'
 import store from '../store.js'
 import {MemberRenewal} from './MemberRenewal'
@@ -11,7 +11,7 @@ import {MembershipManagement} from './MembershipManagement'
 import {updatependingmember} from '../actions/membership'
 import {updaterenewalstatus} from '../actions/membership'
 import {updatePendingStatus} from '../actions/membership'
-import {updateremovalstatus} from '../actions/membership'
+
 import {updatereinstatestatus} from '../actions/membership'
 import {resetmembership} from '../actions/membership'
 
@@ -31,9 +31,7 @@ class MemberListContainer extends Component {
 
     store.dispatch(updaterenewalstatus(membershipStatusId, id))
   }
-  removeOnClick = (membershipStatusId, id) => {
-    store.dispatch(updateremovalstatus(membershipStatusId, id))
-  }
+
   resetMembership = (club_id) => {
     this.props.members.map((m) => {
       if(m.club_id === club_id && m.membership_status.is_member === "current") {
@@ -44,7 +42,7 @@ class MemberListContainer extends Component {
       }
     })
   }
-  
+
   render() {
     const filteredMembers = (members, filter, alternate_filter) => {
     if(filter === "pending") {
@@ -105,15 +103,17 @@ class MemberListContainer extends Component {
         handleOnChange={this.handleOnChange}
         />
       )
-    } else if(window.location.href === "http://localhost:3000/membershipmanagement/currentmembers") {
-      return(
-        <CurrentMembers
-        members={filteredMembers(this.props.members, "renewed, current")}
-        handleOnChange={this.handleOnChange}
-        removeOnClick={this.removeOnClick}
-        />
-      )
-    } else {
+    }
+    // else if(window.location.href === "http://localhost:3000/membershipmanagement/currentmembers") {
+    //   return(
+    //     <CurrentMembers
+    //     members={filteredMembers(this.props.members, "renewed, current")}
+    //     handleOnChange={this.handleOnChange}
+    //     removeOnClick={this.removeOnClick}
+    //     />
+    //   )
+    // }
+     else {
         return(
           <div>
           </div>
@@ -146,7 +146,7 @@ const mapDispatchToProps = (dispatch)  => {
     updatePendingStatus: updatePendingStatus,
     updatependingmember: updatependingmember,
     updaterenewastatus: updaterenewalstatus,
-    updateremovalstatus: updateremovalstatus,
+
     updatereinstatestatus: updatereinstatestatus,
     resetmembership: resetmembership,
   }, dispatch)

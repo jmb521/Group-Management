@@ -1,15 +1,25 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {Grid, Table, Button} from 'react-bootstrap'
 import GetClubs from './GetClubs'
 import MemberList from './MemberList'
+import { connect } from 'react-redux'
+import store from '../store.js'
+import {bindActionCreators} from 'redux'
+import {updateremovalstatus} from '../actions/membership'
+class CurrentMembers extends Component {
+  removeOnClick = (membershipStatusId, id) => {
+    store.dispatch(updateremovalstatus(membershipStatusId, id))
+  }
+  render() {
+  const List = this.props.members.map((m) => {
+    console.log('mmmm', m)
+    if(m.membership_status.is_member === "current") {
+      return(
 
+        <MemberList key={m.id} member={m} removeOnClick={this.removeOnClick} />
+      )
 
-export const CurrentMembers = function(props) {
-  const List = props.members.map((m) => {
-    return(
-
-      <MemberList key={m.id} member={m} />
-    )
+    }
   })
 
 return (
@@ -36,5 +46,19 @@ return (
       </Table>
     </Grid>
   </div>
-)
+  )
+  }
 }
+
+const mapStateToProps = (state) => {
+  return({
+    members: state.members,
+  })
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    updateremovalstatus: updateremovalstatus,
+  }, dispatch)
+}
+export default connect(mapStateToProps)(CurrentMembers)
