@@ -12,7 +12,7 @@ import AddMember from './AddMember'
 import Club from './Club'
 import createBrowserHistory from 'history/createBrowserHistory'
 import {PendingMembers} from './PendingMembers'
-import {MemberRenewal} from './MemberRenewal'
+import MemberRenewal from './MemberRenewal'
 import {RemovedMembers} from './RemovedMembers'
 import CurrentMembers from './CurrentMembers'
 import MemberListContainer from './MemberListContainer'
@@ -78,7 +78,7 @@ class App extends React.Component {
           <Route exact path="/membershipmanagement/memberrenewal" component={MemberRenewal} />
           <Route exact path="/membershipmanagement/removedmembers" component={RemovedMembers} />
           <Route exact path="/membershipmanagement/currentmembers" component={CurrentMembers} />
-          
+
 
         </div>
         </Router>

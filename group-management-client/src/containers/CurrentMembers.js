@@ -61,4 +61,4 @@ const mapDispatchToProps = (dispatch) => {
     updateremovalstatus: updateremovalstatus,
   }, dispatch)
 }
-export default connect(mapStateToProps)(CurrentMembers)
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentMembers)
