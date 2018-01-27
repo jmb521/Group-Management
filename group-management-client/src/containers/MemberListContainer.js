@@ -3,14 +3,10 @@ import React, {Component} from 'react';
 import {RemovedMembers} from './RemovedMembers'
 import { connect } from 'react-redux'
 
-import {PendingMembers} from './PendingMembers'
+
 import store from '../store.js'
 
 import {bindActionCreators} from 'redux'
-
-import {updatependingmember} from '../actions/membership'
-
-import {updatePendingStatus} from '../actions/membership'
 
 import {updatereinstatestatus} from '../actions/membership'
 
@@ -21,10 +17,7 @@ class MemberListContainer extends Component {
   reinstateOnClick = (membershipStatusId, id) => {
     store.dispatch(updatereinstatestatus(membershipStatusId, id))
   }
-  approvePendingMemberOnClick = (membershipStatusId, id) => {
-    store.dispatch(updatePendingStatus(membershipStatusId, id));
 
-  }
 
 
 
@@ -63,17 +56,6 @@ class MemberListContainer extends Component {
         )
       }
 
-      else if (window.location.href === "http://localhost:3000/membershipmanagement/pendingmembers") {
-        return(
-          <PendingMembers
-          members={filteredMembers(this.props.members, "pending")}
-
-          approvePendingMemberOnClick={this.approvePendingMemberOnClick}
-          handleOnChange={this.handleOnChange}
-          />
-
-        )
-    }
      else {
         return(
           <div>
@@ -104,8 +86,7 @@ class MemberListContainer extends Component {
 const mapDispatchToProps = (dispatch)  => {
   return bindActionCreators({
     // updateMemberFormData: updateMemberFormData,
-    updatePendingStatus: updatePendingStatus,
-    updatependingmember: updatependingmember,
+
 
 
     updatereinstatestatus: updatereinstatestatus,
