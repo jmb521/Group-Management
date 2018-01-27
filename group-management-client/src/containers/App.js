@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css'
 import { connect } from 'react-redux'
 import {Redirect } from 'react-router';
-import {MembershipManagement} from './MembershipManagement'
+import MembershipManagement from './MembershipManagement'
 import {Kids} from './Kids'
 import ContactInfo from './ContactInfo'
 import {Family} from './Family'

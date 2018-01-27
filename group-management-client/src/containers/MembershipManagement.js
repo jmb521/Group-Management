@@ -1,14 +1,19 @@
 //shows demographics for all members.
 
-import React from 'react';
+import React, {Component} from 'react';
 import {MemberCount} from './MemberCount'
 import {PendingMemberCount} from './PendingMemberCount'
 import { Grid, Row, Col} from 'react-bootstrap'
 import GetClubs from './GetClubs'
+import { connect } from 'react-redux'
+import store from '../store.js'
+import {bindActionCreators} from 'redux'
+class MembershipManagement extends Component {
 
-export const MembershipManagement = function(props) {
-    const pendingmembercount = props.members.filter((m) => m.membership_status.is_member === "pending").length
-    const membercount = props.members.length
+    render() {
+
+      const pendingmembercount = this.props.members.filter((m) => m.membership_status.is_member === "pending").length
+      const membercount = this.props.members.length
     return(
       <div>
         <Grid className="membershipmanagement">
@@ -16,7 +21,7 @@ export const MembershipManagement = function(props) {
 
             <Col sm={8} md={12} className="dashboardheader">
               <h1>Membership Dashboard</h1>
-              <GetClubs clubs={props.clubs} handleOnChange={props.handleOnChange}/>
+              <GetClubs />
             </Col>
 
           </Row>
@@ -36,5 +41,19 @@ export const MembershipManagement = function(props) {
         </Grid>
       </div>
     )
-
+  }
 }
+
+const mapStateToProps = (state) => {
+  return({
+    members: state.members,
+  })
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MembershipManagement)

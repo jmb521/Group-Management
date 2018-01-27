@@ -7,13 +7,13 @@ import {PendingMembers} from './PendingMembers'
 import store from '../store.js'
 
 import {bindActionCreators} from 'redux'
-import {MembershipManagement} from './MembershipManagement'
+
 import {updatependingmember} from '../actions/membership'
 
 import {updatePendingStatus} from '../actions/membership'
 
 import {updatereinstatestatus} from '../actions/membership'
-import {resetmembership} from '../actions/membership'
+
 
 class MemberListContainer extends Component {
 
@@ -29,16 +29,7 @@ class MemberListContainer extends Component {
 
 
 
-  resetMembership = (club_id) => {
-    this.props.members.map((m) => {
-      if(m.club_id === club_id && m.membership_status.is_member === "current") {
-        return (
 
-          store.dispatch(resetmembership(m.id))
-        )
-      }
-    })
-  }
 
   render() {
     const filteredMembers = (members, filter, alternate_filter) => {
@@ -71,19 +62,7 @@ class MemberListContainer extends Component {
 
         )
       }
-      // else if (window.location.href === "http://localhost:3000/membershipmanagement/memberrenewal") {
-      //   return(
-      //     <MemberRenewal
-      //     members={filteredMembers(this.props.members, "current")}
-      //     memberFormData={this.props.memberFormData}
-      //     resetMembership={this.resetMembership}
-      //     renewOnClick={this.renewOnClick}
-      //     removeOnClick={this.removeOnClick}
-      //     handleOnChange={this.handleOnChange}
-      //
-      //     />
-      //   )
-      // }
+
       else if (window.location.href === "http://localhost:3000/membershipmanagement/pendingmembers") {
         return(
           <PendingMembers
@@ -94,24 +73,7 @@ class MemberListContainer extends Component {
           />
 
         )
-      } else if(window.location.href === "http://localhost:3000/membershipmanagement") {
-        return(
-        <MembershipManagement
-        members={this.props.members}
-
-        handleOnChange={this.handleOnChange}
-        />
-      )
     }
-    // else if(window.location.href === "http://localhost:3000/membershipmanagement/currentmembers") {
-    //   return(
-    //     <CurrentMembers
-    //     members={filteredMembers(this.props.members, "renewed, current")}
-    //     handleOnChange={this.handleOnChange}
-    //     removeOnClick={this.removeOnClick}
-    //     />
-    //   )
-    // }
      else {
         return(
           <div>
@@ -144,10 +106,10 @@ const mapDispatchToProps = (dispatch)  => {
     // updateMemberFormData: updateMemberFormData,
     updatePendingStatus: updatePendingStatus,
     updatependingmember: updatependingmember,
-    
+
 
     updatereinstatestatus: updatereinstatestatus,
-    resetmembership: resetmembership,
+
   }, dispatch)
 }
 
