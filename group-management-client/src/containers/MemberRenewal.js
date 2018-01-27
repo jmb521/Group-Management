@@ -7,6 +7,7 @@ import {bindActionCreators} from 'redux'
 import {updaterenewalstatus} from '../actions/membership'
 import store from '../store.js'
 import {updateremovalstatus} from '../actions/membership'
+import {resetmembership} from '../actions/membership'
 class MemberRenewal extends Component {
 
   renewOnClick = (membershipStatusId, id) => {
@@ -16,7 +17,16 @@ class MemberRenewal extends Component {
   removeOnClick = (membershipStatusId, id) => {
     store.dispatch(updateremovalstatus(membershipStatusId, id))
   }
+  resetMembership = (club_id) => {
+    this.props.members.map((m) => {
+      if(m.club_id === club_id && m.membership_status.is_member === "current") {
+        return (
 
+          store.dispatch(resetmembership(m.id))
+        )
+      }
+    })
+  }
   render() {
     const memberList = this.props.members.map((m) => {
       if(m.membership_status.is_member === "current") {
@@ -84,6 +94,7 @@ class MemberRenewal extends Component {
     return bindActionCreators({
     updaterenewalstatus: updaterenewalstatus,
     updateremovalstatus: updateremovalstatus,
+    resetmembership: resetmembership,
     }, dispatch)
   }
 
