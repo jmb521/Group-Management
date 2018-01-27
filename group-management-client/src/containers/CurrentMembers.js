@@ -8,7 +8,7 @@ export const CurrentMembers = function(props) {
   const List = props.members.map((m) => {
     return(
 
-      <MemberList member={m} />
+      <MemberList key={m.id} member={m} />
     )
   })
 
