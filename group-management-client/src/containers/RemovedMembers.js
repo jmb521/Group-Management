@@ -1,13 +1,23 @@
 // //shows a list of former members
-import React from 'react';
+import React, {Component} from 'react';
 import GetClubs from './GetClubs'
 import { Grid, Table, Button} from 'react-bootstrap';
+import { connect } from 'react-redux'
+import store from '../store.js'
+import {bindActionCreators} from 'redux'
+import {updatereinstatestatus} from '../actions/membership'
 
-export const RemovedMembers = function(props) {
+class RemovedMembers extends Component {
 
-  const memberList = props.members.map((m) => {
+  reinstateOnClick = (membershipStatusId, id) => {
+    store.dispatch(updatereinstatestatus(membershipStatusId, id))
+  }
 
-         if(parseInt(m.club_id, 10) === parseInt(props.memberFormData.club_id, 10)) {
+  render() {
+    const memberList = this.props.members.map((m) => {
+
+      if(m.membership_status.is_member === "removed") {
+         if(parseInt(m.club_id, 10) === parseInt(this.props.memberFormData.club_id, 10)) {
            return (
 
              <tbody key={m.id}>
@@ -15,11 +25,12 @@ export const RemovedMembers = function(props) {
              <td>{m.first_name}</td>
              <td>{m.last_name}</td>
              <td>{m.user_contact_info.email}</td>
-             <td><Button onClick={()=>{props.reinstateOnClick(m.membership_status.id, m.id)}}>Reinstate</Button></td>
+             <td><Button onClick={()=>{this.reinstateOnClick(m.membership_status.id, m.id)}}>Reinstate</Button></td>
              </tr>
              </tbody>
            )
          }
+        }
        })
 
 
@@ -47,3 +58,17 @@ export const RemovedMembers = function(props) {
     </div>
   )
 }
+}
+const mapStateToProps = (state) => {
+  return({
+    members: state.members,
+    memberFormData: state.memberFormData,
+  })
+}
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    updatereinstatestatus: updatereinstatestatus,
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RemovedMembers)

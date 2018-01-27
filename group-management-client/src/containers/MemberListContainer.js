@@ -1,6 +1,6 @@
 //container component to hold state for the remove, pending and member renewal.
 import React, {Component} from 'react';
-import {RemovedMembers} from './RemovedMembers'
+
 import { connect } from 'react-redux'
 
 
@@ -14,9 +14,7 @@ import {updatereinstatestatus} from '../actions/membership'
 class MemberListContainer extends Component {
 
 
-  reinstateOnClick = (membershipStatusId, id) => {
-    store.dispatch(updatereinstatestatus(membershipStatusId, id))
-  }
+
 
 
 
@@ -38,36 +36,11 @@ class MemberListContainer extends Component {
 
 
     }
-    const WhichToRender = () => {
 
-
-      if(window.location.href === "http://localhost:3000/membershipmanagement/removedmembers") {
-
-        return(
-
-          <RemovedMembers
-            members={filteredMembers(this.props.members, "removed")}
-            memberFormData={this.props.memberFormData}
-            reinstateOnClick={this.reinstateOnClick}
-            handleOnChange={this.handleOnChange}
-
-             />
-
-        )
-      }
-
-     else {
-        return(
-          <div>
-          </div>
-        )
-      }
-
-    }
 
     return(
       <div>
-        <WhichToRender />
+
 
       </div>
     )
