@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :user_kids
       resources :user_families
       resources :user_contact_infos
+      resources :votes
     end
 
   end
