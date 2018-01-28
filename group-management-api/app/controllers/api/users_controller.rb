@@ -18,6 +18,7 @@ class Api::UsersController < ApplicationController
     # @user.build_user_family
     # @user.build_user_contact_info
     @user.build_membership_status
+    @user.build_vote
 
 
     if @user.save
