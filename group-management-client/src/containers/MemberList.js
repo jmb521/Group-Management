@@ -1,18 +1,17 @@
 import React, {Component} from 'react'
 import {Button} from 'react-bootstrap'
+import {updateVote} from '../actions/votes'
+import {bindActionCreators} from 'redux'
+import store from '../store.js'
+import { connect } from 'react-redux'
+
 class MemberList extends Component {
-  constructor() {
-    super()
 
-    this.state = {
-      count: 0,
-    }
-  }
+  //
+  voteCount = (id) => {
 
-  voteCount = () => {
-    this.setState({
-      count: this.state.count + 1,
-    })
+    const updated = this.props.member.vote.number_of_votes + 1
+    this.props.updateVote(id, updated)
   }
 
   render() {
@@ -25,8 +24,8 @@ class MemberList extends Component {
       <td>{this.props.member.user_contact_info.email}</td>
       <td>{this.props.member.membership_status.is_member}</td>
       <td><Button onClick={()=>{this.props.removeOnClick(this.props.member.membership_status.id, this.props.member.id)}}>Remove</Button></td>
-      <td><Button onClick={this.voteCount}>Vote</Button></td>
-      <td>{this.state.count}</td>
+      <td><Button onClick={()=>{this.voteCount(this.props.member.id)}}>Vote</Button></td>
+      <td>{this.props.member.vote.number_of_votes}</td>
 
       </tr>
       </tbody>
@@ -35,4 +34,11 @@ class MemberList extends Component {
   }
 
 }
-export default MemberList
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    updateVote: updateVote,
+
+  }, dispatch)
+}
+export default connect(undefined, mapDispatchToProps)(MemberList)

@@ -53,16 +53,6 @@ export const resetMembership = (membership_status) => {
   }
 }
 
-
-export const getMembers = () => {
-  return dispatch => {
-   return fetch("http://localhost:3001/api/clubs/1/users")
-     .then(response => response.json())
-     .then(members => dispatch(setMembers(members)))
-     .catch(error => console.log(error));
-    }
-  };
-
 export const removeMember = (member) => {
   return dispatch => {
   return fetch(`http://localhost:3001/api/users/${member.id}/membership_statuses/${member.membership_status.id}`, {
@@ -138,7 +128,7 @@ export const removeMember = (member) => {
  }
 
  export const resetmembership = (id) => {
-   
+
    return(dispatch) => {
      return fetch(`http://localhost:3001/api/users/${id}/membership_statuses/${id}`, {
        method: "PUT",

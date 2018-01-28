@@ -95,7 +95,7 @@ export const createMember = user => {
 }
 
 export const updateContactInfo = contact_info => {
-
+  console.log("updateContactInfo", contact_info)
   return dispatch => {
     return fetch(`http://localhost:3001/api/users/${contact_info.user_id}/user_contact_infos/`, {
       method: "POST",
@@ -104,11 +104,11 @@ export const updateContactInfo = contact_info => {
       },
       body: JSON.stringify(contact_info)
     })
-    .catch(error => console.log(error))
     .then(response => response.json())
     .then(contact_info => {
       dispatch(addContactInfo(contact_info))
     })
+    .catch(error => console.log(error))
   }
 }
 
@@ -133,7 +133,7 @@ export const updateFamily = family => {
 }
 
 export const updateKids = kids => {
-  
+
   return dispatch => {
     return fetch(`http://localhost:3001/api/users/${kids.user_id}/user_kids/`, {
       method: "POST",

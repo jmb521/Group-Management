@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import store from '../store.js'
 import {bindActionCreators} from 'redux'
 import {updateremovalstatus} from '../actions/membership'
+
 class CurrentMembers extends Component {
   removeOnClick = (membershipStatusId, id) => {
     store.dispatch(updateremovalstatus(membershipStatusId, id))
@@ -53,12 +54,14 @@ return (
 const mapStateToProps = (state) => {
   return({
     members: state.members,
+
   })
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     updateremovalstatus: updateremovalstatus,
+
   }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentMembers)

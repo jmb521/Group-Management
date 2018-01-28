@@ -63,6 +63,17 @@ export default (state = [], action) => {
            ...action
          }
        })
+       case 'UPDATE_VOTE':
+       console.log("state in members_reducer => ", state)
+        return state.map((item) => {
+          if(item.id !== action.vote.user_id) {
+            return item;
+          }
+          return {
+            ...item,
+            ...action
+          }
+        })
 
     default:
       return state;

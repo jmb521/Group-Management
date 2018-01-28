@@ -9,7 +9,9 @@ import { connect } from 'react-redux'
 import store from '../store.js'
 import {bindActionCreators} from 'redux'
 class MembershipManagement extends Component {
+    componentDidMount() {
 
+    }
     render() {
 
       const pendingmembercount = this.props.members.filter((m) => m.membership_status.is_member === "pending").length
@@ -47,6 +49,7 @@ class MembershipManagement extends Component {
 const mapStateToProps = (state) => {
   return({
     members: state.members,
+    memberFormData: state.memberFormData,
   })
 }
 

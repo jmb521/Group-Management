@@ -18,6 +18,7 @@ import updateKids from './reducers/updateKids'
 import updateContactInfo from './reducers/updateContactInfo'
 import memberAdded from './reducers/memberAdded'
 import {persistedState} from './index.js'
+
 // import {routerReducer} from 'react-router-redux'
 
 const reducers = combineReducers({
@@ -32,8 +33,8 @@ const reducers = combineReducers({
   family: updateFamily,
   kids: updateKids,
   contact_info: updateContactInfo,
-  member_added: memberAdded
-
+  member_added: memberAdded,
+  
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middleware= [thunk];
@@ -42,4 +43,3 @@ export default createStore(
   reducers,
   persistedState,
    composeEnhancers(applyMiddleware(...middleware)));
-  

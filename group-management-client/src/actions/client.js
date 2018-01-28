@@ -1,4 +1,5 @@
 const updateMembers = (members, club_id) => {
+  console.log("inside UPDATEMEMBERS", members)
   return {
     type: 'GET_MEMBERLIST_SUCCESS',
     members,
