@@ -1,35 +1,42 @@
 class Api::VotesController < ApplicationController
-  before_action :set_votes, only: [:index, :show, :update]
+  before_action :set_votes, only: [:show, :update]
   before_action :set_user, only: [:index, :show, :update]
 
-  def show
-    @votes = @user.votes
-    render json: @votes
+  def index
+    @vote = @user.vote
+    render json: @vote
   end
-
-  def create
-    @votes = Vote.new(vote_params)
-
-    if @votes.save
-      render json: @votes
-    else
-      render json: { message: @votes.errors}, status: 400
-    end
-  end
+  # def show
+  #   @votes = @user.vote
+  #   render json: @votes
+  # end
 
   def update
-    if @votes.update(vote_params)
-      render json: @votes
+    
+    if @vote.update(vote_params)
+      render json: @vote
     else
-      render json: { message: @votes.errors}, status: 400
+      render json: { message: @vote.errors}, status: 400
     end
   end
 
 
+
+  def create
+    @vote = Vote.new(vote_params)
+
+
+    if @vote.save
+      render json: @vote
+    else
+      render json: { message: @vote.errors}, status: 400
+    end
+  end
   private
 
   def set_votes
-    @votes = Vote.find(params[:id])
+
+    @vote = Vote.find(params[:id])
   end
   def set_user
     @user = User.find_by(:id => params[:user_id])
