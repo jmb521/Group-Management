@@ -11,7 +11,7 @@ class MemberList extends Component {
   voteCount = (id) => {
 
     const updated = this.props.member.vote.number_of_votes + 1
-    this.props.updateVote(id, updated)
+    this.props.updateVote(id, updated, this.props.member.vote.id)
   }
 
   render() {

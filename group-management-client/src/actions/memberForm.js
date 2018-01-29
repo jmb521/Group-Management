@@ -97,8 +97,8 @@ export const createMember = user => {
 export const updateContactInfo = contact_info => {
   console.log("updateContactInfo", contact_info)
   return dispatch => {
-    return fetch(`http://localhost:3001/api/users/${contact_info.user_id}/user_contact_infos/`, {
-      method: "POST",
+    return fetch(`http://localhost:3001/api/users/${contact_info.user_id}/user_contact_infos/${contact_info.user_id}`, {
+      method: "PUT",
       headers: {
         'Content-Type': 'application/json'
       },

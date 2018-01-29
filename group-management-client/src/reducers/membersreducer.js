@@ -6,8 +6,6 @@ export default (state = [], action) => {
       return action.members;
     case 'GET_MEMBERS_SUCCESS':
         return action.members;
-    case 'REMOVE_MEMBER':
-        return action.members;
     case 'UPDATE_PENDING_MEMBER':
     return state.map( (item) => {
     if(item.id !== action.membership_status.id) {

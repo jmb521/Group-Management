@@ -6,10 +6,10 @@ export const updatevote = (vote) => {
   }
 }
 
-export const updateVote = (user_id, count) => {
+export const updateVote = (user_id, count, vote_id) => {
   console.log("in updateCount", typeof count)
   return (dispatch) => {
-    return fetch(`http://localhost:3001/api/users/${user_id}/votes/${user_id}`, {
+    return fetch(`http://localhost:3001/api/users/${user_id}/votes/${vote_id}`, {
       method: "PUT",
       headers: {
         'Content-Type': 'application/json'

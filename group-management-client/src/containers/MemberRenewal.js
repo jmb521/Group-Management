@@ -22,7 +22,7 @@ class MemberRenewal extends Component {
       if(m.club_id === club_id && m.membership_status.is_member === "current") {
         return (
 
-          store.dispatch(resetmembership(m.id))
+          store.dispatch(resetmembership(m.id, m.membership_status.id))
         )
       }
     })
