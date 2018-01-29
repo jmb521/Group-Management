@@ -19,6 +19,7 @@ class Api::UsersController < ApplicationController
     # @user.build_user_contact_info
     @user.build_membership_status
     @user.build_vote
+    @user.build_user_contact_info
 
 
     if @user.save
@@ -70,7 +71,7 @@ class Api::UsersController < ApplicationController
       user_kids: [:user_id, :kid_name, :kid_birthday ],
       user_family_attributes: [:user_id, :user_birthday, :spouse, :spouse_birthday],
       user_contact_infos: [:user_id, :email, :home_phone, :text_message, :preferred_method],
-      
+
       )
     end
 end
