@@ -58,14 +58,8 @@ class Api::UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(
-      :first_name,
-      :last_name,
-      :club_id,
-      :address1,
-      :address2,
-      :city,
-      :state,
-      :zipcode,
+      :username, :password,
+      user_addresses: [:first_name, :last_name, :club_id, :address1, :address2, :city, :state, :zipcode],
       user_kids: [:user_id, :kid_name, :kid_birthday ],
       user_family_attributes: [:user_id, :user_birthday, :spouse, :spouse_birthday],
       user_contact_infos: [:user_id, :email, :home_phone, :text_message, :preferred_method],

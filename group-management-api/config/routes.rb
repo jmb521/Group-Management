@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount_devise_token_auth_for 'User', at: 'auth'
   namespace :api do
 
 
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
     end
     resources :users do
       resources :membership_statuses, only: [:show, :edit, :update, :index]
-
+      resources :user_addresses
       resources :user_kids
       resources :user_families
       resources :user_contact_infos
