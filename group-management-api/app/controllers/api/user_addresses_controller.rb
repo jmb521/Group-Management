@@ -56,7 +56,7 @@ class Api::UserAddressesController < ApplicationController
 
 
 
-    def user_params
+    def user_addresses_params
       params.require(:user_addresses).permit(
       :first_name,
       :last_name,
