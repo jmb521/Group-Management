@@ -1,6 +1,6 @@
-class Createuserstable < ActiveRecord::Migration[5.1]
+class CreateUserAddressesTable < ActiveRecord::Migration[5.1]
   def change
-    create_table(:users) do |t|
+    create_table :user_addresses_tables do |t|
       t.column :first_name, :string
       t.column :last_name, :string
       t.column :club_id, :string
