@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180104172122) do
+ActiveRecord::Schema.define(version: 20180307230952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 20180104172122) do
     t.string "membership_paid"
     t.integer "club_id"
     t.datetime "updated_at"
+  end
+
+  create_table "user_addresses_tables", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "club_id"
+    t.string "address1"
+    t.string "address2"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
   end
 
   create_table "user_contact_infos", force: :cascade do |t|
@@ -53,14 +64,12 @@ ActiveRecord::Schema.define(version: 20180104172122) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "club_id"
-    t.string "address1"
-    t.string "address2"
-    t.string "city"
-    t.string "state"
-    t.string "zipcode"
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.integer "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -11,6 +11,8 @@ class User < ApplicationRecord
   belongs_to :club
   before_create :build_membership_status
   accepts_nested_attributes_for :user_contact_info, :user_family
-  :has_secure_password
+  has_secure_password
+  validates_presence_of :name, :email, :password_digest
+  validates :email, uniqueness: true
 
 end
