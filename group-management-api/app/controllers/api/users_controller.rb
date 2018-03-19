@@ -16,7 +16,7 @@ skip_before_action :authenticate_request, only: %i[login register]
   end
   def test
     render json: {
-      message: 'You have passed authentication and authroziation test'
+      message: 'You have passed authentication and authorization test'
       }
   end
 
@@ -26,7 +26,7 @@ def authenticate(email, password)
 
   command = AuthenticateUser.call(email, password)
   if command.success?
-    
+
     render json: {
       access_token: command.result,
       message: 'Login Successful'
