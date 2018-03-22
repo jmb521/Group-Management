@@ -59,7 +59,7 @@ class App extends React.Component {
         <Router>
         <div>
         <Navigation />
-          <Route exact path="/login" component={UserLogin}
+          <Route exact path="/login" component={UserLogin} />
           <Route exact path="/" component={Home} />
           <Route exact path="/addmember" component={AddMember} />
 
