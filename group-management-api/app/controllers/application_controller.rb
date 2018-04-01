@@ -1,15 +1,44 @@
 class ApplicationController < ActionController::API
-  before_action :authenticate_request
-  attr_reader :current_user
+  before_action :authenticate
+  # attr_reader :current_user
 
-  include ExceptionHandler
+  # include ExceptionHandler
 
   # [...]
-  private
-  def authenticate_request
-    @current_user = AuthorizeApiRequest.call(request.headers).result
-    binding.pry
-    render json: { error: 'Not Authorized' }, status: 401 unless @current_user
+
+  def logged_in?
+    !!current_user
   end
+
+  def current_user
+    if auth_present?
+      user = User.find(auth["user"])
+      if user
+        @current_user ||= user
+      end
+    end
+  end
+
+  def authenticate
+    render json: {error: "unauthorized"}, status: 401
+    unless logged_in?
+  end
+
+
+    private
+
+    def token
+      request.env["HTTP_AUTHORIZATION"].scan(/Bearer
+        (.*)$/).flatten.last
+    end
+
+    def auth
+      Auth.decode(token)
+    end
+
+    def auth_present?
+      !!request.env.fetch("HTTP_AUTHORIZATION",
+      "").scan(/Bearer/).flatten.first
+    end
 
 end

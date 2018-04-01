@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   namespace :api do
     post '/auth/register', to: 'users#register'
     get '/test', to: 'users#test'
-    post '/auth/login', to: 'users#login'
-
+    # post '/auth/login', to: 'users#login'
+    post '/login', to: "sessions#create"
     resources :clubs do
       resources :users
       resources :membership_statuses
