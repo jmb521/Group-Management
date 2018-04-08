@@ -48,7 +48,7 @@ export default class AuthService {
   }
 
   logout = () => {
-    localStorage.removeItem('id_token';)
+    localStorage.removeItem('id_token')
   }
 
   getProfile = () => {
