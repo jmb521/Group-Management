@@ -71,16 +71,16 @@ class App extends React.Component {
 
           <Route exact path="/addclub" component={Club} />
           <Route exact path="/family" component={Family} />
-          <Route exact path="/kids" component={Kids} />
+          <Route exact path="/kids" component={Kids}/>
 
 
-          <Route exact path="/membershipmanagement" component={MembershipManagement} />
+          <Route exact path="/membershipmanagement" component={MembershipManagement} onEnter={requireAuth}/>
 
 
-          <Route exact path="/membershipmanagement/pendingmembers" component={PendingMembers} />
-          <Route exact path="/membershipmanagement/memberrenewal" component={MemberRenewal} />
-          <Route exact path="/membershipmanagement/removedmembers" component={RemovedMembers} />
-          <Route exact path="/membershipmanagement/currentmembers" component={CurrentMembers} />
+          <Route exact path="/membershipmanagement/pendingmembers" component={PendingMembers} onEnter={requireAuth}/>
+          <Route exact path="/membershipmanagement/memberrenewal" component={MemberRenewal} onEnter={requireAuth}/>
+          <Route exact path="/membershipmanagement/removedmembers" component={RemovedMembers} onEnter={requireAuth}/>
+          <Route exact path="/membershipmanagement/currentmembers" component={CurrentMembers} onEnter={requireAuth}/>
 
 
         </div>
@@ -88,6 +88,16 @@ class App extends React.Component {
 
       </div>
     )
+    requireAuth = (nextState, replace) {
+      if(!sessionStorage.jwt) {
+        replace({
+          pathname: '/login',
+          state: {
+            nextPathname: nextState.location.pathname
+          }
+        })
+      }
+    }
   }
 }
 
