@@ -1,5 +1,6 @@
 export const updateClubFormData = clubFormData => {
 
+
   return {
     type: 'UPDATED_DATA',
     clubFormData
@@ -22,6 +23,7 @@ export const createClub = club => {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
+      'AUTHORIZATION': 'Bearer ${sessionStorage.jwt}'
     },
     body: JSON.stringify({club:club})
     })
@@ -29,7 +31,7 @@ export const createClub = club => {
     .then(club => {
 
       dispatch(addClub(club))
-      
+
     })
     .catch(error => console.log(error))
   }

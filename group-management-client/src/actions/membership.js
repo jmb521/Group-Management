@@ -68,7 +68,8 @@ export const removeMember = (member) => {
   return fetch(`http://localhost:3001/api/users/${member.id}/membership_statuses/${member.membership_status.id}`, {
       method: "PUT",
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'AUTHORIZATION': 'Bearer ${sessionStorage.jwt}'
       },
       body: JSON.stringify({membership_status: {"is_member": "not a member"}})
     })
@@ -82,7 +83,8 @@ export const removeMember = (member) => {
      return fetch(`http://localhost:3001/api/users/${id}/membership_statuses/${membershipStatusId}`, {
        method: "PUT",
        headers: {
-         'Content-Type': 'application/json'
+         'Content-Type': 'application/json',
+         'AUTHORIZATION': 'Bearer ${sessionStorage.jwt}'
        },
        body: JSON.stringify({"is_member": "current"})
      })
@@ -98,7 +100,8 @@ export const removeMember = (member) => {
      return fetch(`http://localhost:3001/api/users/${id}/membership_statuses/${membershipStatusId}`, {
        method: "PUT",
        headers: {
-         'Content-Type': 'application/json'
+         'Content-Type': 'application/json',
+         'AUTHORIZATION': 'Bearer ${sessionStorage.jwt}'
        },
        body: JSON.stringify({"is_member": "current", "membership_paid": "true", "updated_at": Date.now()})
      })
@@ -113,7 +116,8 @@ export const removeMember = (member) => {
      return fetch(`http://localhost:3001/api/users/${id}/membership_statuses/${membershipStatusId}`, {
        method: "PUT",
        headers: {
-         'Content-Type': 'application/json'
+         'Content-Type': 'application/json',
+         'AUTHORIZATION': 'Bearer ${sessionStorage.jwt}'
        },
        body: JSON.stringify({"is_member": "removed"})
      })
@@ -127,7 +131,8 @@ export const removeMember = (member) => {
      return fetch(`http://localhost:3001/api/users/${id}/membership_statuses/${membershipStatusId}`, {
        method: "PUT",
        headers: {
-         'Content-Type': 'application/json'
+         'Content-Type': 'application/json',
+         'AUTHORIZATION': 'Bearer ${sessionStorage.jwt}'
        },
        body: JSON.stringify({"is_member": "current"})
      })
@@ -138,12 +143,13 @@ export const removeMember = (member) => {
  }
 
  export const resetmembership = (id) => {
-   
+
    return(dispatch) => {
      return fetch(`http://localhost:3001/api/users/${id}/membership_statuses/${id}`, {
        method: "PUT",
        headers: {
-         'Content-Type': 'application/json'
+         'Content-Type': 'application/json',
+         'AUTHORIZATION': 'Bearer ${sessionStorage.jwt}'
        },
        body: JSON.stringify({"membership_paid": "false"})
      })

@@ -80,7 +80,8 @@ export const createMember = user => {
     return fetch(`http://localhost:3001/api/clubs/${user.club_id}/users`, {
     method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'AUTHORIZATION': 'Bearer ${sessionStorage.jwt}'
     },
      body: JSON.stringify(user)
     })
@@ -100,7 +101,8 @@ export const updateContactInfo = contact_info => {
     return fetch(`http://localhost:3001/api/users/${contact_info.user_id}/user_contact_infos/`, {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'AUTHORIZATION': 'Bearer ${sessionStorage.jwt}'
       },
       body: JSON.stringify(contact_info)
     })
@@ -118,7 +120,8 @@ export const updateFamily = family => {
     return fetch(`http://localhost:3001/api/users/${family.user_id}/user_families/`, {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'AUTHORIZATION': 'Bearer ${sessionStorage.jwt}'
       },
       body: JSON.stringify(family)
     })
@@ -133,12 +136,13 @@ export const updateFamily = family => {
 }
 
 export const updateKids = kids => {
-  
+
   return dispatch => {
     return fetch(`http://localhost:3001/api/users/${kids.user_id}/user_kids/`, {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'AUTHORIZATION': 'Bearer ${sessionStorage.jwt}'
       },
       body: JSON.stringify(kids)
     })
