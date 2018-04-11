@@ -1,13 +1,13 @@
 import * as types from './actionTypes'
-import sesssionApi from '../apiSessionApi'
+import sessionApi from '../api/sessionApi'
 
-export loginSuccess = () => {
+export function loginSuccess() {
   return {
     type: types.LOG_IN_SUCCESS
   }
 }
 
-export logInUser = (credentials) => {
+export function logInUser(credentials) {
   return function(dispatch) {
     return sessionApi.login(credentials)
     .then(response => {
@@ -16,5 +16,12 @@ export logInUser = (credentials) => {
     }).catch(error => {
       throw(error)
     })
+  }
+}
+
+export function logOutUser() {
+  sessionStorage.removeItem('jwt');
+  return {
+    type: types.LOG_OUT
   }
 }

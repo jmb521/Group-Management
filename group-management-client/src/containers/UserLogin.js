@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 import * as sessionActions from '../actions/sessionActions'
 class UserLogin extends Component {
   constructor() {
-    // super()
+    super()
     this.state = {
       credentials: {
         email: '', password: ''
@@ -48,6 +48,7 @@ class UserLogin extends Component {
                 type="password"
                 value={this.state.credentials.password}
                 onChange={this.onChange}
+                />
 
                 <input
                   type="submit"
@@ -58,7 +59,7 @@ class UserLogin extends Component {
     )
   }
 }
-mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(sessionActions, dispatch)
   }

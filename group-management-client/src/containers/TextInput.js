@@ -25,11 +25,11 @@ const TextInput = ({name, label, onChange, placeholder, value, error, type="text
 
 TextInput.propTypes = {
   name: PropTypes.string.isRequired,
-  labe: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  label: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   value: PropTypes.string,
-  error: PropTypes.string
+  error: PropTypes.string,
 };
 
 export default TextInput;

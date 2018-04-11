@@ -22,7 +22,7 @@ export const createClub = club => {
     return fetch("http://localhost:3001/api/clubs", {
     method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
       'AUTHORIZATION': 'Bearer ${sessionStorage.jwt}'
     },
     body: JSON.stringify({club:club})

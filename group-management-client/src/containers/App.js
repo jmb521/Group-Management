@@ -11,6 +11,7 @@ import Home from './Home'
 import AddMember from './AddMember'
 import Club from './Club'
 import createBrowserHistory from 'history/createBrowserHistory'
+// import history from './history'
 import PendingMembers from './PendingMembers'
 import MemberRenewal from './MemberRenewal'
 import RemovedMembers from './RemovedMembers'
@@ -26,10 +27,10 @@ import {
 } from 'react-router-dom'
 
 
-// const history = createBrowserHistory()
+
 
 // import { synchHistoryWithStore } from 'react-router-redux'
-// const history = synchHistoryWithStore(browserHistory, store)
+// const history = synchHistoryWithStore(createBrowserHistory(), store)
 
 
 class App extends React.Component {
@@ -88,7 +89,7 @@ class App extends React.Component {
 
       </div>
     )
-    requireAuth = (nextState, replace) {
+    function requireAuth (nextState, replace){
       if(!sessionStorage.jwt) {
         replace({
           pathname: '/login',
