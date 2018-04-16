@@ -61,6 +61,9 @@ class NewUser extends Component {
       <br />
       <Form onSubmit={this.handleSubmitClick}>
       <Row>
+        
+      </Row>
+      <Row>
 
        <Col xs={12} md={8}>
        <FormGroup controlId="formControlsSelect">
