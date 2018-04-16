@@ -37,7 +37,6 @@ class Navigation extends React.Component{
         <NavDropdown eventKey={2} title="Club" id="basic-nav-dropdown">
           <LinkContainer to="/addclub"><MenuItem eventKey={2.1} >Add Club</MenuItem></LinkContainer>
           </NavDropdown>
-          <LinkContainer to="/addmember"><NavItem eventKey={3}>Add Member</NavItem></LinkContainer>
         <NavDropdown eventKey={4} title="Membership Management" id="basic-nav-dropdown">
 
             <LinkContainer to="/membershipmanagement"><MenuItem eventKey={4.1}>Membership Dashboard</MenuItem></LinkContainer>
@@ -72,6 +71,7 @@ class Navigation extends React.Component{
         <NavDropdown eventKey={2} title="Club" id="basic-nav-dropdown">
           <LinkContainer to="/addclub"><MenuItem eventKey={2.1} >Add Club</MenuItem></LinkContainer>
           </NavDropdown>
+          <LinkContainer to="/newuser"><NavItem eventKey={3}>Add Member</NavItem></LinkContainer>
         </Nav>
         <Nav pullRight>
 

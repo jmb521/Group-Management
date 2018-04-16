@@ -7,6 +7,7 @@ import {memberFormData} from '../reducers/memberFormData'
 import { createMember } from '../actions/memberForm'
 import { updateMemberFormData } from '../actions/memberForm'
 
+
 function FieldGroup({ id, label, help, ...props }) {
    return (
      <FormGroup controlId={id}>
@@ -51,7 +52,7 @@ class NewUser extends Component {
   }
 
   render() {
-    const { club_id, username, password} = this.props.memberFormData;
+    const { club_id, email, username, password} = this.props.memberFormData;
     return(
       <div>
       <Grid>
@@ -72,6 +73,19 @@ class NewUser extends Component {
        </Col>
       </Row>
       <Row>
+        <Col xs={12} md={4}>
+        <FieldGroup
+          id="email"
+          type="text"
+          label="Email"
+          placeholder="Email address"
+          name="email"
+          onChange={this.handleOnChange}
+          value={email}
+          />
+          </Col>
+          </Row>
+          <Row>
          <Col xs={12} md={4}>
          <FieldGroup
               id="username"
@@ -83,6 +97,8 @@ class NewUser extends Component {
               value={username}
           />
          </Col>
+         </Row>
+         <Row>
          <Col xs={12} md={4}>
          <FieldGroup
             id="password"
@@ -100,7 +116,7 @@ class NewUser extends Component {
 
          <Col xs={4} md={4}>
          <Button bsStyle="primary" type="submit" onClick={this.handleSubmitClick}>
-         {this.props.submit}
+         Sign Up
          </Button>&nbsp;
 
          </Col>

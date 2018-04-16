@@ -17,6 +17,7 @@ import MemberRenewal from './MemberRenewal'
 import RemovedMembers from './RemovedMembers'
 import CurrentMembers from './CurrentMembers'
 import UserLogin from './UserLogin'
+import Newuser from './NewUser'
 
 
 
@@ -62,7 +63,7 @@ class App extends React.Component {
         <Navigation />
           <Route exact path="/login" component={UserLogin} />
           <Route exact path="/" component={Home} />
-          <Route exact path="/addmember" component={AddMember} />
+          <Route exact path="/newuser" component={Newuser} />
 
           <AuthenticatedRoute
             exact path="/contactinfo"
