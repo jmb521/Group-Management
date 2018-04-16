@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
 
   # include ExceptionHandler
 
-  # [...]
+  
 
   def logged_in?
     !!current_user
@@ -20,8 +20,9 @@ class ApplicationController < ActionController::API
   end
 
   def authenticate
-    render json: {error: "unauthorized"}, status: 401
     unless logged_in?
+      render json: {error: "unauthorized"}, status: 401
+    end
   end
 
 

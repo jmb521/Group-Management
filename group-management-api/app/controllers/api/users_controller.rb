@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-skip_before_action :authenticate_request, only: %i[login register]
+skip_before_action :authenticate, only: %i[login register]
   def register
     @user = User.create(user_params)
    if @user.save
@@ -38,7 +38,7 @@ end
 
 def user_params
   params.permit(
-    :name,
+    :username,
     :email,
     :password,
     :club_id
