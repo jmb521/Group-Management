@@ -10,7 +10,9 @@ class UserLogin extends Component {
     super()
     this.state = {
       credentials: {
-        email: '', password: ''
+        email: '',
+        password: '',
+        username: '',
       },
       session: false,
     }
@@ -28,7 +30,7 @@ class UserLogin extends Component {
 
   onSave = (event) => {
     event.preventDefault();
-    this.props.actions.loginUser(this.state.credentials);
+    this.props.actions.logInUser(this.state.credentials);
   }
 
   render() {
@@ -44,7 +46,7 @@ class UserLogin extends Component {
 
               <TextInput
                 name="password"
-                labe="password"
+                label="password"
                 type="password"
                 value={this.state.credentials.password}
                 onChange={this.onChange}

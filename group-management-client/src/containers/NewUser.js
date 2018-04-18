@@ -61,7 +61,7 @@ class NewUser extends Component {
       <br />
       <Form onSubmit={this.handleSubmitClick}>
       <Row>
-        
+
       </Row>
       <Row>
 
@@ -135,10 +135,12 @@ class NewUser extends Component {
 
 const mapStateToProps = (state) => {
  return({
+
    clubs: state.clubs,
    memberFormData: state.memberFormData
  })
 }
+
 
 export default connect(mapStateToProps, {
  getClubs,

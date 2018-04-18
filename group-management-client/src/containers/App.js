@@ -8,10 +8,8 @@ import ContactInfo from './ContactInfo'
 import {Family} from './Family'
 import Navigation from './Nav'
 import Home from './Home'
-import AddMember from './AddMember'
+
 import Club from './Club'
-import createBrowserHistory from 'history/createBrowserHistory'
-// import history from './history'
 import PendingMembers from './PendingMembers'
 import MemberRenewal from './MemberRenewal'
 import RemovedMembers from './RemovedMembers'
@@ -24,7 +22,7 @@ import Newuser from './NewUser'
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  
 } from 'react-router-dom'
 
 

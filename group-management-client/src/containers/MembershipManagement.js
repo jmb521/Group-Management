@@ -6,7 +6,7 @@ import {PendingMemberCount} from './PendingMemberCount'
 import { Grid, Row, Col} from 'react-bootstrap'
 import GetClubs from './GetClubs'
 import { connect } from 'react-redux'
-import store from '../store.js'
+
 import {bindActionCreators} from 'redux'
 class MembershipManagement extends Component {
 

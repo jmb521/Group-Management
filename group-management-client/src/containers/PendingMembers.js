@@ -30,6 +30,8 @@ class PendingMembers extends Component {
 
           </tbody>
         )
+      } else {
+        return ""
       }
     })
 

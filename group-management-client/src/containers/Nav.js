@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom'
 import {LinkContainer} from 'react-router-bootstrap'
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import * as sessionActions from '../actions/sessionActions'
+
+
 
 class Navigation extends React.Component{
   constructor(props) {
