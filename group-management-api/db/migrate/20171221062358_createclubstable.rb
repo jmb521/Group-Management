@@ -1,12 +1,13 @@
 class Createclubstable < ActiveRecord::Migration[5.1]
   def change
 
-    create_table(:clubs) do |t|
-      t.column :name, :string
-      t.column :address, :string
-      t.column :city, :string
-      t.column :state, :string
-      t.column :zipcode, :string
+    create_table(:club_address) do |t|
+      t.string :name
+      t.string :address
+      t.string :city
+      t.string :state
+      t.string :zipcode
+      t.integer :club_id
     end
   end
 end

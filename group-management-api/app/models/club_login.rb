@@ -1,2 +1,0 @@
-class ClubLogin < ApplicationRecord
-end

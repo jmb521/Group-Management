@@ -15,20 +15,20 @@ ActiveRecord::Schema.define(version: 20180419011734) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "club_logins", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "clubs", force: :cascade do |t|
+  create_table "club_address", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.string "city"
     t.string "state"
     t.string "zipcode"
-    t.integer "club_login_id"
+    t.integer "club_id"
+  end
+
+  create_table "clubs", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "membership_statuses", force: :cascade do |t|
