@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-
+  has_one :user_role
   has_many :user_kids
 
   has_one :user_contact_info, :autosave => true

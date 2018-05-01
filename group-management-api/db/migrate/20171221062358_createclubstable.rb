@@ -1,7 +1,7 @@
 class Createclubstable < ActiveRecord::Migration[5.1]
   def change
 
-    create_table(:club_address) do |t|
+    create_table :club_addresses do |t|
       t.string :name
       t.string :address
       t.string :city
