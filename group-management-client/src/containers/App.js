@@ -16,13 +16,14 @@ import RemovedMembers from './RemovedMembers'
 import CurrentMembers from './CurrentMembers'
 import UserLogin from './UserLogin'
 import Newuser from './NewUser'
+import ClubLogin from './ClubLogin'
 
 
 
 import {
   BrowserRouter as Router,
   Route,
-  
+
 } from 'react-router-dom'
 
 
@@ -61,6 +62,7 @@ class App extends React.Component {
         <Navigation />
           <Route exact path="/login" component={UserLogin} />
           <Route exact path="/" component={Home} />
+          <Route exact path="/clublogin" component={ClubLogin} />
           <Route exact path="/newuser" component={Newuser} />
 
           <AuthenticatedRoute
@@ -69,7 +71,7 @@ class App extends React.Component {
             authenticated={this.props.member_added}
           />
 
-          <Route exact path="/addclub" component={Club} />
+
           <Route exact path="/family" component={Family} />
           <Route exact path="/kids" component={Kids}/>
 
