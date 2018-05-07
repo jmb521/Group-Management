@@ -70,15 +70,13 @@ class Navigation extends React.Component{
         </Navbar.Header>
         <Navbar.Collapse>
         <Nav>
-        <NavDropdown eventKey={2} title="Club" id="basic-nav-dropdown">
           <LinkContainer to="/addclub"><MenuItem eventKey={2.1} >Add Club</MenuItem></LinkContainer>
-          </NavDropdown>
           <LinkContainer to="/newuser"><NavItem eventKey={3}>Add Member</NavItem></LinkContainer>
         </Nav>
         <Nav pullRight>
 
-        <MenuItem><Link to="/login">  Login </Link></MenuItem>
-        <MenuItem><Link to="/clublogin">Club Login</Link></MenuItem>
+        <LinkContainer to="/login"><NavItem eventKey={1}>Member Login </NavItem></LinkContainer>
+        <LinkContainer to="/clublogin"><NavItem eventKey={2}>Club Login</NavItem></LinkContainer>
         </Nav>
         </Navbar.Collapse>
         </Navbar>

@@ -9,14 +9,10 @@ class UserLogin extends Component {
   constructor() {
     super()
     this.state = {
-      credentials: {
-        email: '',
-        password: '',
         username: '',
-      },
-      session: false,
-    }
-    // this.Auth = new AuthService();
+        password: '',
+      }
+
   }
 
   onChange = (event) => {
